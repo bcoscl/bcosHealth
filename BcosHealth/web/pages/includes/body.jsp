@@ -38,9 +38,9 @@
                     <div class="dropdown-header text-center">
                         <strong>Account</strong>
                     </div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="../Perfil/UserProfile.jsp">
                         <i class="fa fa-user"></i> Profile</a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="../base/LoginPage.jsp">
                         <i class="fa fa-lock"></i> Logout</a>
                 </div>
             </li>

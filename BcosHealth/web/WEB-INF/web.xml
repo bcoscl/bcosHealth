@@ -28,6 +28,10 @@
         <servlet-name>ServletUpdateSuscripcion</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletUpdateSuscripcion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletListarFichas</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletListarFichas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ServletUpdateSuscripcion</servlet-name>
         <url-pattern>/ServletUpdateSuscripcion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletListarFichas</servlet-name>
+        <url-pattern>/ServletListarFichas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

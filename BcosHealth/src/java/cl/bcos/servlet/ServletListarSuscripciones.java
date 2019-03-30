@@ -6,8 +6,6 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
-import cl.bcos.entity.Planes;
-import cl.bcos.entity.PlanesList;
 import cl.bcos.entity.SuscripcionesList;
 import cl.bcos.entity.suscripciones;
 import com.google.gson.Gson;
