@@ -54,7 +54,7 @@
                 <!-- tab 3 -->
 
 
-                examenes
+                 <%@include file="../Examenes/examenesList.jsp" %>
 
 
                 <!-- FIN tab 3 -->
