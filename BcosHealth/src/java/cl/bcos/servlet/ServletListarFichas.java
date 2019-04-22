@@ -39,6 +39,7 @@ public class ServletListarFichas extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession tokensession = request.getSession(true);
@@ -49,7 +50,7 @@ public class ServletListarFichas extends HttpServlet {
         //String userMax = (String) request.getParameter("userMax");
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
-        String user = (String) request.getParameter("accion");
+        String user = (String) request.getParameter("user");
         Log.info("accion :" + accion);
         Log.info(request);
         //Log.info("planname : " + planName);
@@ -121,7 +122,7 @@ public class ServletListarFichas extends HttpServlet {
                     response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
                 }
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 Log.error(e);
                 response.setStatus(404);
             }
@@ -132,7 +133,7 @@ public class ServletListarFichas extends HttpServlet {
     }
 
     private String getFichasTabla(FichasList res) {
-
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
         out.append("<div class=\"col-sm-12\">");
@@ -143,7 +144,7 @@ public class ServletListarFichas extends HttpServlet {
         out.append("  <th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Paciente</th>");
         out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Primera Atencion</th>");
         out.append("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Dr Ultima Antecion</th>	");
-        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">fecha Ultima Atencion</th>");
+        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Fecha Ultima Atencion</th>");
 
         out.append(" <th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Actions: activate to sort column ascending\" style=\"width: 2%;\">Detalle</th> ");
         out.append("  </tr>");
@@ -238,6 +239,7 @@ public class ServletListarFichas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -252,6 +254,7 @@ public class ServletListarFichas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 

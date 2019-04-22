@@ -6,7 +6,6 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
-import cl.bcos.entity.LoginJsonResponse;
 import cl.bcos.entity.statusResponse;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -39,6 +38,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession tokensession = request.getSession(true);
@@ -48,7 +48,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
 
             String accion = (String) request.getParameter("accion");
             String id = (String) request.getParameter("id");
-            
+
             String nombre_empresa = (String) request.getParameter("nombre_empresa");
             String contacto_empresa = (String) request.getParameter("contacto_empresa");
             String email_contacto = (String) request.getParameter("email_contacto");
@@ -72,7 +72,6 @@ public class ServletUpdateSuscripcion extends HttpServlet {
             Log.info("select_plan_code :" + select_plan_code);
             Log.info("select_plan_name :" + select_plan_name);
             Log.info("checkbox_activo :" + checkbox_activo);
-            
 
             Log.info("token bearer:" + token);
 
@@ -81,14 +80,14 @@ public class ServletUpdateSuscripcion extends HttpServlet {
             Map<String, String> parameter = new HashMap<String, String>();
             if (accion.equalsIgnoreCase("LS-ACTIVAR")) {
                 estado = "true";
-                accion ="ESTADO";
-                
+                accion = "ESTADO";
+
             }
             if (accion.equalsIgnoreCase("LS-DESACTIVAR")) {
                 estado = "false";
-                accion ="ESTADO";
+                accion = "ESTADO";
             }
-            
+
             parameter.put("id", id);
             parameter.put("accion", accion);
             parameter.put("nombre_empresa", nombre_empresa);
@@ -97,8 +96,8 @@ public class ServletUpdateSuscripcion extends HttpServlet {
             parameter.put("numero_telefono", numero_telefono);
             parameter.put("fecha_inicio", fecha_inicio);
             parameter.put("select_plan_code", select_plan_code);
-            parameter.put("select_plan_name", select_plan_name);                        
-            
+            parameter.put("select_plan_name", select_plan_name);
+
             parameter.put("checkbox_activo", estado);
             parameter.put("token", token);
 
@@ -107,7 +106,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
                 resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, token);
                 Log.info(resultHttpRequest);
                 statusResponse res = new Gson().fromJson(resultHttpRequest, statusResponse.class);
-                
+
                 Log.info("res.message : " + res.getStatus().getMessage());
                 Log.info("res.message : " + res.getStatus().getCode());
 
@@ -122,7 +121,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
                     response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
                 }
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 Log.error(e);
                 response.setStatus(404);
             }
@@ -141,6 +140,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -155,6 +155,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 

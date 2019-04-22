@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarSuscripciones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
+    private static final String LISTAR_TABLA = "LS-TABLA";
+    private static final String LISTAR_SELECT = "LS-SELECT";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,6 +41,7 @@ public class ServletListarSuscripciones extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession tokensession = request.getSession(true);
@@ -77,33 +80,38 @@ public class ServletListarSuscripciones extends HttpServlet {
                 try {
                     if (res.getSuscripciones().size() > 0) {
 
-                        if (accion.equalsIgnoreCase("LS-TABLA")) {
+                        if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
                             out.println(getSuscripcionesTabla(res));
-                        } else if (accion.equalsIgnoreCase("LS-SELECT")) {
+                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
                             Log.info("Select ");
-//                            out.println(getSuscripcionesSelect(res));
+                            out.println(getSuscripcionesSelect(res));
                         }
 
                     }
                 } catch (Exception e) {
                     Log.error(" NO EXISTEN SUSCRIPCIONES : " + e);
+                    if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
 
-                    out.println("<div class=\"col-sm-12\">");
-                    out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
-                    out.println("   <thead>");
-                    out.println("  <tr role=\"row\">");
-                    out.println("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Registros</th>	");
-                    out.println("  </tr>");
-                    out.println("  </thead>");
-                    out.println("  <tbody class=\"contenidobusqueda\">");
-                    out.println("<tr role=\"row\" class=\"odd\">");
-                    out.println("<td class=\"sorting_1 \">");
-                    out.println("Sin Registros..");
-                    out.println("</td>");
-                    out.println(" </tr>\n");
-                    out.println(" </tbody>");
-                    out.println(" </table>");
-                    out.println(" </div>");
+                        out.println("<div class=\"col-sm-12\">");
+                        out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
+                        out.println("   <thead>");
+                        out.println("  <tr role=\"row\">");
+                        out.println("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Registros</th>	");
+                        out.println("  </tr>");
+                        out.println("  </thead>");
+                        out.println("  <tbody class=\"contenidobusqueda\">");
+                        out.println("<tr role=\"row\" class=\"odd\">");
+                        out.println("<td class=\"sorting_1 \">");
+                        out.println("Sin Registros..");
+                        out.println("</td>");
+                        out.println(" </tr>\n");
+                        out.println(" </tbody>");
+                        out.println(" </table>");
+                        out.println(" </div>");
+                        
+                    } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
+                        out.println("No existen roles creados");
+                    }
 
                 }
 
@@ -116,7 +124,7 @@ public class ServletListarSuscripciones extends HttpServlet {
                 response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.error(e);
             response.setStatus(404);
         }
@@ -126,7 +134,7 @@ public class ServletListarSuscripciones extends HttpServlet {
     }
 
     private String getSuscripcionesTabla(SuscripcionesList res) {
-        Log.info("getSuscripcionesTabla");
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
         out.append("<div class=\"col-sm-12\">");
@@ -184,8 +192,8 @@ public class ServletListarSuscripciones extends HttpServlet {
             if (str.getEstado().equalsIgnoreCase("TRUE")) {
                 out.append(" checked ");
                 //out.append(str.getEstado());
-               
-            } 
+
+            }
             out.append("/>");
 
             out.append("<span  id=\"checkcontroller_");
@@ -232,6 +240,7 @@ public class ServletListarSuscripciones extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -246,6 +255,7 @@ public class ServletListarSuscripciones extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -256,7 +266,29 @@ public class ServletListarSuscripciones extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         return "Short description";
     }// </editor-fold>
+
+    private String getSuscripcionesSelect(SuscripcionesList res) {
+
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        StringBuilder out = new StringBuilder();
+
+        out.append("<option value=\"0\">Seleccione Empresa</option>");
+
+        for (suscripciones str : res.getSuscripciones()) {
+
+            out.append("<option value=\"");
+            out.append(str.getId());
+            out.append("\">");
+            out.append(str.getNombre_empresa());
+            out.append("</option>");
+
+        }
+
+        //out.append(" </div>");
+        return out.toString();
+    }
 
 }

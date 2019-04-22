@@ -1,81 +1,29 @@
-      <div class="profile-feed row">
-                    <div class="col-sm-12">
-                        <div class="profile-activity clearfix">
-                            <div>
-                                <!--<i class="ace-icon fa fa-heartbeat bigger-120" style="color: #ff2600"></i>-->
+<script src="../../pages/Examenes/js/examenesList.js"></script>
 
-                                <img class="pull-left" alt="Alex Doe's avatar" src="../Consultas/img/examenes-icono.png" with="40px" height="40px">
-                                <a class="user" href="#"> Radiografia espalda </a>
+<div class="profile-feed row">
+    <div class="col-sm-12">
 
-
-                                <div class="time">
-                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                    registro : 2019/03/29
-                                </div>
-                            </div>
-
-                            <!--                            <div class="tools action-buttons">
-                                                            <a href="#" class="blue">
-                                                                <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                            </a>
-                            
-                                                            <a href="#" class="red">
-                                                                <i class="ace-icon fa fa-times bigger-125"></i>
-                                                            </a>
-                                                        </div>-->
-                        </div>
-
-                        <div class="profile-activity clearfix">
-                            <div>
-                                <img class="pull-left" alt="Susan Smith's avatar" src="../Consultas/img/examenes-icono.png" with="40px" height="40px">
-                                <a class="user" href="#"> Examen de Sangre </a>
-                                <div class="time">
-                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                    registro : 2019/03/29
-                                </div>
-                            </div>
+        <div id="contenidoExamenes">
+            
+            
+<!--            <div class="profile-activity clearfix">           
+                <img class="pull-left" alt="ecronica-icon" src="../../pages/Examenes/img/examenes-icono.png" with="40px" height="40px">            
+                <a class="user" href="javascript:void(0);" id="dropdownMenuButton" class="dropdown dropdown-toggle" data-toggle="dropdown"> Radiografia Lumbar 
+                </a>             
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="javascript:popupEditExamenes('Radiografia Lumbar','vertebras cervicales c1,c2 y c3')">Modificar</a>
+                    <a class="dropdown-item" href="javascript:popupDeleteExamenes(18)">quitar de la lista</a>                                   
+                </div>
+                <span><strong><em>- Observación : </em></strong>vertebras cervicales c1,c2 y c3</span>
+                <div class="time">
+                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                    <span> registro : 2019/03/29</span>
+                </div>
+            </div>-->
 
 
-                        </div>
 
-                        <div class="profile-activity clearfix">
-                            <div>
-                                <img class="pull-left" alt="Susan Smith's avatar" src="../Consultas/img/examenes-icono.png" with="40px" height="40px">
-                                <a class="user" href="#"> triglicéridos </a>
-                                <div class="time">
-                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                    registro : 2019/03/29
-                                </div>
-                            </div>
+        </div>
+    </div><!-- /.col -->
 
-
-                        </div>
-                        <div class="profile-activity clearfix">
-                            <div>
-                                <img class="pull-left" alt="Susan Smith's avatar" src="../Consultas/img/examenes-icono.png" with="40px" height="40px">
-                                <a class="user" href="#"> Acido urico </a>
-                                <div class="time">
-                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                    registro : 2019/03/29
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="profile-activity clearfix">
-                            <div>
-                                <img class="pull-left" alt="Susan Smith's avatar" src="../Consultas/img/examenes-icono.png" with="40px" height="40px">
-                                <a class="user" href="#"> Colesterol </a>
-                                <div class="time">
-                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                    registro : 2019/03/29
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div><!-- /.col -->
-
-                </div><!-- /.row -->
+</div><!-- /.row -->

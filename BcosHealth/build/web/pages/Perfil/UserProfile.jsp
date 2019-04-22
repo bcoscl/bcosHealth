@@ -6,7 +6,7 @@
 
 <title>Bcos Health - crear Suscripciones</title>
 
-<script src="./js/crearSuscripciones.js"></script>
+<script src="./js/userProfile.js"></script>
 
 <link href="../../comun/css/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -16,7 +16,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Perfil Usuario</span>
+        <span>	User</span>
 
         <div class="animated fadeIn">
             <div class="card">
@@ -31,19 +31,19 @@
                                     </select> entries</label>-->
                                 </div>
                             </div>
-                            
-                        </div>
-
-                        <%@include file="./profile.jsp" %>
-
 
                         </div>
+
+                        <%@include file="./userProfileBody.jsp" %>
+
 
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!--</div>-->
 

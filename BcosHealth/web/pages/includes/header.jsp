@@ -18,12 +18,15 @@
         <link href="../../comun/css/style.css" rel="stylesheet">
         <link href="../../comun/css/pace.min.css" rel="stylesheet">  
         <link href="../../comun/css/load.css" rel="stylesheet">  
+        <link rel="stylesheet" href="../../comun/css/bootstrap-select.min.css">
        
 
         <!-- CoreUI and necessary plugins-->
         <script src="../../comun/js/jquery.min.js"></script>
         <script src="../../comun/js/popper.min.js"></script>
         <script src="../../comun/js/bootstrap.min.js"></script>
+        <script src="../../comun/js/bootstrap-select.min.js"></script>
+        
         <script src="../../comun/js/pace.min.js"></script>
         <script src="../../comun/js/perfect-scrollbar.min.js"></script>
         <script src="../../comun/js/coreui.min.js"></script>
@@ -31,7 +34,7 @@
         <script src="../../comun/js/Chart.min.js"></script>
         <script src="../../comun/js/custom-tooltips.min.js"></script>
         <script src="../../comun/js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
+        <script src="../../comun/js/jquery.blockUI.js"></script>
         
 
 

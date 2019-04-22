@@ -11,7 +11,7 @@
 
 /* eslint-disable no-magic-numbers */
 // Disable the on-canvas tooltip
-Chart.defaults.global.pointHitDetectionRadius = 1;
+/*Chart.defaults.global.pointHitDetectionRadius = 1;
 Chart.defaults.global.tooltips.enabled = false;
 Chart.defaults.global.tooltips.mode = 'index';
 Chart.defaults.global.tooltips.position = 'nearest';
@@ -327,4 +327,4 @@ var brandBoxChart4 = new Chart($('#social-box-chart-4'), {
   },
   options: brandBoxChartOptions
 });
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map*/

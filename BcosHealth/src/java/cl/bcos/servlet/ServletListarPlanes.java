@@ -39,6 +39,7 @@ public class ServletListarPlanes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession tokensession = request.getSession(true);
@@ -113,7 +114,7 @@ public class ServletListarPlanes extends HttpServlet {
                 response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.error(e);
             response.setStatus(404);
         }
@@ -123,7 +124,7 @@ public class ServletListarPlanes extends HttpServlet {
     }
 
     private String getPlanesTabla(PlanesList res) {
-
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
         out.append("<div class=\"col-sm-12\">");
@@ -184,20 +185,18 @@ public class ServletListarPlanes extends HttpServlet {
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
     private String getPlanesSelect(PlanesList res) {
-
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
         out.append("<option value=\"0\">Seleccione un plan</option>");
-       
 
         for (Planes str : res.getPlanes()) {
 
             out.append("<option value=\"");
-            out.append(str.getNumeroMax()); 
+            out.append(str.getNumeroMax());
             out.append("\">");
             out.append(str.getNombrePlan());
             out.append("</option>");
-            
 
         }
 
@@ -218,6 +217,7 @@ public class ServletListarPlanes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -232,6 +232,7 @@ public class ServletListarPlanes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 

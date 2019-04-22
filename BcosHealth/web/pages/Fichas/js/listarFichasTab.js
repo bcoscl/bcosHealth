@@ -3,29 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+// pills-home-tab
 
-function active(tab) {
-    alert(tab);
-//    if (tab == "PROFILE") {
-//        $('#pills-home').show();
-//        $('#pills-profile').hide();
-//        $('#pills-contact').hide();
-//
-//    }
-//    if (tab == "CONSULTAS") {
-//
-//        $('#pills-home').hide();
-//        $('#pills-profile').show();
-//        $('#pills-contact').hide();
-//
-//    }
-//    if (tab == "EXAMENES") {
-//
-//        $('#pills-home').hide();
-//        $('#pills-profile').hide();
-//        $('#pills-contact').show();
-//
-//    }
+$(document).ready(function () {
+    
+//     $("#tabs").tabs();
+//     
+//    $("#pills-home-tab").click(function (e) {
+//        alert("OK");
+//         $("#tabs").tabs("option", "active", 1 ); 
+//    });
+    
+});
 
-
-}

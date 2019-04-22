@@ -5,15 +5,14 @@
  */
 package cl.bcos.servlet;
 
+import cl.bcos.HttpRequest;
 import cl.bcos.entity.LoginJsonResponse;
 import com.google.gson.Gson;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +40,7 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-        
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         HttpSession tokensession = request.getSession(true);
         
         response.setContentType("text/html;charset=UTF-8");
@@ -49,43 +48,43 @@ public class ServletLogin extends HttpServlet {
         
         String User = request.getParameter("username");
         String Password = request.getParameter("password");
+        String accion = request.getParameter("accion");
+        
         
         Log.info("User : " + User + " - Password : " + Password);
         //ImplementacionJWT jwt = new ImplementacionJWT();
         //GenerarTokenJWT token = jwt.getGeneraJWT();
         //token.AddItem("user", User);
         //token.AddItem("pass", Password);
-
+        String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        String URL = "http://localhost:9090/bcos/api/json/SSO?user=" + User + "&pass=" + Password;
+        String URL = "http://localhost:9090/bcos/api/json/SSO";
+        
+         Map<String, String> parameter = new HashMap<String, String>();
+        parameter.put("User", User);
+        parameter.put("Password", Password);
+        parameter.put("accion", accion);
+        //parameter.put("token", token);
+
         try {
             
-            URL url = new URL(URL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Accept", "application/json");
+            resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, "");
+            Log.info(resultHttpRequest);
+            LoginJsonResponse res = new Gson().fromJson(resultHttpRequest, LoginJsonResponse.class);
+
+            Log.info("res.message : " + res.getStatus().getMessage());
+            Log.info("res.message : " + res.getStatus().getCode());
             
-            if (conn.getResponseCode() != 200) {
+                        
+            if (res.getStatus().getStatusCode() != 200) {
                 Log.info("Failed : HTTP error code : "
-                        + conn.getResponseCode());
+                        + res.getStatus().getStatusCode());
                 
                 response.sendRedirect(
                         "./pages/base/401.html");
-            }
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    (conn.getInputStream())));
-            
-            String output;
-            StringBuilder json = new StringBuilder();
-            Log.info("Output from Server .... \n");
-            while ((output = br.readLine()) != null) {
-                Log.info(output);
-                json.append(output);                
-            }
-            conn.disconnect();
-            
-            LoginJsonResponse res = new Gson().fromJson(json.toString(), LoginJsonResponse.class);
+            }                    
+           
             
             if (res.getStatus().getStatusCode() == 200 && res.getLogin().equalsIgnoreCase("OK")) {
                 Log.info("login : " + res.getLogin());
@@ -110,7 +109,7 @@ public class ServletLogin extends HttpServlet {
             Log.error(e);
             response.sendRedirect(
                     "./pages/base/404.html");
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.error(e);
             response.sendRedirect(
                     "./pages/base/404.html");
@@ -150,6 +149,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
             
@@ -170,6 +170,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
             
@@ -186,6 +187,7 @@ public class ServletLogin extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         return "Short description";
     }// </editor-fold>
 

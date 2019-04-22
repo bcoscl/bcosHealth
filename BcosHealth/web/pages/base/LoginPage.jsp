@@ -7,7 +7,7 @@
 
         <meta charset="utf-8">
 
-        <title>My Awesome Login Page - Bootsnipp.com</title>
+        <title>GCM - Bcos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../comun/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../comun/css/LoginPage.css">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center form_container">
-                            <form action="../../ServletLogin" method="post" id="form1">
+                            <form action="../../ServletLogin?accion=Auth" method="post" id="form1">
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>

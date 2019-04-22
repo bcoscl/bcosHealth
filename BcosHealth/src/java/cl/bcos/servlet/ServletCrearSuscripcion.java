@@ -7,6 +7,7 @@ package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
 import cl.bcos.entity.LoginJsonResponse;
+import cl.bcos.entity.statusResponse;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,6 +39,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession tokensession = request.getSession(true);
@@ -88,7 +90,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
             try {
                 resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, token);
                 Log.info(resultHttpRequest);
-                LoginJsonResponse res = new Gson().fromJson(resultHttpRequest, LoginJsonResponse.class);
+                statusResponse res = new Gson().fromJson(resultHttpRequest, statusResponse.class);
                 Log.info("res.message : " + res.getStatus().getMessage());
                 Log.info("res.message : " + res.getStatus().getCode());
 
@@ -103,7 +105,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
                     response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
                 }
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 Log.error(e);
                 response.setStatus(404);
             }
@@ -133,6 +135,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
@@ -147,6 +150,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
 
