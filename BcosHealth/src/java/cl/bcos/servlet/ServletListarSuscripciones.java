@@ -29,6 +29,7 @@ public class ServletListarSuscripciones extends HttpServlet {
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
+    private static final String LISTAR_SELECT_BY = "LS-SELECT-BY-EMPRESA";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,7 +61,7 @@ public class ServletListarSuscripciones extends HttpServlet {
         String URL = "http://localhost:9090/bcos/api/json/listarSuscripcion";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
-        //parameter.put("planName", planName);
+        parameter.put("accion", accion);
         //parameter.put("userMax", userMax);
         parameter.put("token", token);
 
@@ -82,7 +83,8 @@ public class ServletListarSuscripciones extends HttpServlet {
 
                         if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
                             out.println(getSuscripcionesTabla(res));
-                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
+                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT)||
+                                accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
                             Log.info("Select ");
                             out.println(getSuscripcionesSelect(res));
                         }
@@ -109,8 +111,9 @@ public class ServletListarSuscripciones extends HttpServlet {
                         out.println(" </table>");
                         out.println(" </div>");
                         
-                    } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
-                        out.println("No existen roles creados");
+                    } else if (accion.equalsIgnoreCase(LISTAR_SELECT)||
+                            accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
+                         out.append("<option value=\"0\">Sin resultados..</option>");
                     }
 
                 }

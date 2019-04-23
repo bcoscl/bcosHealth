@@ -30,6 +30,7 @@ public class ServletListarSucursales extends HttpServlet {
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
     private static final String LISTAR_SELECT_MULTIPLE = "LS-SELECT-MULT";
+    private static final String LISTAR_SELECT_MULTIPLE_BY_ACTIVE = "LS-SELECT-MULT-BY-ACTIVE";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,7 +63,7 @@ public class ServletListarSucursales extends HttpServlet {
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);
-        //parameter.put("userMax", userMax);
+        parameter.put("accion", accion);
         parameter.put("token", token);
 
         String resultHttpRequest = "";
@@ -86,7 +87,8 @@ public class ServletListarSucursales extends HttpServlet {
                         } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
                             Log.info("Select ");
                             out.println(getSucursalesSelect(res));
-                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE)) {
+                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE)||
+                                accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE_BY_ACTIVE)) {
                             Log.info("Select ");
                             out.println(getSucursalesMultiple(res));
                         }

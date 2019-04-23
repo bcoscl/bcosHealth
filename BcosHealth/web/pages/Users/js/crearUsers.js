@@ -207,7 +207,7 @@ $(document).ready(function () {
         url: "../../ServletListarSucursales",
         dataType: "text",
         data: {
-            accion: "LS-SELECT-MULT"
+            accion: "LS-SELECT-MULT-BY-ACTIVE"
         },
         beforeSend: function () {
 

@@ -6,19 +6,15 @@
 
 $(document).ready(function () {
 
-$("#fileuploadExamen").click(function () {
-        $("#upload-file-examen").click();
-    });
-
 
 
     $("#checkbox_activo").attr('checked', true);
-// carga Select mod
+    
     $.ajax({
         url: "../../ServletListarSuscripciones",
         dataType: "text",
         data: {
-            accion: "LS-SELECT"
+            accion: "LS-SELECT-BY-EMPRESA"
         },
         beforeSend: function () {
 
@@ -66,33 +62,36 @@ $("#fileuploadExamen").click(function () {
         }
     });
 
-//checkbox
-//$("#checkcontroller").click(function (e) {
-//    
-//    if($("#checkbox_activo").is(":checked")){
-//        $("#checkbox_activo").attr('checked', false);        
-//    }else{
-//       $("#checkbox_activo").attr('checked', true); 
-//    }
-//   // $("#checkbox_activo :checked").attr('checked', true);
-//    
-//});
+ 
+    $("#checkcontroller").click(function (e) {
+
+        if ($("#checkbox_activo").is(":checked")) {
+            $("#checkbox_activo").attr('checked', false);
+        } else {
+            $("#checkbox_activo").attr('checked', true);
+        }
+        // $("#checkbox_activo :checked").attr('checked', true);
+
+    });
 
 //envio de informacion
 
     $("#submitButton").click(function (e) {
 
         $.ajax({
-            url: "../../ServletCrearExamenes",
+            url: "../../ServletCrearSucursales",
             dataType: "text",
             data: {
-                accion: "IE",
-                examen_name: $("#nombre_examen").val(),
-                examen_obs: $("#obs_examen").val(),               
-                examen_url: $("#upload-file-examen").val(),               
-                examen_pacientename_numuser: $("#select_Pacientes option:selected").val(),
-                examen_pacientename: $("#select_Pacientes option:selected").text()
-                
+                accion: "IS",
+                nombre_sucursal: $("#nombre_sucursal").val(),
+                comuna_sucursal: $("#comuna_sucursal").val(),
+                numero_telefono: $("#numero_telefono").val(),
+                correo_sucursal: $("#correo_sucursal").val(),
+                contacto_sucursal: $("#contacto_sucursal").val(),
+                select_empresa: $("#select_empresa option:selected").val(),
+                select_empresa_name: $("#select_empresa option:selected").text(),
+                checkbox_activo: $("#checkbox_activo").is(":checked"),
+
             },
             beforeSend: function () {
 
@@ -112,8 +111,8 @@ $("#fileuploadExamen").click(function () {
 
             success: function (data) {
 
-                
-                $.unblockUI();                
+
+                $.unblockUI();
                 $("#msgResult").removeAttr('style');
                 $("#msgResult").removeClass('fade show-none');
                 setTimeout(function () {
@@ -123,7 +122,7 @@ $("#fileuploadExamen").click(function () {
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                
+
                 var mensaje;
 
                 $.unblockUI();
