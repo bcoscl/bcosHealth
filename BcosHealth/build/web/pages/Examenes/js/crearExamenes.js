@@ -15,10 +15,10 @@ $("#fileuploadExamen").click(function () {
     $("#checkbox_activo").attr('checked', true);
 // carga Select mod
     $.ajax({
-        url: "../../ServletListarSuscripciones",
+        url: "../../ServletListarPacientes",
         dataType: "text",
         data: {
-            accion: "LS-SELECT"
+            accion: "LU-SELECT"
         },
         beforeSend: function () {
 
@@ -39,7 +39,7 @@ $("#fileuploadExamen").click(function () {
         success: function (data) {
 
             $.unblockUI();
-            $("#select_empresa").html(data);
+            $("#select_Pacientes").html(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
