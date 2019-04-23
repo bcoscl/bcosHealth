@@ -52,7 +52,7 @@ public class ServletCrearFarmacos extends HttpServlet {
             String Paciente = (String) tokensession.getAttribute("PACIENTE");
 
             String token = (String) tokensession.getAttribute("token");
-
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("row :" + row);

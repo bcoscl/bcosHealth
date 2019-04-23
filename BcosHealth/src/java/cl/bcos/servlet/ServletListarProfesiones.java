@@ -142,7 +142,7 @@ public class ServletListarProfesiones extends HttpServlet {
         out.append("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
         out.append("   <thead>");
         out.append("  <tr role=\"row\">");
-        out.append("  <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 20%;\">Nombre del ROL</th>");
+        out.append("  <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 20%;\">Nombre Profesion</th>");
 
         //dibuja la empresa en el caso de ser SUPER ADMIN
         if (dibujaEmpresa.equalsIgnoreCase("SI")) {

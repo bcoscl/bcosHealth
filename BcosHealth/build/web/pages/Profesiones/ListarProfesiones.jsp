@@ -5,7 +5,7 @@
 <%@include file="../includes/header.jsp" %>
 
 
-<title>Bcos Health - Listar Planes</title>
+<title>Bcos Health - Listar Profesiones</title>
 
 <script src="./js/listarProfesion.js"></script>
 
@@ -20,7 +20,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Listar Planes</span>
+        <span >	Listar Profesiones</span>
 
         <div class="animated fadeIn">
             <div class="card">

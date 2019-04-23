@@ -62,9 +62,10 @@ public class ServletListarAttentionList extends HttpServlet {
         Log.info("token bearer:" + token);
         if (accion.equalsIgnoreCase("AT-DETALLE")) {
             Paciente.setAttribute("PACIENTE", user);
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
 
         } else {
-
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
             if (accion.equalsIgnoreCase("AT-TABLA-BY-DOC")) {
                 doctor = numuser_medico;
 

@@ -60,7 +60,7 @@ public class ServletCrearConsulta extends HttpServlet {
             }
 
             String token = (String) tokensession.getAttribute("token");
-
+            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("Paciente :" + Paciente);

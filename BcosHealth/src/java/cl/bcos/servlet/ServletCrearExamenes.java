@@ -56,7 +56,7 @@ public class ServletCrearExamenes extends HttpServlet {
             if (accion.equalsIgnoreCase("IE")) {
                 Paciente = examen_pacientename_numuser;
             }
-
+            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
             String token = (String) tokensession.getAttribute("token");
 
             Log.info(request);

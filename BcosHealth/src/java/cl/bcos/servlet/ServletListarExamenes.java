@@ -50,12 +50,17 @@ public class ServletListarExamenes extends HttpServlet {
 
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
-        String numuser_paciente = (String) request.getParameter("numuser_paciente");
-        //String nombre_paciente = (String) request.getParameter("nombre_paciente");
-        
-        tokensession.setAttribute("PACIENTE",numuser_paciente);
-        String Paciente = (String) tokensession.getAttribute("PACIENTE");
+        String numuser = (String) request.getParameter("numuser_paciente");
+        Log.debug("numuser_paciente : "+numuser);
 
+        if (accion.equalsIgnoreCase(LE_BY_PACIENTE_TABLA)) {
+            tokensession.setAttribute("PACIENTE",numuser);
+            Log.debug("rut seteado desde el ingreso");
+
+        }
+      
+
+        String Paciente = (String) tokensession.getAttribute("PACIENTE");
         Log.info("accion :" + accion);
         Log.info("Paciente :" + Paciente);
         Log.info(request);
@@ -86,8 +91,7 @@ public class ServletListarExamenes extends HttpServlet {
                         Log.info("getExamenesProfileList");
                         if (accion.equalsIgnoreCase(CE_EXAMENES_PROFILE)) {
                             out.println(getExamenesProfileList(res));
-                        }
-                        else if (accion.equalsIgnoreCase(LE_TABLA)|| accion.equalsIgnoreCase(LE_BY_PACIENTE_TABLA)) {
+                        } else if (accion.equalsIgnoreCase(LE_TABLA) || accion.equalsIgnoreCase(LE_BY_PACIENTE_TABLA)) {
                             Log.info("getExamenesTabla ");
                             out.println(getExamenesTabla(res));
                         }
@@ -188,8 +192,7 @@ public class ServletListarExamenes extends HttpServlet {
 
     }
 
-    
-     private String getExamenesTabla(ExamenesList res) {
+    private String getExamenesTabla(ExamenesList res) {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
@@ -215,25 +218,25 @@ public class ServletListarExamenes extends HttpServlet {
         for (Examenes str : res.getExamenes()) {
 
             out.append("<tr role=\"row\" class=\"odd\">");
-            
+
             out.append("<td class=\"sorting_1 \">");
             out.append(str.getExa_c_numuser_paciente());
             out.append("</td>");
-            
+
             out.append("<td class=\"sorting_1 \">");
             out.append(str.getExa_c_paciente_name());
             out.append("</td>");
-            
+
             out.append("<td class=\"d-none d-sm-table-cell\">");
             out.append(str.getExa_c_name());
             out.append("</td>");
-            
+
             out.append("<td class=\"d-none d-sm-table-cell\">");
-            out.append(str.getExa_c_ultmod_username());            
+            out.append(str.getExa_c_ultmod_username());
             out.append("</td>");
-            
+
             out.append("<td class=\"d-none d-sm-table-cell\">");
-            out.append(str.getExa_d_ultmod_date());            
+            out.append(str.getExa_d_ultmod_date());
             out.append("</td>");
 
             out.append(" <td class=\"flex-row\"> ");
@@ -243,7 +246,6 @@ public class ServletListarExamenes extends HttpServlet {
             out.append("     <i class=\"fa fa-search-plus\"></i> ");
             out.append("       </a> ");
             out.append("  </td> ");
-            
 
             out.append("</tr>");
 
@@ -254,7 +256,7 @@ public class ServletListarExamenes extends HttpServlet {
         out.append("</div>");
         return out.toString();
     }
-    
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -284,7 +286,5 @@ public class ServletListarExamenes extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         processRequest(request, response);
     }
-
-   
 
 }

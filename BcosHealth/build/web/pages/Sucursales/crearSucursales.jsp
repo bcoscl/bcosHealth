@@ -57,7 +57,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="date-input">Contacto Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="contacto_sucursal" type="text"  placeholder="Nombre de Contaco">					
+                        <input class="form-control" id="contacto_sucursal" type="text"  placeholder="Nombre de Contacto sucursal">					
                     </div>
                 </div>
 

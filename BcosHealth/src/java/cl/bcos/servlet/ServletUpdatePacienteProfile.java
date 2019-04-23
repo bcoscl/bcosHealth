@@ -65,6 +65,7 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
            
             String token = (String) tokensession.getAttribute("token");
             String numuser_paciente = (String) tokensession.getAttribute("PACIENTE");
+            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
 
             Log.info(request);
             Log.info("accion : " + accion);

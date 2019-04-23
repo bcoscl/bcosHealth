@@ -60,9 +60,10 @@ public class ServletListarPacientes extends HttpServlet {
         Log.info("token bearer:" + token);
         if (accion.equalsIgnoreCase("LP-DETALLE")) {
             tokensession.setAttribute("PACIENTE", user);
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
 
         } else {
-
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
             String URL = "http://localhost:9090/bcos/api/json/ListarPacientes";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
@@ -277,7 +278,7 @@ public class ServletListarPacientes extends HttpServlet {
             out.append("\"");
             //out.append(numuser);
             out.append(">");
-            out.append(str.getC_pacientename()+" "+str.getC_apellidos());
+            out.append(str.getC_pacientename() + " " + str.getC_apellidos());
             out.append("</option>");
 
         }

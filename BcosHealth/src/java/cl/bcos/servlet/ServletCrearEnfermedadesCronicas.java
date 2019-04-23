@@ -51,6 +51,8 @@ public class ServletCrearEnfermedadesCronicas extends HttpServlet {
             String cronica_obs = (String) request.getParameter("cronica_obs");
 
             String token = (String) tokensession.getAttribute("token");
+            
+            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
 
             Log.info(request);
             Log.info("accion : " + accion);

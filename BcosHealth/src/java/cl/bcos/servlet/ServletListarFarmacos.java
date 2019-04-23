@@ -49,6 +49,7 @@ public class ServletListarFarmacos extends HttpServlet {
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String Paciente = (String) tokensession.getAttribute("PACIENTE");
+        Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
 
         Log.info("accion :" + accion);
         Log.info("Paciente :" + Paciente);

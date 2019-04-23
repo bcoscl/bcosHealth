@@ -59,9 +59,10 @@ public class ServletListarFichas extends HttpServlet {
 
         if (accion.equalsIgnoreCase("LF-DETALLE")) {
             Paciente.setAttribute("PACIENTE", user);
+            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
 
         } else {
-
+            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
             String URL = "http://localhost:9090/bcos/api/json/listarFichas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();

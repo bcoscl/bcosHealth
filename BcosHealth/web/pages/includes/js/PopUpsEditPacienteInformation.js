@@ -54,7 +54,7 @@ $(document).ready(function () {
             error: function (jqXHR, textStatus, errorThrown) {
 
                 $.unblockUI();
-                
+                $('#largeModalPacienteInformation').modal('hide');
                 //$("#contenido").removeAttr('style');
                 $("#msgResultError").removeClass('fade show-none');
                 setTimeout(function () {

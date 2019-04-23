@@ -7,7 +7,6 @@ package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
 import cl.bcos.entity.PacienteResponse;
-import cl.bcos.entity.ProfileResponse;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,7 +49,8 @@ public class ServletPacienteProfile extends HttpServlet {
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String PacieteDetail = (String) tokensession.getAttribute("PACIENTE");
-        
+        Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
+         Log.debug("Session paciente "+PacieteDetail);
         if(PacieteDetail != null){
             Log.debug("Session user vacia");
             accion = "CP-BYUSER";

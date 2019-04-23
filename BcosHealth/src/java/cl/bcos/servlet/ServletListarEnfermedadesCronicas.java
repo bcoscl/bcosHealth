@@ -28,6 +28,7 @@ public class ServletListarEnfermedadesCronicas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarEnfermedadesCronicas.class);
     private static final String CEC_CRONICAS_PROFILE = "CEC-CRONICAS-PROFILE";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,7 +49,7 @@ public class ServletListarEnfermedadesCronicas extends HttpServlet {
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String Paciente = (String) tokensession.getAttribute("PACIENTE");
-
+        Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
         Log.info("accion :" + accion);
         Log.info("Paciente :" + Paciente);
         Log.info(request);
@@ -136,14 +137,13 @@ public class ServletListarEnfermedadesCronicas extends HttpServlet {
 
         //Nombre, rut,  profesion,telefono,email, roles
         //about me, estado
-        String cronicaname="";
-        
+        String cronicaname = "";
+
         for (EnfermedadesCronicas str : res.getEnfermedadesCronicas()) {
             cronicaname = str.getCronica_c_name();
-            if(cronicaname.isEmpty()){
-                cronicaname =" sin Informacion ";
+            if (cronicaname.isEmpty()) {
+                cronicaname = " sin Informacion ";
             }
-            
 
             out.append(" <div class=\"profile-activity clearfix\"> ");
             //out.append("   <div id=\"dropdownMenuButton\" class=\"dropdown dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> ");
