@@ -59,69 +59,69 @@ public class ServletListarMenu extends HttpServlet {
 
             Log.info("MENU:" + MENU);
 
-//            if (MENU != null && !MENU.isEmpty()) {
-//                Log.info("Menu desde session");
-//                out.println(MENU);
-//
-//            } else {
-            Log.info("NO EXISTE MENU, SE CARGA SEGUN ACCESOS");
+            if (MENU != null && !MENU.isEmpty()) {
+                Log.info("Menu desde session");
+                out.println(MENU);
 
-            String URL = "http://localhost:9090/bcos/api/json/listarMenu";
+            } else {
+                Log.info("NO EXISTE MENU, SE CARGA SEGUN ACCESOS");
 
-            Map<String, String> parameter = new HashMap<String, String>();
+                String URL = "http://localhost:9090/bcos/api/json/listarMenu";
 
-            parameter.put("accion", accion);
-            parameter.put("token", token);
+                Map<String, String> parameter = new HashMap<String, String>();
 
-            String resultHttpRequest = "";
-            try {
-                resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, token);
-                Log.info(resultHttpRequest);
-                RolList res = new Gson().fromJson(resultHttpRequest, RolList.class);
+                parameter.put("accion", accion);
+                parameter.put("token", token);
 
-                Log.info("res.getStatus().getMessage() : " + res.getStatus().getMessage());
-                Log.info("res.getStatus().getCode() : " + res.getStatus().getCode());
+                String resultHttpRequest = "";
+                try {
+                    resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, token);
+                    Log.info(resultHttpRequest);
+                    RolList res = new Gson().fromJson(resultHttpRequest, RolList.class);
 
-                if (res.getStatus().getCode().equalsIgnoreCase("401")) {
-                    response.setStatus(401);
-                }
+                    Log.info("res.getStatus().getMessage() : " + res.getStatus().getMessage());
+                    Log.info("res.getStatus().getCode() : " + res.getStatus().getCode());
 
-//
-                if (res.getStatus().getMessage().equalsIgnoreCase("SELECT_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
-                    response.setStatus(200);
-                    try {
-                        if (res.getRoles().size() > 0) {
-
-                            String menuRequest = getMenu(res);
-                            menuRequest = menuRequest + "|" + res.getNOMBRE();
-                            tokensession.setAttribute("MENU", menuRequest);
-
-                            out.println(menuRequest);
-
-                        }
-                    } catch (Exception e) {
-                        Log.error(" NO Existen Regisros");
-
+                    if (res.getStatus().getCode().equalsIgnoreCase("401")) {
+                        response.setStatus(401);
                     }
 
-                } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
-                    Log.info("TOKEN_NO_VALIDO");
-                    response.setStatus(401);
+//
+                    if (res.getStatus().getMessage().equalsIgnoreCase("SELECT_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
+                        response.setStatus(200);
+                        try {
+                            if (res.getRoles().size() > 0) {
 
-                } else {
-                    Log.info("SELECT_NO_OK");
-                    response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
+                                String menuRequest = getMenu(res);
+                                menuRequest = menuRequest + "|" + res.getNOMBRE();
+                                tokensession.setAttribute("MENU", menuRequest);
+
+                                out.println(menuRequest);
+
+                            }
+                        } catch (Exception e) {
+                            Log.error(" NO Existen Regisros");
+
+                        }
+
+                    } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
+                        Log.info("TOKEN_NO_VALIDO");
+                        response.setStatus(401);
+
+                    } else {
+                        Log.info("SELECT_NO_OK");
+                        response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
+                    }
+                } catch (Exception e) {
+                    Log.error(e);
+                    response.setStatus(404);
+                    response.sendRedirect(
+                            "./pages/base/404.html");
                 }
-            } catch (Exception e) {
-                Log.error(e);
-                response.setStatus(404);
-                response.sendRedirect(
-                        "./pages/base/404.html");
-            }
-            // Log.info("Result Call Api - " + resultHttpRequest);
+                // Log.info("Result Call Api - " + resultHttpRequest);
 
-            /* TODO output your page here. You may use following sample code. */
-            //}
+                /* TODO output your page here. You may use following sample code. */
+            }
         }
     }
 
