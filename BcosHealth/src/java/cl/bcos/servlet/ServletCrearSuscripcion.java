@@ -6,7 +6,6 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
-import cl.bcos.entity.LoginJsonResponse;
 import cl.bcos.entity.statusResponse;
 import com.google.gson.Gson;
 import java.io.IOException;

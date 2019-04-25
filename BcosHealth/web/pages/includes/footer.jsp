@@ -1,7 +1,7 @@
 </div>
 </main>    
 </div>
-
+<%@include file="../includes/message/message.jsp" %>
 <!-- foofter -->
 <footer class="app-footer">
     <div>
@@ -14,6 +14,6 @@
 </footer>
 
 
-
 </body>
+  
 </html>

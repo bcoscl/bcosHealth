@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/web/pages/includes/popups/PopUpsAttentionList.jsp</file>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/web/pages/Sucursales/crearSucursales.jsp</file>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/web/pages/Pacientes/ListarPacientes.jsp</file>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/web/pages/Sucursales/ListarSucursales.jsp</file>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/web/pages/Pacientes/js/listarPaciente.js</file>
-            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/src/java/cl/bcos/servlet/ServletListarAttentionList.java</file>
+            <file>file:/C:/Users/aacantero/Documents/NetBeansProjects/BcosHealth/src/java/cl/bcos/entity/Param.java</file>
         </group>
     </open-files>
 </project-private>

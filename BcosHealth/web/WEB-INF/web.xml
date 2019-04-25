@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>security</filter-name>
+        <filter-class>cl.bcos.filter.security</filter-class>
+    </filter>
+<!--    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Atencion/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Configuraciones/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Consultas/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Cronicas/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Examenes/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Farmacos/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Fichas/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Pacientes/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Perfil/*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Planes/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Profesiones/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Roles/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Sucursales/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Suscripciones/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/Users/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>security</filter-name>
+        <url-pattern>/pages/includes/*</url-pattern>
+    </filter-mapping>-->
+    
+    
     <servlet>
         <servlet-name>ServletPlanes</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletPlanes</servlet-class>
@@ -8,10 +79,7 @@
         <servlet-name>ServletLogin</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletLogin</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>llaves</servlet-name>
-        <servlet-class>cl.bcos.servlet.llaves</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>ServletListarPlanes</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletListarPlanes</servlet-class>
@@ -160,6 +228,18 @@
         <servlet-name>ServletUpdateConsultas</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletUpdateConsultas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletListarConfiguraciones</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletListarConfiguraciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCrearConfiguraciones</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletCrearConfiguraciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletListarMenu</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletListarMenu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -168,10 +248,7 @@
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>llaves</servlet-name>
-        <url-pattern>/llaves</url-pattern>
-    </servlet-mapping>
+   
     <servlet-mapping>
         <servlet-name>ServletListarPlanes</servlet-name>
         <url-pattern>/ServletListarPlanes</url-pattern>
@@ -319,6 +396,18 @@
     <servlet-mapping>
         <servlet-name>ServletUpdateConsultas</servlet-name>
         <url-pattern>/ServletUpdateConsultas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletListarConfiguraciones</servlet-name>
+        <url-pattern>/ServletListarConfiguraciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearConfiguraciones</servlet-name>
+        <url-pattern>/ServletCrearConfiguraciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletListarMenu</servlet-name>
+        <url-pattern>/ServletListarMenu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

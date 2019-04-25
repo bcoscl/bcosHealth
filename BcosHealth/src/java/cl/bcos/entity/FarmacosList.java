@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class FarmacosList {
 
-    List<Farmacos> Farmacos;
+   List<Farmacos> Farmacos;
     status status;
 
     public List<Farmacos> getFarmacos() {
@@ -31,5 +31,6 @@ public class FarmacosList {
     public void setStatus(status status) {
         this.status = status;
     }
+
 
 }
