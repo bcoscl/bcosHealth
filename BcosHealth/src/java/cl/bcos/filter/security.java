@@ -129,8 +129,8 @@ public class security implements Filter {
 
     /**
      *
-     * @param request The servlet request we are processing
-     * @param response The servlet response we are creating
+     * @param req The servlet request we are processing
+     * @param resp The servlet response we are creating
      * @param chain The filter chain we are processing
      *
      * @exception IOException if an input/output error occurs
@@ -139,7 +139,7 @@ public class security implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp,
             FilterChain chain)
             throws IOException, ServletException {
-        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        //Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         if (debug) {
             log("security:doFilter()");

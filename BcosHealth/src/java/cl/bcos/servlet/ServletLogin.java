@@ -50,6 +50,10 @@ public class ServletLogin extends HttpServlet {
         String Password = request.getParameter("password");
         String accion = request.getParameter("accion");
         
+              
+
+       tokensession.setAttribute("MENU",null);
+        
         
         Log.info("User : " + User + " - Password : " + Password);
         //ImplementacionJWT jwt = new ImplementacionJWT();
