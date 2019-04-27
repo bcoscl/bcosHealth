@@ -13,7 +13,7 @@
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
 </div>
-
+<!--
 <div id="msgResult" class="alert alert-success alert-dismissible fade show-none" role="alert">
     <strong>Perfect!</strong> Registrado exitosamente
     <button class="close" type="button" data-dismiss="alert" aria-label="Close">
@@ -26,5 +26,5 @@
     <button class="close" type="button" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
     </button>
-</div>
+</div>-->
 

@@ -65,6 +65,7 @@ $(document).ready(function () {
                     //alert('Insert OK');
                     $.unblockUI();
                     cleanExamenes();
+                    SuccesNotify();
                     //$("#contenido").html(data);
 
 
@@ -74,11 +75,12 @@ $(document).ready(function () {
                     $.unblockUI();
                     cleanExamenes();
                     //$("#contenido").removeAttr('style');
-                    $("#msgResultError").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(1000);
-                        $("#msgResultError").addClass('fade show-none');
-                    }, 2000);
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
 
 
                     if (jqXHR.status == 500) {
@@ -172,6 +174,7 @@ function popupDeleteExamenes(id) {
             //alert('Insert OK');
             cleanExamenes();
             $.unblockUI();
+            SuccesNotify();
             //$("#contenido").html(data);
 
 
@@ -181,12 +184,12 @@ function popupDeleteExamenes(id) {
             $.unblockUI();
             cleanExamenes();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error

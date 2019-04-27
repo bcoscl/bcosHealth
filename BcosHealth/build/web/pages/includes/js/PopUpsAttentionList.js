@@ -46,12 +46,12 @@ $(document).ready(function () {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -124,12 +124,13 @@ $(document).ready(function () {
                 success: function (data) {
                     $(id)[0].reset();
                     $.unblockUI();
-                    $("#msgResult").removeAttr('style');
-                    $("#msgResult").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(500);
-                        $("#msgResult").addClass('fade show-none');
-                    }, 2000);
+//                    $("#msgResult").removeAttr('style');
+//                    $("#msgResult").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(500);
+//                        $("#msgResult").addClass('fade show-none');
+//                    }, 2000);
+                    SuccesNotify();
                     $('#largeModal').modal('hide');
 
                 },
@@ -139,13 +140,13 @@ $(document).ready(function () {
 
                     $.unblockUI();
                     $('#largeModal').modal('hide');
-                    $("#msgResultError").removeAttr('style');
-                    $("#msgResultError").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(1000);
-                        $("#msgResultError").addClass('fade show-none');
-                    }, 2000);
-
+//                    $("#msgResultError").removeAttr('style');
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
 
                     if (jqXHR.status == 500) {
                         // Server side error
@@ -170,7 +171,8 @@ function popupAttentionList(numuser, PacienteName) {
 
     $("#modal_nombre").val(PacienteName);
     $("#modal_numuser").val(numuser);
-    $("#medico_select").val(0);
+    $("#medico_select").val("");
+    $("#modal_motivo").val("");
 
     $('#largeModal').modal('toggle');
 

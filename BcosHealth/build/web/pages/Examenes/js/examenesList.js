@@ -45,12 +45,12 @@ function CargaInicialExamenes() {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error

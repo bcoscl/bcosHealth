@@ -45,12 +45,12 @@ $(document).ready(function () {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -119,25 +119,25 @@ function change(id) {
 
         success: function (data) {
 
-           $.unblockUI();                
-                $("#msgResult").removeAttr('style');
-                $("#msgResult").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(500);
-                    $("#msgResult").addClass('fade show-none');
-                }, 2000);
-
+            $.unblockUI();
+//                $("#msgResult").removeAttr('style');
+//                $("#msgResult").removeClass('fade show-none');
+//                setTimeout(function () {
+//                    $("#msgResult").fadeOut(500);
+//                    $("#msgResult").addClass('fade show-none');
+//                }, 2000);
+            SuccesNotify();
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -154,19 +154,19 @@ function change(id) {
         }
     });
 }
-    
-    
-function Detalle(numuser){
-    
+
+
+function Detalle(numuser) {
+
     $.ajax({
         url: "../../ServletListarUsuarios",
         dataType: "text",
         data: {
-            accion : "LF-DETALLE",
+            accion: "LF-DETALLE",
             user: numuser
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -196,15 +196,15 @@ function Detalle(numuser){
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -221,7 +221,7 @@ function Detalle(numuser){
 
         }
     });
-    
+
 
 }
 

@@ -68,7 +68,7 @@ $(document).ready(function () {
                     //alert('Insert OK');
                     $.unblockUI();
                     cleanConsulta();
-
+                    SuccesNotify();
                     //$("#contenido").html(data);
 
 
@@ -78,12 +78,12 @@ $(document).ready(function () {
                     $.unblockUI();
                     cleanConsulta();
                     //$("#contenido").removeAttr('style');
-                    $("#msgResultError").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(1000);
-                        $("#msgResultError").addClass('fade show-none');
-                    }, 2000);
-
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
 
                     if (jqXHR.status == 500) {
                         // Server side error
@@ -185,7 +185,7 @@ function popupDeleteConsulta(id) {
             cleanConsulta();
             $.unblockUI();
             //$("#contenido").html(data);
-
+            SuccesNotify();
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -193,12 +193,12 @@ function popupDeleteConsulta(id) {
             $.unblockUI();
             cleanConsulta();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error

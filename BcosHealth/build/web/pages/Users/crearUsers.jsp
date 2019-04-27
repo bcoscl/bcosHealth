@@ -42,7 +42,7 @@
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -99,13 +99,13 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="selectpicker">Sucursales</label>
                     <div class="col-md-9" id="suc_select_content" required>
-<!--
-                        <select class="selectpicker" multiple id="sucursal_select">
-                            <option>[ SUC 1 ]</option>
-                            <option>[ SUC 2 ]</option>
-                            <option>[ SUC 3 ]</option>
-                            <option>[ SUC 4 ]</option>
-                        </select>-->
+                        <!--
+                                                <select class="selectpicker" multiple id="sucursal_select">
+                                                    <option>[ SUC 1 ]</option>
+                                                    <option>[ SUC 2 ]</option>
+                                                    <option>[ SUC 3 ]</option>
+                                                    <option>[ SUC 4 ]</option>
+                                                </select>-->
                     </div>
 
                 </div>
@@ -183,7 +183,7 @@
 </main>    
 </div>-->
 
-
+<!--
 <div id="msgResult" class="alert alert-success alert-dismissible fade show-none" role="alert">
     <strong>Perfect!</strong> usuario Registrado exitosamente
     <button class="close" type="button" data-dismiss="alert" aria-label="Close">
@@ -213,7 +213,7 @@
     <div class="sk-circle10 sk-circle"></div>
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
-</div>
-
+</div>-->
+<%@include file="../includes/message/message.jsp" %>
 <!-- foofter -->
 <%@include file="../includes/footer.jsp" %>

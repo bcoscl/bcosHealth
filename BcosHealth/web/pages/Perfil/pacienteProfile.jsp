@@ -51,7 +51,7 @@
 
 
 
-
+<!--
 <div id="msgResult" class="alert alert-success alert-dismissible fade show-none" role="alert">
     <strong>Perfect!</strong> Suscripcion Registrado exitosamente
     <button class="close" type="button" data-dismiss="alert" aria-label="Close">
@@ -81,7 +81,8 @@
     <div class="sk-circle10 sk-circle"></div>
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
-</div>
+</div>-->
+<%@include file="../includes/message/message.jsp" %>
 
 <!-- foofter -->
 <%@include file="../includes/footer.jsp" %>

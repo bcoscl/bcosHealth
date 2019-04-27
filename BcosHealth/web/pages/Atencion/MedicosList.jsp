@@ -75,15 +75,15 @@
 
 <!-- fin contenido -->
 
-
+<!--
 <div id="msgResultError" class="alert alert-danger alert-dismissible fade show-none" role="alert">
     <strong>Ups!</strong> Se produjo un error al realizar la solicitud, por favor intentalo de nuevo
     <button class="close" type="button" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
     </button>
-</div> 
+</div> -->
 
-
+<!--
 <div id="load" class="sk-fading-circle" style="display: none;">
     <div class="sk-circle1 sk-circle"></div>
     <div class="sk-circle2 sk-circle"></div>
@@ -97,5 +97,6 @@
     <div class="sk-circle10 sk-circle"></div>
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
-</div>
+</div>-->
+<%@include file="../includes/message/message.jsp" %>
 <%@include file="../includes/footer.jsp" %>

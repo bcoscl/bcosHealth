@@ -10,10 +10,10 @@ $(document).ready(function () {
         url: "../../ServletListarRoles",
         dataType: "text",
         data: {
-            accion : "LR-TABLA"
+            accion: "LR-TABLA"
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -33,19 +33,19 @@ $(document).ready(function () {
             //alert('Insert OK');
             $.unblockUI();
             $("#contenido").html(data);
-            
+
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error

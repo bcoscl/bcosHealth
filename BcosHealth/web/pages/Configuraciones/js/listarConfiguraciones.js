@@ -45,12 +45,12 @@ $(document).ready(function () {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -82,23 +82,23 @@ $(document).ready(function () {
 
 });
 
-function copyParam(grupo, subgrupo,param1,param2,param3,param4){
-    
+function copyParam(grupo, subgrupo, param1, param2, param3, param4) {
+
     alert('copy');
-    
-    
+
+
 }
-function deleteParam(id){
-    
-    alert('delete id :'+id);
-    
-    
+function deleteParam(id) {
+
+    alert('delete id :' + id);
+
+
 }
-function EditParam(grupo, subgrupo,param1,param2,param3,param4){
-    
+function EditParam(grupo, subgrupo, param1, param2, param3, param4) {
+
     alert('edit');
-    
-    
+
+
 }
 
 

@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function () {
-    
+
     $.ajax({
         url: "../../ServletListarPacientes",
         dataType: "text",
@@ -37,12 +37,12 @@ $(document).ready(function () {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -57,14 +57,14 @@ $(document).ready(function () {
             }
         }
     });
-    
+
     $("#select_Pacientes").change(function () {
 
         CargaContenido();
 
     });
 
-    
+
 
 
     $('#entradafilter').keyup(function () {
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
 });
 
-function CargaContenido(){
+function CargaContenido() {
     $.ajax({
         url: "../../ServletListarExamenes",
         dataType: "text",
@@ -119,17 +119,18 @@ function CargaContenido(){
             //    $("#msgResult").addClass('fade show-none');
             //}, 2000);
 
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -144,8 +145,8 @@ function CargaContenido(){
             }
         }
     });
-    
-    
+
+
 }
 
 ////checkbox

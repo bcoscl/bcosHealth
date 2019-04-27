@@ -10,10 +10,10 @@ $(document).ready(function () {
         url: "../../ServletListarPlanes",
         dataType: "text",
         data: {
-            accion : "LP-TABLA"
+            accion: "LP-TABLA"
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -42,15 +42,17 @@ $(document).ready(function () {
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
-            $.unblockUI();
-            //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
 
+            
+            //$("#contenido").removeAttr('style');
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+//alert("error" + textStatus);
+            DangerNotify();
+            $.unblockUI();
 
             if (jqXHR.status == 500) {
                 // Server side error

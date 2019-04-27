@@ -19,6 +19,7 @@
         <link href="../../comun/css/pace.min.css" rel="stylesheet">  
         <link href="../../comun/css/load.css" rel="stylesheet">  
         <link rel="stylesheet" href="../../comun/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="../../comun/css/animate.css">
        
 
         <!-- CoreUI and necessary plugins-->
@@ -36,8 +37,9 @@
         <script src="../../comun/js/main.js"></script>
         <script src="../../comun/js/jquery.blockUI.js"></script>
         <script src="../../comun/js/formValidation.js"></script>
+        <script src="../../comun/js/bootstrap-notify.min.js"></script>
         
-
+       
 
 
     </head>

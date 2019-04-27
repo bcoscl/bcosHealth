@@ -10,16 +10,16 @@ $(document).ready(function () {
 
 
 
-$("#fileupload").click(function(){
-    $("#upload-file").click();
-})
+    $("#fileupload").click(function () {
+        $("#upload-file").click();
+    })
 
 
 });
 
-function CargaProfileInicial(){
-    
-       $.ajax({
+function CargaProfileInicial() {
+
+    $.ajax({
         url: "../../ServletPacienteProfile",
         dataType: "text",
         data: {
@@ -48,8 +48,8 @@ function CargaProfileInicial(){
             //alert('Insert OK');
             $.unblockUI();
             //$("#contenido").html(data);
-            
-            
+
+
             $("#input_nombre").html(valor[0]);
             $("#input_rut").html(valor[1]);
             $("#input_direccion").html(valor[2]);
@@ -75,11 +75,12 @@ function CargaProfileInicial(){
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
 
             if (jqXHR.status == 500) {
@@ -97,7 +98,7 @@ function CargaProfileInicial(){
 
         }
     });
-    
+
 }
 
 

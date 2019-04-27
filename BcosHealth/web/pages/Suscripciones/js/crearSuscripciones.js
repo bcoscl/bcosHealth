@@ -39,11 +39,12 @@ $(document).ready(function () {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
 
             if (jqXHR.status == 500) {
@@ -78,7 +79,7 @@ $(document).ready(function () {
 
         var id = ($(this).parent().parent().find("form")).attr("id");
         id = "#" + id;
-        
+
         if (validationform(id)) {
 
             $.ajax({
@@ -115,26 +116,26 @@ $(document).ready(function () {
                     $(id)[0].reset();
 
                     $.unblockUI();
-                    $("#msgResult").removeAttr('style');
-                    $("#msgResult").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(500);
-                        $("#msgResult").addClass('fade show-none');
-                    }, 2000);
-
+//                    $("#msgResult").removeAttr('style');
+//                    $("#msgResult").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(500);
+//                        $("#msgResult").addClass('fade show-none');
+//                    }, 2000);
+                    SuccesNotify();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
                     var mensaje;
 
                     $.unblockUI();
-                    $("#msgResultError").removeAttr('style');
-                    $("#msgResultError").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(1000);
-                        $("#msgResultError").addClass('fade show-none');
-                    }, 2000);
-
+//                    $("#msgResultError").removeAttr('style');
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
 
                     if (jqXHR.status == 500) {
                         // Server side error

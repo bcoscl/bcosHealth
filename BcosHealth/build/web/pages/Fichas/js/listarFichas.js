@@ -10,10 +10,10 @@ $(document).ready(function () {
         url: "../../ServletListarFichas",
         dataType: "text",
         data: {
-            accion : "LF-TABLA"
+            accion: "LF-TABLA"
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -42,14 +42,15 @@ $(document).ready(function () {
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
 
             if (jqXHR.status == 500) {
@@ -83,17 +84,17 @@ $(document).ready(function () {
 
 });
 
-function Detalle(numuser){
-    
+function Detalle(numuser) {
+
     $.ajax({
         url: "../../ServletListarFichas",
         dataType: "text",
         data: {
-            accion : "LF-DETALLE",
+            accion: "LF-DETALLE",
             user: numuser
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -123,15 +124,15 @@ function Detalle(numuser){
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -148,8 +149,8 @@ function Detalle(numuser){
 
         }
     });
-    
-    
+
+
 }
 
 

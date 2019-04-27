@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    
-    
-    Cargacontenido();  
-    
-    
-    
+
+
+    Cargacontenido();
+
+
+
 
     $('#entradafilter').keyup(function () {
         var rex = new RegExp($(this).val(), 'i');
@@ -19,21 +19,21 @@ $(document).ready(function () {
         }).show();
 
     });
-    
+
 });
 
 
-function Cargacontenido(){
-    
-    
-     $.ajax({
+function Cargacontenido() {
+
+
+    $.ajax({
         url: "../../ServletListarAttentionList",
         dataType: "text",
         data: {
-            accion : "AT-TABLA"
+            accion: "AT-TABLA"
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -62,15 +62,15 @@ function Cargacontenido(){
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -87,7 +87,7 @@ function Cargacontenido(){
 
         }
     });
-    
+
 }
 
 function enviarAlFinal(row) {
@@ -117,10 +117,12 @@ function enviarAlFinal(row) {
         },
 
         success: function (data) {
+            SuccesNotify();
             Cargacontenido();
             //alert('Insert OK');
             $.unblockUI();
             //$("#contenido").html(data);
+
 
 
 
@@ -129,12 +131,12 @@ function enviarAlFinal(row) {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -184,18 +186,19 @@ function quitardelaLista(row) {
             //alert('Insert OK');
             $.unblockUI();
             //$("#contenido").html(data);
-
+            SuccesNotify();
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
 
             if (jqXHR.status == 500) {
@@ -218,17 +221,17 @@ function quitardelaLista(row) {
 }
 
 /*Atender*/
-function Atender(numuser,row){
-    
+function Atender(numuser, row) {
+
     $.ajax({
         url: "../../ServletListarAttentionList",
         dataType: "text",
         data: {
-            accion : "AT-DETALLE",
+            accion: "AT-DETALLE",
             user: numuser
         },
         beforeSend: function () {
-            
+
             $.blockUI({message: $('#load'), css: {
                     padding: 0,
                     margin: 0,
@@ -245,7 +248,7 @@ function Atender(numuser,row){
 
         success: function (data) {
 
-            
+
             //alert('Insert OK');
             $.unblockUI();
             quitardelaLista(row);
@@ -260,15 +263,15 @@ function Atender(numuser,row){
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-         
+
             $.unblockUI();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
-
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
             if (jqXHR.status == 500) {
                 // Server side error
@@ -285,8 +288,8 @@ function Atender(numuser,row){
 
         }
     });
-    
-    
+
+
 }
 
 

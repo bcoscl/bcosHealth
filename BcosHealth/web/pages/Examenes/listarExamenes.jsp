@@ -90,7 +90,7 @@
         <!-- fin contenido -->		  
 
 
-
+<!--
         <div id="load" class="sk-fading-circle" style="display: none;">
             <div class="sk-circle1 sk-circle"></div>
             <div class="sk-circle2 sk-circle"></div>
@@ -118,7 +118,7 @@
             <button class="close" type="button" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-        </div>
+        </div>-->
 
-
+<%@include file="../includes/message/message.jsp" %>
         <%@include file="../includes/footer.jsp" %>

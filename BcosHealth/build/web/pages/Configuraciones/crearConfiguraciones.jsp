@@ -86,7 +86,7 @@
 </div>
 </main>    
 </div>-->
-
+<!--
 
 <div id="msgResult" class="alert alert-success alert-dismissible fade show-none" role="alert">
     <strong>Perfect!</strong> Suscripcion Registrado exitosamente
@@ -117,7 +117,8 @@
     <div class="sk-circle10 sk-circle"></div>
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
-</div>
+</div>-->
 
 <!-- foofter -->
+<%@include file="../includes/message/message.jsp" %>
 <%@include file="../includes/footer.jsp" %>

@@ -55,6 +55,7 @@ $(document).ready(function () {
                     //alert('Insert OK');
                     $.unblockUI();
                     cleanFarmacos();
+                    SuccesNotify();
                     //$("#contenido").html(data);
 
 
@@ -63,13 +64,14 @@ $(document).ready(function () {
 
                     $.unblockUI();
                     cleanFarmacos();
+                    $('#largeModalFarmaco').modal('hide');
                     //$("#contenido").removeAttr('style');
-                    $("#msgResultError").removeClass('fade show-none');
-                    setTimeout(function () {
-                        $("#msgResult").fadeOut(1000);
-                        $("#msgResultError").addClass('fade show-none');
-                    }, 2000);
-
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
 
                     if (jqXHR.status == 500) {
                         // Server side error
@@ -158,7 +160,7 @@ function popupDeleteFarmacos(id) {
             cleanFarmacos();
             $.unblockUI();
             //$("#contenido").html(data);
-
+            SuccesNotify();
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -166,11 +168,12 @@ function popupDeleteFarmacos(id) {
             $.unblockUI();
             cleanFarmacos();
             //$("#contenido").removeAttr('style');
-            $("#msgResultError").removeClass('fade show-none');
-            setTimeout(function () {
-                $("#msgResult").fadeOut(1000);
-                $("#msgResultError").addClass('fade show-none');
-            }, 2000);
+//            $("#msgResultError").removeClass('fade show-none');
+//            setTimeout(function () {
+//                $("#msgResult").fadeOut(1000);
+//                $("#msgResultError").addClass('fade show-none');
+//            }, 2000);
+            DangerNotify();
 
 
             if (jqXHR.status == 500) {
