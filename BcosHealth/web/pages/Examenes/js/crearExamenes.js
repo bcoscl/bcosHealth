@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
 
-$("#fileuploadExamen").click(function () {
+    $("#fileuploadExamen").click(function () {
         $("#upload-file-examen").click();
     });
 
@@ -82,73 +82,77 @@ $("#fileuploadExamen").click(function () {
 
     $("#submitButton").click(function (e) {
 
-        $.ajax({
-            url: "../../ServletCrearExamenes",
-            dataType: "text",
-            data: {
-                accion: "IE",
-                examen_name: $("#nombre_examen").val(),
-                examen_obs: $("#obs_examen").val(),               
-                examen_url: $("#upload-file-examen").val(),               
-                examen_pacientename_numuser: $("#select_Pacientes option:selected").val(),
-                examen_pacientename: $("#select_Pacientes option:selected").text()
-                
-            },
-            beforeSend: function () {
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
 
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
+        if (validationform(id)) {
+            $.ajax({
+                url: "../../ServletCrearExamenes",
+                dataType: "text",
+                data: {
+                    accion: "IE",
+                    examen_name: $("#nombre_examen").val(),
+                    examen_obs: $("#obs_examen").val(),
+                    examen_url: $("#upload-file-examen").val(),
+                    examen_pacientename_numuser: $("#select_Pacientes option:selected").val(),
+                    examen_pacientename: $("#select_Pacientes option:selected").text()
 
-            success: function (data) {
+                },
+                beforeSend: function () {
 
-                
-                $.unblockUI();                
-                $("#msgResult").removeAttr('style');
-                $("#msgResult").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(500);
-                    $("#msgResult").addClass('fade show-none');
-                }, 2000);
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                
-                var mensaje;
+                success: function (data) {
+                    $(id)[0].reset();
 
-                $.unblockUI();
-                $("#msgResultError").removeAttr('style');
-                $("#msgResultError").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(1000);
-                    $("#msgResultError").addClass('fade show-none');
-                }, 2000);
+                    $.unblockUI();
+                    $("#msgResult").removeAttr('style');
+                    $("#msgResult").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(500);
+                        $("#msgResult").addClass('fade show-none');
+                    }, 2000);
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    var mensaje;
+
+                    $.unblockUI();
+                    $("#msgResultError").removeAttr('style');
+                    $("#msgResultError").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(1000);
+                        $("#msgResultError").addClass('fade show-none');
+                    }, 2000);
 
 
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
 
+                    }
                 }
-            }
-        });
-
+            });
+        }
     });
 
 

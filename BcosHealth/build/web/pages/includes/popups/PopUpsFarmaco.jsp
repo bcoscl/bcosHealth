@@ -13,47 +13,49 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h4 class="blue">
-                    <span class="middle" id="modal_input_farmaco_pacienteName"></span>
-                </h4>
-                <label class="col-md-12 col-form-label" for="date-input" id ="modal_farmaco_instruccion"></label>
+                <form id="formfarmacospup">
+
+                    <h4 class="blue">
+                        <span class="middle" id="modal_input_farmaco_pacienteName"></span>
+                    </h4>
+                    <label class="col-md-12 col-form-label" for="date-input" id ="modal_farmaco_instruccion"></label>
 
 
 
-                <div class="row">
+                    <div class="row">
 
 
-                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-12 col-sm-12">
 
 
-                        <input class="form-control" id="modal_input_farmaco_id" style="display: none;" type="text" name="text-input">
-                        <input class="form-control" id="modal_input_farmaco_accion" style="display: none;" type="text" name="text-input">
-                        <input class="form-control" id="modal_input_farmaco_numuserpaciente" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_farmaco_id" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_farmaco_accion" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_farmaco_numuserpaciente" style="display: none;" type="text" name="text-input">
 
 
 
-                        <div class="profile-user-info">
+                            <div class="profile-user-info">
 
-                            <div class="profile-info-row">
-                                <div class="profile-info-name"> Nombre </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Nombre </div>
 
-                                <div class="profile-info-value">
-                                    <input class="form-control" id="modal_input_farmaco_nombre" type="text" name="text-input" placeholder="Nombre farmaco">
+                                    <div class="profile-info-value">
+                                        <input class="form-control" id="modal_input_farmaco_nombre" type="text" name="text-input" placeholder="Nombre farmaco" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="profile-info-row">
-                                <div class="profile-info-name"> Observación </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Observación </div>
 
-                                <div class="profile-info-value" >
-                                    <input maxlength="40" class="form-control" id="modal_input_farmaco_observacion" type="text" name="text-input" placeholder="Ingrese la medicación">
+                                    <div class="profile-info-value" >
+                                        <input maxlength="40" class="form-control" id="modal_input_farmaco_observacion" type="text" name="text-input" placeholder="Ingrese la medicación" required>
+                                    </div>
                                 </div>
+
+
                             </div>
-
-
-                        </div>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
 
 
 
@@ -62,7 +64,7 @@
 
 
 
-
+                </form>
             </div>
 
             <div class="modal-footer">

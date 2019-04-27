@@ -14,22 +14,22 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form id="formattentionList">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="modal_nombre" disabled>
+                            <input type="text" class="form-control" id="modal_nombre" disabled required>
                         </div>
                         <div class="form-group col-md-6">
                             <label >Rut</label>
-                            <input type="text" class="form-control" id="modal_numuser" disabled>
+                            <input type="text" class="form-control" id="modal_numuser" disabled required>
                         </div>
                     </div>
                     <div class="form-row">
 
                         <div class="form-group col-md-12">
                             <label>Agregar a la lista de</label>
-                            <select class="form-control" id="medico_select" name="select1">
+                            <select class="form-control" id="medico_select" name="select1" required>
 
                             </select>
                         </div>
@@ -66,7 +66,7 @@
                                 </div>
 
                             </div>
-                            <input type="text" class="form-control" id="modal_motivo" disabled >
+                            <input type="text" class="form-control" id="modal_motivo" required>
                         </div>
 
                     </div>

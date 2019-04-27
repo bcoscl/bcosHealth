@@ -15,37 +15,38 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h4 class="blue">
-                    <span class="middle" id="modal_input_consulta_pacienteName"></span>
-                </h4>
-                <label class="col-md-12 col-form-label" for="date-input" id ="modal_consulta_instruccion"></label>
+                <form id="formnuevaconsulta">
+                    <h4 class="blue">
+                        <span class="middle" id="modal_input_consulta_pacienteName"></span>
+                    </h4>
+                    <label class="col-md-12 col-form-label" for="date-input" id ="modal_consulta_instruccion"></label>
 
 
 
-                <div class="row">
+                    <div class="row">
 
 
-                    <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-12 col-sm-12">
 
 
-                        <input class="form-control" id="modal_input_consulta_id" style="display: none;" type="text" name="text-input">
-                        <input class="form-control" id="modal_input_consulta_accion" style="display: none;" type="text" name="text-input">
-                        <input class="form-control" id="modal_input_consulta_numuserpaciente" style="display: none;" type="text" name="text-input">
-                        <input class="form-control" id="modal_input_consulta_pacientename" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_consulta_id" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_consulta_accion" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_consulta_numuserpaciente" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_consulta_pacientename" style="display: none;" type="text" name="text-input">
 
 
 
-                        <div class="profile-user-info">
+                            <div class="profile-user-info">
 
-                            <div class="profile-info-row">
-                                <div class="profile-info-name"> Motivo </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Motivo </div>
 
-                                <div class="profile-info-value">
-                                    <input class="form-control" id="modal_input_consulta_titulo" type="text" name="text-input" placeholder="motivo de la consulta">
+                                    <div class="profile-info-value">
+                                        <input class="form-control" id="modal_input_consulta_titulo" type="text" name="text-input" placeholder="motivo de la consulta" required>
+                                    </div>
+
                                 </div>
 
-                            </div>
-                            
                                 <div class="profile-info-row slidedown">
                                     <div class="profile-info-name"> Fecha </div>
 
@@ -63,21 +64,21 @@
                                     </div>
 
                                 </div>
-                            
 
-                            <div class="profile-info-row">
-                                <div class="profile-info-name"> Indicaciones </div>
 
-                                <div class="profile-info-value" >
-                                    <textarea class="form-control" id="modal_input_consulta_observacion" name="textarea-input" rows="4" placeholder="Comentario sobre la consulta"></textarea>
-                                    <!--<input class="form-control" id="modal_input_consulta_observacion" type="text" name="text-input" placeholder="Comentario sobre la consulta">-->
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Indicaciones </div>
+
+                                    <div class="profile-info-value" >
+                                        <textarea class="form-control" id="modal_input_consulta_observacion" name="textarea-input" rows="4" placeholder="Comentario sobre la consulta" required></textarea>
+                                        <!--<input class="form-control" id="modal_input_consulta_observacion" type="text" name="text-input" placeholder="Comentario sobre la consulta">-->
+                                    </div>
                                 </div>
+
+
                             </div>
-
-
-                        </div>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
 
 
 
@@ -86,7 +87,7 @@
 
 
 
-
+                </form>
             </div>
 
             <div class="modal-footer">

@@ -24,47 +24,47 @@
         <div class="card-header">
             <strong>Crear Sucursales</strong></div>
         <div class="card-body">
-            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form id="formCrearSuscursales" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Nombre Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="nombre_sucursal" type="text" name="text-input" placeholder="Nombre de la sucursal">
+                        <input class="form-control" id="nombre_sucursal" type="text" name="text-input" placeholder="Nombre de la sucursal" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Comuna Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="comuna_sucursal" type="text" name="text-input" placeholder="Comuna de la sucursal">
+                        <input class="form-control" id="comuna_sucursal" type="text" name="text-input" placeholder="Comuna de la sucursal" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Telefono Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numero_telefono" value ="+569" name="email-input" placeholder="Telefono de contacto" autocomplete="email">
+                        <input class="form-control" id="numero_telefono" value ="" name="email-input" placeholder="Telefono de contacto +569"  required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Correo Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="correo_sucursal"  type="email"  name="text-input" placeholder="sucursal@suc.cl">
+                        <input class="form-control" id="correo_sucursal"  type="email"  name="text-input" placeholder="sucursal@suc.cl" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="date-input">Contacto Sucursal</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="contacto_sucursal" type="text"  placeholder="Nombre de Contacto sucursal">					
+                        <input class="form-control" id="contacto_sucursal" type="text"  placeholder="Nombre de Contacto sucursal" required>					
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Empresa</label>
                     <div class="col-md-9">
-                        <select class="form-control" id="select_empresa" name="select1">
+                        <select class="form-control" id="select_empresa" name="select1" required>
 
                         </select>
                     </div>

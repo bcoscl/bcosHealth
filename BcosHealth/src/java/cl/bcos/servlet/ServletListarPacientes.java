@@ -265,7 +265,7 @@ public class ServletListarPacientes extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<option value=\"0\">Seleccione un Paciente</option>");
+        out.append("<option value=\"\">Seleccione un Paciente</option>");
         String numuser = "";
         for (Paciente str : res.getPaciente()) {
 

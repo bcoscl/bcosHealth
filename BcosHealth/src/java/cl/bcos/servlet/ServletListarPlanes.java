@@ -188,7 +188,7 @@ public class ServletListarPlanes extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<option value=\"0\">Seleccione un plan</option>");
+        out.append("<option value=\"\">Seleccione un plan</option>");
 
         for (Planes str : res.getPlanes()) {
 

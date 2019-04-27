@@ -214,7 +214,7 @@ public class ServletListarProfesiones extends HttpServlet {
 
         StringBuilder out = new StringBuilder();
 
-        out.append("<select class=\"selectpicker\" multiple id=\"profesion_select\" >");
+        out.append("<select class=\"selectpicker\" multiple id=\"profesion_select\" required >");
 
         for (Profesiones str : res.getProfesiones()) {
 

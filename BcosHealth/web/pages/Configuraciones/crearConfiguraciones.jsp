@@ -24,26 +24,26 @@
         <div class="card-header">
             <strong>Crear Configuraciones</strong></div>
         <div class="card-body">
-            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form id="formCrearConfiguraciones" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Grupo</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="grupo" type="text" name="text-input" placeholder="Agrupador">
+                        <input class="form-control" id="grupo" type="text" name="text-input" placeholder="Agrupador" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">subGrupo</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="subgrupo" type="text" name="text-input" placeholder="Sub Agrupador">
+                        <input class="form-control" id="subgrupo" type="text" name="text-input" placeholder="Sub Agrupador" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Param1</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="param1" type="email" name="email-input" placeholder="parametro 1" >
+                        <input class="form-control" id="param1" type="email" name="email-input" placeholder="parametro 1" required>
                     </div>
                 </div>
 
@@ -68,15 +68,15 @@
 
 
             </form>
+
         </div>
         <div class="card-footer">
-            <button id="submitButton" class="btn btn-sm btn-primary" type="submit">
+            <button id="submitButton" class="btn btn-sm btn-primary" type="button">
                 <i class="fa fa-dot-circle-o"></i> Submit</button>
             <!--<button class="btn btn-sm btn-danger" type="reset">
             <i class="fa fa-ban"></i> Reset</button>-->
         </div>
     </div>
-
 </div>
 
 

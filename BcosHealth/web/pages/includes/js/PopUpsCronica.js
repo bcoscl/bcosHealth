@@ -18,73 +18,78 @@ $(document).ready(function () {
             URL = "../../ServletCrearEnfermedadesCronicas";
         }
 
-        $.ajax({
-            url: URL,
-            dataType: "text",
-            data: {
-                accion: ACCION,
-                row: $("#modal_input_croncia_id").val(),
-                cronica_name: $("#modal_input_croncia_nombre").val(),
-                cronica_obs: $("#modal_input_cronica_observacion").val()
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
+
+        if (validationform(id)) {
+
+            $.ajax({
+                url: URL,
+                dataType: "text",
+                data: {
+                    accion: ACCION,
+                    row: $("#modal_input_croncia_id").val(),
+                    cronica_name: $("#modal_input_croncia_nombre").val(),
+                    cronica_obs: $("#modal_input_cronica_observacion").val()
 //                ,
 //                Paciente: $("#modal_input_cronica_numuserpaciente").val()
-            },
-            beforeSend: function () {
+                },
+                beforeSend: function () {
 
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
 
-            success: function (data) {
-                CargaInicialCronica();
-                $('#largeModalCronica').modal('hide');
-                //alert('Insert OK');
-                $.unblockUI();
-                cleanCronica();
-                //$("#contenido").html(data);
-
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
-                $.unblockUI();
-                cleanCronica();
-                //$("#contenido").removeAttr('style');
-                $("#msgResultError").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(1000);
-                    $("#msgResultError").addClass('fade show-none');
-                }, 2000);
+                success: function (data) {
+                    CargaInicialCronica();
+                    $('#largeModalCronica').modal('hide');
+                    //alert('Insert OK');
+                    $.unblockUI();
+                    cleanCronica();
+                    //$("#contenido").html(data);
 
 
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    $.unblockUI();
+                    cleanCronica();
+                    //$("#contenido").removeAttr('style');
+                    $("#msgResultError").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(1000);
+                        $("#msgResultError").addClass('fade show-none');
+                    }, 2000);
+
+
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
+
+                    }
+
 
                 }
+            });
 
 
-            }
-        });
-
-
-
+        }
 
     });
 

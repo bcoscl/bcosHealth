@@ -24,19 +24,19 @@
         <div class="card-header">
             <strong>Crear Examenes</strong></div>
         <div class="card-body">
-            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form id="formCrearExamen" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Nombre Examen</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="nombre_examen" type="text" name="text-input" placeholder="Nombre del examen">
+                        <input class="form-control" id="nombre_examen" type="text" name="text-input" placeholder="Nombre del examen" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Observacion</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="obs_examen" type="text" name="text-input" placeholder="observacion del examen">
+                        <input class="form-control" id="obs_examen" type="text" name="text-input" placeholder="observacion del examen" required>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Paciente</label>
                     <div class="col-md-9">
-                        <select class="form-control" data-live-search="true" id="select_Pacientes" >
+                        <select class="form-control" data-live-search="true" id="select_Pacientes" required>
 
                         </select>
                     </div>

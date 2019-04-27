@@ -24,47 +24,47 @@
         <div class="card-header">
             <strong>Crear Suscripciones</strong></div>
         <div class="card-body">
-            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form id="formCrearSuscripciones" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Empresa Suscriptora</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="nombre_empresa" type="text" name="text-input" placeholder="Nombre de Empresa">
+                        <input class="form-control" id="nombre_empresa" type="text" name="text-input" placeholder="Nombre de Empresa" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Contacto Empresa</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="contacto_empresa" type="text" name="text-input" placeholder="Contacto de Empresa">
+                        <input class="form-control" id="contacto_empresa" type="text" name="text-input" placeholder="Contacto de Empresa" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Email Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="email_contacto" type="email" name="email-input" placeholder="email de contacto" autocomplete="email">
+                        <input class="form-control" id="email_contacto" type="email" name="email-input" placeholder="email de contacto" autocomplete="email" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Telefono de Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numero_telefono" value ="+569" type="text" name="text-input" placeholder="numero de Telefono +569">
+                        <input class="form-control" id="numero_telefono" value ="+569" type="text" name="text-input" placeholder="numero de Telefono +569" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="date-input">Fecha de Inicio</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="fecha_inicio" type="date" name="date-input" placeholder="Fecha">					
+                        <input class="form-control" id="fecha_inicio" type="date" name="date-input" placeholder="Fecha" required>					
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Plan</label>
                     <div class="col-md-9">
-                        <select class="form-control" id="select_plan" name="select1">
+                        <select class="form-control" id="select_plan" name="select1" required>
 
                         </select>
                     </div>
@@ -74,7 +74,7 @@
                     <label class="col-md-3 col-form-label" for="select1">Estado</label>
                     <div class="col-md-9">
                         <label class="switch switch-label switch-pill switch-success">
-                            <input  id="checkbox_activo" class="switch-input" type="checkbox" >
+                            <input  id="checkbox_activo" class="switch-input" type="checkbox" required>
                             <span id="checkcontroller" class="switch-slider" data-checked="on" data-unchecked="off"></span>
                         </label>
                     </div>

@@ -35,6 +35,7 @@
         <script src="../../comun/js/custom-tooltips.min.js"></script>
         <script src="../../comun/js/main.js"></script>
         <script src="../../comun/js/jquery.blockUI.js"></script>
+        <script src="../../comun/js/formValidation.js"></script>
         
 
 

@@ -34,7 +34,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Rut  (sin digito verificador)</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numuser_user" type="text" name="text-input" placeholder="Rut  (sin digito verificador)">
+                        <input class="form-control" id="numuser_user" type="text" name="text-input" placeholder="Rut  (sin digito verificador)" required>
                         <!--<label id="user_registrado" class="alert alert-danger alert-dismissible fade show-none" style="display: none;"></label>-->
                         <div id="user_registrado" class="alert alert-dismissible fade show-none" style="display: none;" role="alert">
                             <label id="mensaje"></label>
@@ -49,27 +49,27 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Nombres</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="nombre_user" type="text" name="text-input" placeholder="Nombres">
+                        <input class="form-control" id="nombre_user" type="text" name="text-input" placeholder="Nombres" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Apellidos</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="apellido_user" type="text" name="text-input" placeholder="Apellidos">
+                        <input class="form-control" id="apellido_user" type="text" name="text-input" placeholder="Apellidos" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Email Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="email_contacto_user" type="email" name="email-input" placeholder="email de contacto" autocomplete="email">
+                        <input class="form-control" id="email_contacto_user" type="email" name="email-input" placeholder="email de contacto" autocomplete="email" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Telefono de Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numero_telefono_user" value ="+569" type="text" name="text-input" placeholder="numero de Telefono +569">
+                        <input class="form-control" id="numero_telefono_user" value ="" type="text" name="text-input" placeholder="numero de Telefono +569" required>
                     </div>
                 </div>
 
@@ -91,14 +91,14 @@
                     <label class="col-md-3 col-form-label" for="selectpicker">a Little about me</label>
                     <div class="col-md-9">
 
-                        <textarea class="form-control" id="textarea_obs" name="textarea-input" rows="4" placeholder="a Little about me..."></textarea>
+                        <textarea class="form-control" id="textarea_obs" name="textarea-input" rows="4" placeholder="a Little about me..." required></textarea>
                     </div>
 
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="selectpicker">Sucursales</label>
-                    <div class="col-md-9" id="suc_select_content">
+                    <div class="col-md-9" id="suc_select_content" required>
 <!--
                         <select class="selectpicker" multiple id="sucursal_select">
                             <option>[ SUC 1 ]</option>
@@ -114,7 +114,7 @@
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="selectpicker">Roles</label>
-                    <div class="col-md-9" id="roles_select_content">
+                    <div class="col-md-9" id="roles_select_content" required>
 
 
                     </div>
@@ -124,7 +124,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="selectpicker">Password</label>
                     <div class="col-md-3">
-                        <input type="text" id="password" name="password" maxlength="10" class="form-control input_pass" value="" placeholder="password" required="true"> 
+                        <input type="text" id="password" name="password" maxlength="10" class="form-control input_pass" value="" placeholder="password" required> 
 
                     </div>
 

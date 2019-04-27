@@ -18,69 +18,75 @@ $(document).ready(function () {
             URL = "../../ServletCrearFarmacos";
         }
 
-        $.ajax({
-            url: URL,
-            dataType: "text",
-            data: {
-                accion: ACCION,
-                row: $("#modal_input_farmaco_id").val(),
-                farmaco_name: $("#modal_input_farmaco_nombre").val(),
-                farmaco_obs: $("#modal_input_farmaco_observacion").val(),
-                Paciente: $("#modal_input_farmaco_numuserpaciente").val()
-            },
-            beforeSend: function () {
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
 
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
+        if (validationform(id)) {
 
-            success: function (data) {
-                CargaInicialFarmacos();
-                $('#largeModalFarmaco').modal('hide');
-                //alert('Insert OK');
-                $.unblockUI();
-                cleanFarmacos();
-                //$("#contenido").html(data);
+            $.ajax({
+                url: URL,
+                dataType: "text",
+                data: {
+                    accion: ACCION,
+                    row: $("#modal_input_farmaco_id").val(),
+                    farmaco_name: $("#modal_input_farmaco_nombre").val(),
+                    farmaco_obs: $("#modal_input_farmaco_observacion").val(),
+                    Paciente: $("#modal_input_farmaco_numuserpaciente").val()
+                },
+                beforeSend: function () {
 
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
-                $.unblockUI();
-                cleanFarmacos();
-                //$("#contenido").removeAttr('style');
-                $("#msgResultError").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(1000);
-                    $("#msgResultError").addClass('fade show-none');
-                }, 2000);
+                success: function (data) {
+                    CargaInicialFarmacos();
+                    $('#largeModalFarmaco').modal('hide');
+                    //alert('Insert OK');
+                    $.unblockUI();
+                    cleanFarmacos();
+                    //$("#contenido").html(data);
 
 
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    $.unblockUI();
+                    cleanFarmacos();
+                    //$("#contenido").removeAttr('style');
+                    $("#msgResultError").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(1000);
+                        $("#msgResultError").addClass('fade show-none');
+                    }, 2000);
+
+
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
+
+                    }
+
 
                 }
-
-
-            }
-        });
+            });
+        }
     });
 
 

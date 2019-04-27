@@ -278,7 +278,7 @@ public class ServletListarSuscripciones extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<option value=\"0\">Seleccione Empresa</option>");
+        out.append("<option value=\"\">Seleccione Empresa</option>");
 
         for (suscripciones str : res.getSuscripciones()) {
 

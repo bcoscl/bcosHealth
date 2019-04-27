@@ -282,7 +282,7 @@ public class ServletListarSucursales extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<option value=\"0\">Seleccione Sucursal</option>");
+        out.append("<option value=\"\">Seleccione Sucursal</option>");
 
         for (sucursales str : res.getSucursales()) {
 
@@ -303,7 +303,7 @@ public class ServletListarSucursales extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<select class=\"selectpicker\" multiple id=\"sucursal_select\" >");
+        out.append("<select class=\"selectpicker\" multiple id=\"sucursal_select\" required>");
 
         for (sucursales str : res.getSucursales()) {
 

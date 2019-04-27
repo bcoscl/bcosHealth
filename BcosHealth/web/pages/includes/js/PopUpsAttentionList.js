@@ -90,73 +90,77 @@ $(document).ready(function () {
 
     /* Agregar a la lista de atencion */
     $("#modal_addAtbutton").click(function (e) {
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
 
-        $.ajax({
-            url: "../../ServletAddAttentionList",
-            dataType: "text",
-            data: {
-                accion: "CREATE",
-                modal_nombre: $("#modal_nombre").val(),
-                modal_numuser: $("#modal_numuser").val(),
-                modal_mediconumuser: $("#medico_select option:selected").val(),
-                modal_mediconombre: $("#medico_select option:selected").text(),
-                modal_motivo: $("#modal_motivo").val()
-            },
-            beforeSend: function () {
+        if (validationform(id)) {
+            $.ajax({
+                url: "../../ServletAddAttentionList",
+                dataType: "text",
+                data: {
+                    accion: "CREATE",
+                    modal_nombre: $("#modal_nombre").val(),
+                    modal_numuser: $("#modal_numuser").val(),
+                    modal_mediconumuser: $("#medico_select option:selected").val(),
+                    modal_mediconombre: $("#medico_select option:selected").text(),
+                    modal_motivo: $("#modal_motivo").val()
+                },
+                beforeSend: function () {
 
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
 
-            success: function (data) {
+                success: function (data) {
+                    $(id)[0].reset();
+                    $.unblockUI();
+                    $("#msgResult").removeAttr('style');
+                    $("#msgResult").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(500);
+                        $("#msgResult").addClass('fade show-none');
+                    }, 2000);
+                    $('#largeModal').modal('hide');
 
-                $.unblockUI();
-                $("#msgResult").removeAttr('style');
-                $("#msgResult").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(500);
-                    $("#msgResult").addClass('fade show-none');
-                }, 2000);
-                $('#largeModal').modal('hide');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+                    var mensaje;
 
-                var mensaje;
-
-                $.unblockUI();
-                $('#largeModal').modal('hide');
-                $("#msgResultError").removeAttr('style');
-                $("#msgResultError").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(1000);
-                    $("#msgResultError").addClass('fade show-none');
-                }, 2000);
+                    $.unblockUI();
+                    $('#largeModal').modal('hide');
+                    $("#msgResultError").removeAttr('style');
+                    $("#msgResultError").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(1000);
+                        $("#msgResultError").addClass('fade show-none');
+                    }, 2000);
 
 
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
 
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
 });

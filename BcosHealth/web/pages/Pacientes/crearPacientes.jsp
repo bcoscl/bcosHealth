@@ -29,12 +29,12 @@
 
 
 
-            <form id="crearUsers" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form id="formCrearPaciente" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Rut  (sin digito verificador)</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numuser_paciente" type="text" name="text-input" placeholder="Rut  (sin digito verificador)">
+                        <input class="form-control" id="numuser_paciente" type="text" name="text-input" placeholder="Rut  (sin digito verificador)" required>
                         <!--<label id="user_registrado" class="alert alert-danger alert-dismissible fade show-none" style="display: none;"></label>-->
                         <div id="user_registrado" class="alert alert-dismissible fade show-none" style="display: none;" role="alert">
                             <label id="mensaje"></label>
@@ -49,11 +49,11 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Nombres</label>
                     <div class="col-md-4">
-                        <input class="form-control" id="nombre_paciente" type="text" name="text-input" placeholder="Nombres">
+                        <input class="form-control" id="nombre_paciente" type="text" name="text-input" placeholder="Nombres" required>
                     </div>
                     <label class="col-md-1 col-form-label" for="text-input">Apellidos</label>
                     <div class="col-md-4">
-                        <input class="form-control" id="apellido_paciente" type="text" name="text-input" placeholder="Apellidos">
+                        <input class="form-control" id="apellido_paciente" type="text" name="text-input" placeholder="Apellidos" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -63,27 +63,27 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="direccion-input">Direccion</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="direccion_paciente" type="map" name="direccion-input" placeholder="Direccion" autocomplete="direccion">
+                        <input class="form-control" id="direccion_paciente" type="map" name="direccion-input" placeholder="Direccion" autocomplete="direccion" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Email Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="email_contacto_paciente" type="email" name="email-input" placeholder="email de contacto" autocomplete="email">
+                        <input class="form-control" id="email_contacto_paciente" type="email" name="email-input" placeholder="email de contacto" autocomplete="email" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Telefono de Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="numero_telefono_paciente" value ="+569" type="text" name="text-input" placeholder="numero de Telefono +569">
+                        <input class="form-control" id="numero_telefono_paciente" value ="" type="text" name="text-input" placeholder="numero de Telefono +569" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Profesión</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="profesion_paciente" value ="" type="text" name="text-input" placeholder="profesion">
+                        <input class="form-control" id="profesion_paciente" value ="" type="text" name="text-input" placeholder="profesion" required>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Estado Civil</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="estado_civil_paciente" value ="" type="text" name="text-input" placeholder="Soltero(a), Casado(a), Viudo(a)">
+                        <input class="form-control" id="estado_civil_paciente" value ="" type="text" name="text-input" placeholder="Soltero(a), Casado(a), Viudo(a)" required>
                     </div>
                 </div>
 
@@ -101,20 +101,20 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Fecha Nacimiento</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="fecha_nacimiento_paciente" value ="" type="date" name="text-input" placeholder="fecha de nacimiento">
+                        <input class="form-control" id="fecha_nacimiento_paciente" value ="" type="date" name="text-input" placeholder="fecha de nacimiento" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">edad</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="edad_paciente" value ="" type="number" name="text-input" placeholder="edad">
+                        <input class="form-control" id="edad_paciente" value ="" type="number" name="text-input" placeholder="edad" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select2">Sexo</label>
                     <div class="col-md-9">
-                        <select class="form-control" id="sexo_select" name="select2">
-                            <option value="0">Seleccione Sexo</option>
+                        <select class="form-control" id="sexo_select" name="select2" required>
+                            <option value="">Seleccione Sexo</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                             <option value="SOtro">Otro</option>
@@ -126,8 +126,8 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Prevision</label>
                     <div class="col-md-4">
-                        <select class="form-control" id="prevision_select" name="select1">
-                            <option value="0">Seleccione previsión</option>
+                        <select class="form-control" id="prevision_select" name="select1" required>
+                            <option value="">Seleccione previsión</option>
                             <option value="Fonasa">Fonasa</option>
                             <option value="Fonasa">Isapre</option>
                             <option value="Sin Prevision">Particular</option>
@@ -136,7 +136,7 @@
                     </div>
                     <label class="col-md-2 col-form-label" for="text-input">(*) indique la isapre</label>
                     <div class="col-md-3">
-                        <input class="form-control" id="isapre_name_paciente" value ="" type="text" name="text-input" placeholder="nombre Isapre">
+                        <input class="form-control" id="isapre_name_paciente" value ="" type="text" name="text-input" placeholder="nombre Isapre" required>
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@
                     <label class="col-md-3 col-form-label" for="selectpicker">a Little about me</label>
                     <div class="col-md-9">
 
-                        <textarea class="form-control" id="textarea_obs_paciente" name="textarea-input" rows="4" placeholder="a Little about me..."></textarea>
+                        <textarea class="form-control" id="textarea_obs_paciente" name="textarea-input" rows="4" placeholder="a Little about me..." required></textarea>
                     </div>
 
                 </div>

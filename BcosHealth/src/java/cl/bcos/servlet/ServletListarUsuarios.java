@@ -287,7 +287,7 @@ public class ServletListarUsuarios extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<option value=\"0\">Seleccione un Medico</option>");
+        out.append("<option value=\"\">Seleccione un Medico</option>");
 
         for (Profile str : res.getProfiles()) {
 

@@ -212,7 +212,7 @@ public class ServletListarRoles extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
 
-        out.append("<select class=\"selectpicker\" multiple id=\"roles_select\" >");
+        out.append("<select class=\"selectpicker\" multiple id=\"roles_select\" required>");
 
         for (Roles str : res.getRoles()) {
 

@@ -61,90 +61,95 @@ $(document).ready(function () {
     });
 
 //checkbox
-$("#checkcontroller").click(function (e) {
-    
-    if($("#checkbox_activo").is(":checked")){
-        $("#checkbox_activo").attr('checked', false);        
-    }else{
-       $("#checkbox_activo").attr('checked', true); 
-    }
-   // $("#checkbox_activo :checked").attr('checked', true);
-    
-});
+    $("#checkcontroller").click(function (e) {
+
+        if ($("#checkbox_activo").is(":checked")) {
+            $("#checkbox_activo").attr('checked', false);
+        } else {
+            $("#checkbox_activo").attr('checked', true);
+        }
+        // $("#checkbox_activo :checked").attr('checked', true);
+
+    });
 
 //envio de informacion
 
     $("#submitButton").click(function (e) {
 
-        $.ajax({
-            url: "../../ServletCrearSuscripcion",
-            dataType: "text",
-            data: {
-                accion: "IS",
-                nombre_empresa: $("#nombre_empresa").val(),
-                contacto_empresa: $("#contacto_empresa").val(),
-                email_contacto: $("#email_contacto").val(),
-                numero_telefono: $("#numero_telefono").val(),
-                fecha_inicio: $("#fecha_inicio").val(),
-                select_plan_code: $("#select_plan option:selected").val(),
-                select_plan_name: $("#select_plan option:selected").text(),
-                checkbox_activo: $("#checkbox_activo").is(":checked")
-            },
-            beforeSend: function () {
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
+        
+        if (validationform(id)) {
 
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
+            $.ajax({
+                url: "../../ServletCrearSuscripcion",
+                dataType: "text",
+                data: {
+                    accion: "IS",
+                    nombre_empresa: $("#nombre_empresa").val(),
+                    contacto_empresa: $("#contacto_empresa").val(),
+                    email_contacto: $("#email_contacto").val(),
+                    numero_telefono: $("#numero_telefono").val(),
+                    fecha_inicio: $("#fecha_inicio").val(),
+                    select_plan_code: $("#select_plan option:selected").val(),
+                    select_plan_name: $("#select_plan option:selected").text(),
+                    checkbox_activo: $("#checkbox_activo").is(":checked")
+                },
+                beforeSend: function () {
 
-            success: function (data) {
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
 
-                
-                $.unblockUI();                
-                $("#msgResult").removeAttr('style');
-                $("#msgResult").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(500);
-                    $("#msgResult").addClass('fade show-none');
-                }, 2000);
+                success: function (data) {
+                    $(id)[0].reset();
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                
-                var mensaje;
+                    $.unblockUI();
+                    $("#msgResult").removeAttr('style');
+                    $("#msgResult").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(500);
+                        $("#msgResult").addClass('fade show-none');
+                    }, 2000);
 
-                $.unblockUI();
-                $("#msgResultError").removeAttr('style');
-                $("#msgResultError").removeClass('fade show-none');
-                setTimeout(function () {
-                    $("#msgResult").fadeOut(1000);
-                    $("#msgResultError").addClass('fade show-none');
-                }, 2000);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    var mensaje;
+
+                    $.unblockUI();
+                    $("#msgResultError").removeAttr('style');
+                    $("#msgResultError").removeClass('fade show-none');
+                    setTimeout(function () {
+                        $("#msgResult").fadeOut(1000);
+                        $("#msgResultError").addClass('fade show-none');
+                    }, 2000);
 
 
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
 
+                    }
                 }
-            }
-        });
-
+            });
+        }
     });
 
 

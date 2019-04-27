@@ -5,6 +5,7 @@
  */
 $(document).ready(function () {
 
+//    alert($("#menuContent").html());
 
         $.ajax({
             url: "../../ServletListarMenu",
@@ -13,7 +14,7 @@ $(document).ready(function () {
                 accion: "MENU"
             },
             beforeSend: function () {
-
+                
                 $.blockUI({message: $('#load'), css: {
                         padding: 0,
                         margin: 0,
@@ -65,7 +66,7 @@ $(document).ready(function () {
             }
         });
         
-        
+//            alert($("#menuContent").html());
     });
 
 

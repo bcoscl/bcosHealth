@@ -18,7 +18,7 @@
         <div class="card-header">
             <strong>Crear Planes</strong></div>
         <div class="card-body">
-            <form class="form-horizontal" method="post" id="formCrearPlanes">              
+            <form class="form-horizontal" method="post" id="formCrearProfesiones">              
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Nombre de la Profesion</label>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-
+            </form>
         </div>
         <div class="card-footer">
             <button id="submitButton" class="btn btn-sm btn-primary"  type="button">
@@ -36,7 +36,7 @@
             <!--<button class="btn btn-sm btn-danger" type="reset">
             <i class="fa fa-ban"></i> Reset</button>-->
         </div>
-        </form>
+
 
 
 
@@ -49,15 +49,15 @@
             <span aria-hidden="true">×</span>
         </button>
     </div>
-    
+
     <div id="msgResultError" class="alert alert-danger alert-dismissible fade show-none" role="alert">
         <strong>Ups!</strong> Se produjo un error al realizar la solicitud, por favor intentalo de nuevo
         <button class="close" type="button" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
     </div>
-   
-    
+
+
 
     <div id="load" class="sk-fading-circle" style="display: none;">
         <div class="sk-circle1 sk-circle"></div>
@@ -74,33 +74,33 @@
         <div class="sk-circle12 sk-circle"></div>
     </div>
 
+
+
+
+
+
+    <!--<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">Ã</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <p>One fine bodyâ¦</p>
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+    <button class="btn btn-success" type="button">Save changes</button>
+    </div>
+    </div>
     
+    </div>
     
+    </div>-->
 
-
-
-<!--<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-success" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title">Modal title</h4>
-<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">Ã</span>
-</button>
-</div>
-<div class="modal-body">
-<p>One fine bodyâ¦</p>
-</div>
-<div class="modal-footer">
-<button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-<button class="btn btn-success" type="button">Save changes</button>
-</div>
-</div>
-
-</div>
-
-</div>-->
-    
 
     <!-- fin contenido -->		  
     <%@include file="../includes/footer.jsp" %>

@@ -21,7 +21,7 @@
             <form class="form-horizontal" method="post" id="formCrearPlanes">              
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Nombre del Plan</label>
+                    <label class="col-md-3 col-form-label" for="text-input" >Nombre del Plan</label>
                     <div class="col-md-9">
                         <input class="form-control input_user" id="planName" maxlength="15" value="" type="text" name="text-input" placeholder="Nombre del Plan" required>
                     </div>
@@ -44,17 +44,17 @@
                     </div>
                 </div>-->
 
+        </form>
 
 
         </div>
         <div class="card-footer">
-            <button id="submitButton" class="btn btn-sm btn-primary"  type="button">
+            <button id="submitButton" class="btn btn-sm btn-primary" type="button">
                 <!--<button id="success-alert" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#successModal" type="submit">-->
-                <i class="fa fa-dot-circle-o"></i> Submit</button>
+                <i class="fa fa-dot-circle-o"></i> guardar</button>
             <!--<button class="btn btn-sm btn-danger" type="reset">
             <i class="fa fa-ban"></i> Reset</button>-->
         </div>
-        </form>
 
 
 
