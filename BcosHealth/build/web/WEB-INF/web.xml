@@ -4,7 +4,7 @@
         <filter-name>security</filter-name>
         <filter-class>cl.bcos.filter.security</filter-class>
     </filter>
-<!--    <filter-mapping>
+    <!--    <filter-mapping>
         <filter-name>security</filter-name>
         <url-pattern>/pages/Atencion/*</url-pattern>
     </filter-mapping>
@@ -69,8 +69,6 @@
         <filter-name>security</filter-name>
         <url-pattern>/pages/includes/*</url-pattern>
     </filter-mapping>-->
-    
-    
     <servlet>
         <servlet-name>ServletPlanes</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletPlanes</servlet-class>
@@ -79,7 +77,6 @@
         <servlet-name>ServletLogin</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletLogin</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ServletListarPlanes</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletListarPlanes</servlet-class>
@@ -240,6 +237,10 @@
         <servlet-name>ServletListarMenu</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletListarMenu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletLogOut</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletLogOut</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -248,7 +249,6 @@
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
-   
     <servlet-mapping>
         <servlet-name>ServletListarPlanes</servlet-name>
         <url-pattern>/ServletListarPlanes</url-pattern>
@@ -408,6 +408,10 @@
     <servlet-mapping>
         <servlet-name>ServletListarMenu</servlet-name>
         <url-pattern>/ServletListarMenu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLogOut</servlet-name>
+        <url-pattern>/ServletLogOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,7 +6,7 @@
 
 <title>Bcos Health - crear Planes</title>
 
-<script src="./js/crearPlanes.js"></script>
+<script src="./js/crearPlanes.js" charset="UTF-8"></script>
 
 <%@include file="../includes/body.jsp" %>
 

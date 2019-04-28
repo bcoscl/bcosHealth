@@ -16,7 +16,7 @@ $(document).ready(function () {
 
             $.ajax({
                 url: "../../ServletPlanes",
-                dataType: "text",
+                dataType: "text",                
                 data: {
                     planName: $("#planName").val(),
                     userMax: $("#userMax").val()

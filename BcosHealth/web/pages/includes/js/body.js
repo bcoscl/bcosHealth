@@ -30,13 +30,14 @@ $(document).ready(function () {
         },
 
         success: function (data) {
-            var valor = data.split("|");
-            $.unblockUI();
-            $("#usuarioSession_header").html(valor[1]);
-            $("#usuarioSession_header2").html(valor[1]);
-            $("#menuContent").html(valor[0]);
-            //$("#menuContent").addClass("sidebar");
 
+                var valor = data.split("|");
+                $.unblockUI();
+                $("#usuarioSession_header").html(valor[1]);
+                $("#usuarioSession_header2").html(valor[1]);
+                $("#menuContent").html(valor[0]);
+                //$("#menuContent").addClass("sidebar");
+           
         },
         error: function (jqXHR, textStatus, errorThrown) {
 

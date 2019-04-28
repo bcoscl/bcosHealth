@@ -9,6 +9,7 @@ $(document).ready(function () {
     $.ajax({
         url: "../../ServletListarPlanes",
         dataType: "text",
+        
         data: {
             accion: "LP-TABLA"
         },
@@ -32,6 +33,7 @@ $(document).ready(function () {
 
             //alert('Insert OK');
             $.unblockUI();
+            
             $("#contenido").html(data);
             //$("#msgResult").removeAttr('style');
             //$("#msgResult").removeClass('fade show-none');

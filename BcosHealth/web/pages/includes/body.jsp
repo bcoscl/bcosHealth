@@ -49,7 +49,7 @@
                         <i class="fa fa-user"></i> Profile</a>
                     <a class="dropdown-item" href="../Perfil/ChangePass.jsp">
                         <i class="fa fa-key"></i> Cambiar Clave</a>
-                    <a class="dropdown-item" href="../base/LoginPage.jsp">
+                    <a class="dropdown-item" href="../../ServletLogOut">
                         <i class="fa fa-lock"></i> Logout</a>
                 </div>
             </li>
