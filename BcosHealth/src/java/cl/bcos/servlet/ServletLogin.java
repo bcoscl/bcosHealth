@@ -43,7 +43,7 @@ public class ServletLogin extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         HttpSession tokensession = request.getSession(true);
         
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=iso-8859-1");
         PrintWriter out = response.getWriter();
         
         String User = request.getParameter("username");

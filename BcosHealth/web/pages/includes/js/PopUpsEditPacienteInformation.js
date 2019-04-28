@@ -46,6 +46,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     CargaProfileInicial();
+                    removeValidation(id);
                     $('#largeModalPacienteInformation').modal('hide');
                     //alert('Insert OK');
                     $.unblockUI();

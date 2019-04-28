@@ -52,6 +52,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     CargaInicialCronica();
+                    removeValidation(id);
                     $('#largeModalCronica').modal('hide');
                     //alert('Insert OK');
                     $.unblockUI();

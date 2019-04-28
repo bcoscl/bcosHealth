@@ -72,7 +72,7 @@
         </div>
         <div class="card-footer">
             <button id="submitButton" class="btn btn-sm btn-primary" type="button">
-                <i class="fa fa-dot-circle-o"></i> Submit</button>
+                <i class="fa fa-dot-circle-o"></i> Guardar</button>
             <!--<button class="btn btn-sm btn-danger" type="reset">
             <i class="fa fa-ban"></i> Reset</button>-->
         </div>

@@ -4,7 +4,7 @@
 
 <%@include file="../includes/header.jsp" %>
 
-<title>Bcos Health - crear Planes</title>
+<title>Bcos Health - crear Profesiones</title>
 
 <script src="./js/crearProfesion.js"></script>
 
@@ -16,14 +16,14 @@
 <div id="ui-view">
     <div class="card">
         <div class="card-header">
-            <strong>Crear Planes</strong></div>
+            <strong>Crear Profesiones</strong></div>
         <div class="card-body">
             <form class="form-horizontal" method="post" id="formCrearProfesiones">              
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Nombre de la Profesion</label>
+                    <label class="col-md-3 col-form-label" for="text-input">Nombre de la Profesión</label>
                     <div class="col-md-9">
-                        <input class="form-control input_user" id="profesionName" maxlength="15" value="" type="text" name="text-input" placeholder="Profesion" required>
+                        <input class="form-control input_user" id="profesionName" maxlength="15" value="" type="text" name="text-input" placeholder="Profesión" required>
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
         <div class="card-footer">
             <button id="submitButton" class="btn btn-sm btn-primary"  type="button">
                 <!--<button id="success-alert" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#successModal" type="submit">-->
-                <i class="fa fa-dot-circle-o"></i> Submit</button>
+                <i class="fa fa-dot-circle-o"></i> Guardar</button>
             <!--<button class="btn btn-sm btn-danger" type="reset">
             <i class="fa fa-ban"></i> Reset</button>-->
         </div>

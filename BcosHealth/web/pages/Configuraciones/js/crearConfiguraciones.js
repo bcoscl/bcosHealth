@@ -44,6 +44,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     $(id)[0].reset();
+                    removeValidation(id);
 
                     $.unblockUI();
 //                    $("#msgResult").removeAttr('style');

@@ -34,7 +34,7 @@ public class ServletPassGenerate extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=iso-8859-1");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 

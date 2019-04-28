@@ -7,8 +7,6 @@
 
 <title>Bcos Health - Ficha tab</title>
 
-<script src="./js/listarFichasTab.js"></script>
-
 
 
 <%@include file="../includes/body.jsp" %>
@@ -92,6 +90,7 @@
 <%@include file="../includes/popups/PopUpsCronica.jsp" %>
 <%@include file="../includes/popups/PopUpsFarmaco.jsp" %>
 <%@include file="../includes/popups/PopUpsExamenes.jsp" %>
+<%@include file="../includes/popups/PopUpsEditPacienteInformation.jsp" %>
 <%@include file="../includes/footer.jsp" %>
 
 

@@ -40,6 +40,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     $(id)[0].reset();
+                    removeValidation(id);
                     $("#profesionName").val('');
                     $("#profesionName").focus();
                     $.unblockUI();

@@ -51,6 +51,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     CargaInicialFarmacos();
+                    removeValidation(id);
                     $('#largeModalFarmaco').modal('hide');
                     //alert('Insert OK');
                     $.unblockUI();

@@ -61,6 +61,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     CargaInicialExamenes();
+                    removeValidation(id);
                     $('#largeModalExamen').modal('hide');
                     //alert('Insert OK');
                     $.unblockUI();

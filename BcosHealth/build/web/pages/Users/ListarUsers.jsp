@@ -4,7 +4,7 @@
 <%@include file="../includes/header.jsp" %>
 
 
-<title>Bcos Health - Listar Users</title>
+<title>Bcos Health - Listar Usuarios</title>
 <script src="./js/listarUsers.js"></script>
 
 <link href="../../comun/css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Listar Users</span>
+        <span >	Listar Usuarios</span>
 
         <div class="animated fadeIn">
             <div class="card">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                    <label>Search:<input type="search" id="entradafilter" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0">
+                                    <label>Buscar:<input type="search" id="entradafilter" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0">
                                     </label>
                                 </div>
                             </div>

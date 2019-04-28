@@ -40,7 +40,7 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
         try (PrintWriter out = response.getWriter()) {

@@ -57,7 +57,7 @@ $(document).ready(function () {
 //                    $("#msgResult").fadeOut(500);
 //                    $("#msgResult").addClass('fade show-none');
 //                }, 2000);
-                SuccesNotify();
+                //SuccesNotify();
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -88,8 +88,173 @@ $(document).ready(function () {
     });
 
 
+LoadSelect();
 
 
+
+//checkbox
+    $("#checkcontroller").click(function (e) {
+
+        if ($("#checkbox_activo").is(":checked")) {
+            $("#checkbox_activo").attr('checked', false);
+        } else {
+            $("#checkbox_activo").attr('checked', true);
+        }
+        // $("#checkbox_activo :checked").attr('checked', true);
+
+    });
+
+//envio de informacion
+
+    $("#submitButton").click(function (e) {
+        var id = ($(this).parent().parent().find("form")).attr("id");
+        id = "#" + id;
+        //alert(id);
+        if (validationform(id)) {
+
+
+            $.ajax({
+                url: "../../ServletCrearUsuario",
+                dataType: "text",
+                data: {
+                    accion: "CREATE",
+                    numuser_user: $("#numuser_user").val(),
+                    nombre_user: $("#nombre_user").val(),
+                    apellido_user: $("#apellido_user").val(),
+                    email_contacto_user: $("#email_contacto_user").val(),
+                    numero_telefono_user: $("#numero_telefono_user").val(),
+                    textarea_obs: $("#textarea_obs").val(),
+                    profesion_select: $("#profesion_select option:selected").text(),
+                    //select_plan_code: $("#select_plan option:selected").val(),
+                    sucursal_select: $("#sucursal_select option:selected").text(),
+                    roles_select: $("#roles_select option:selected").text(),
+                    password: $("#password").val(),
+                    checkbox_activo: $("#checkbox_activo").is(":checked")
+                },
+                beforeSend: function () {
+
+                    $.blockUI({message: $('#load'), css: {
+                            padding: 0,
+                            margin: 0,
+                            width: '35%',
+                            top: '35%',
+                            left: '35%',
+                            textAlign: 'center',
+                            color: '#c8ced300',
+                            border: '0px',
+                            backgroundColor: '#c8ced300',
+                            cursor: 'wait'
+                        }});
+                },
+
+                success: function (data) {
+                    $(id)[0].reset();
+                    
+                    removeValidation(id);
+                    $.unblockUI();
+//                    $("#msgResult").removeAttr('style');
+//                    $("#msgResult").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(500);
+//                        $("#msgResult").addClass('fade show-none');
+//                    }, 2000);
+                    SuccesNotify();
+                    LoadSelect();
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    var mensaje;
+
+                    $.unblockUI();
+//                    $("#msgResultError").removeAttr('style');
+//                    $("#msgResultError").removeClass('fade show-none');
+//                    setTimeout(function () {
+//                        $("#msgResult").fadeOut(1000);
+//                        $("#msgResultError").addClass('fade show-none');
+//                    }, 2000);
+                    DangerNotify();
+
+                    if (jqXHR.status == 500) {
+                        // Server side error
+                        mensaje = " Error server side - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 404) {
+                        mensaje = " Sitio not found - status : " + jqXHR.status;
+                    } else if (jqXHR.status == 401) {
+                        location.href = "../../pages/base/sorry.html";
+                    } else {
+                        mensaje = " - status : " + jqXHR.status;
+
+                    }
+                }
+            });
+        }
+
+    });
+
+
+    /*Autogeneracion de Pass*/
+    $("#btn_generate").click(function (e) {
+
+        $.ajax({
+            url: "../../ServletPassGenerate",
+            dataType: "text",
+            data: {
+                accion: "PASS-GENERATE"
+            },
+            beforeSend: function () {
+
+                $.blockUI({message: $('#load'), css: {
+                        padding: 0,
+                        margin: 0,
+                        width: '35%',
+                        top: '35%',
+                        left: '35%',
+                        textAlign: 'center',
+                        color: '#c8ced300',
+                        border: '0px',
+                        backgroundColor: '#c8ced300',
+                        cursor: 'wait'
+                    }});
+            },
+
+            success: function (data) {
+
+                $.unblockUI();
+                $("#password").val(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                $.unblockUI();
+                //$("#contenido").removeAttr('style');
+//                $("#msgResultError").removeClass('fade show-none');
+//                setTimeout(function () {
+//                    $("#msgResult").fadeOut(1000);
+//                    $("#msgResultError").addClass('fade show-none');
+//                }, 2000);
+
+                DangerNotify();
+                if (jqXHR.status == 500) {
+                    // Server side error
+                    mensaje = " Error server side - status : " + jqXHR.status;
+                } else if (jqXHR.status == 404) {
+                    mensaje = " Sitio not found - status : " + jqXHR.status;
+                } else if (jqXHR.status == 401) {
+                    location.href = "../../pages/base/sorry.html";
+                } else {
+                    mensaje = " - status : " + jqXHR.status;
+
+                }
+            }
+        });
+    });
+
+
+});
+
+function LoadSelect(){
+    
+    
 // carga Select de roles
     $.ajax({
         url: "../../ServletListarRoles",
@@ -256,164 +421,8 @@ $(document).ready(function () {
             }
         }
     });
-
-
-//checkbox
-    $("#checkcontroller").click(function (e) {
-
-        if ($("#checkbox_activo").is(":checked")) {
-            $("#checkbox_activo").attr('checked', false);
-        } else {
-            $("#checkbox_activo").attr('checked', true);
-        }
-        // $("#checkbox_activo :checked").attr('checked', true);
-
-    });
-
-//envio de informacion
-
-    $("#submitButton").click(function (e) {
-        var id = ($(this).parent().parent().find("form")).attr("id");
-        id = "#" + id;
-        //alert(id);
-        if (validationform(id)) {
-
-
-            $.ajax({
-                url: "../../ServletCrearUsuario",
-                dataType: "text",
-                data: {
-                    accion: "CREATE",
-                    numuser_user: $("#numuser_user").val(),
-                    nombre_user: $("#nombre_user").val(),
-                    apellido_user: $("#apellido_user").val(),
-                    email_contacto_user: $("#email_contacto_user").val(),
-                    numero_telefono_user: $("#numero_telefono_user").val(),
-                    textarea_obs: $("#textarea_obs").val(),
-                    profesion_select: $("#profesion_select option:selected").text(),
-                    //select_plan_code: $("#select_plan option:selected").val(),
-                    sucursal_select: $("#sucursal_select option:selected").text(),
-                    roles_select: $("#roles_select option:selected").text(),
-                    password: $("#password").val(),
-                    checkbox_activo: $("#checkbox_activo").is(":checked")
-                },
-                beforeSend: function () {
-
-                    $.blockUI({message: $('#load'), css: {
-                            padding: 0,
-                            margin: 0,
-                            width: '35%',
-                            top: '35%',
-                            left: '35%',
-                            textAlign: 'center',
-                            color: '#c8ced300',
-                            border: '0px',
-                            backgroundColor: '#c8ced300',
-                            cursor: 'wait'
-                        }});
-                },
-
-                success: function (data) {
-                    $(id)[0].reset();
-
-                    $.unblockUI();
-//                    $("#msgResult").removeAttr('style');
-//                    $("#msgResult").removeClass('fade show-none');
-//                    setTimeout(function () {
-//                        $("#msgResult").fadeOut(500);
-//                        $("#msgResult").addClass('fade show-none');
-//                    }, 2000);
-                    SuccesNotify();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                    var mensaje;
-
-                    $.unblockUI();
-//                    $("#msgResultError").removeAttr('style');
-//                    $("#msgResultError").removeClass('fade show-none');
-//                    setTimeout(function () {
-//                        $("#msgResult").fadeOut(1000);
-//                        $("#msgResultError").addClass('fade show-none');
-//                    }, 2000);
-                    DangerNotify();
-
-                    if (jqXHR.status == 500) {
-                        // Server side error
-                        mensaje = " Error server side - status : " + jqXHR.status;
-                    } else if (jqXHR.status == 404) {
-                        mensaje = " Sitio not found - status : " + jqXHR.status;
-                    } else if (jqXHR.status == 401) {
-                        location.href = "../../pages/base/sorry.html";
-                    } else {
-                        mensaje = " - status : " + jqXHR.status;
-
-                    }
-                }
-            });
-        }
-
-    });
-
-
-    /*Autogeneracion de Pass*/
-    $("#btn_generate").click(function (e) {
-
-        $.ajax({
-            url: "../../ServletPassGenerate",
-            dataType: "text",
-            data: {
-                accion: "PASS-GENERATE"
-            },
-            beforeSend: function () {
-
-                $.blockUI({message: $('#load'), css: {
-                        padding: 0,
-                        margin: 0,
-                        width: '35%',
-                        top: '35%',
-                        left: '35%',
-                        textAlign: 'center',
-                        color: '#c8ced300',
-                        border: '0px',
-                        backgroundColor: '#c8ced300',
-                        cursor: 'wait'
-                    }});
-            },
-
-            success: function (data) {
-
-                $.unblockUI();
-                $("#password").val(data);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
-                $.unblockUI();
-                //$("#contenido").removeAttr('style');
-//                $("#msgResultError").removeClass('fade show-none');
-//                setTimeout(function () {
-//                    $("#msgResult").fadeOut(1000);
-//                    $("#msgResultError").addClass('fade show-none');
-//                }, 2000);
-
-                DangerNotify();
-                if (jqXHR.status == 500) {
-                    // Server side error
-                    mensaje = " Error server side - status : " + jqXHR.status;
-                } else if (jqXHR.status == 404) {
-                    mensaje = " Sitio not found - status : " + jqXHR.status;
-                } else if (jqXHR.status == 401) {
-                    location.href = "../../pages/base/sorry.html";
-                } else {
-                    mensaje = " - status : " + jqXHR.status;
-
-                }
-            }
-        });
-    });
-
-
-});
+    
+}
 
 
 

@@ -37,8 +37,10 @@
                                 <img src="../../comun/img/201392014219666.jpg" class="brand_logo" alt="Logo">
                             </div>
                         </div>
+                        
                         <div class="d-flex justify-content-center form_container">
                             <form action="../../ServletLogin?accion=Auth" method="post" id="form1">
+                                                      
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -64,7 +66,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="d-flex justify-content-center links">
-                                No tienes una cuenta ! <a href="#" class="ml-2">Registrarse</a>
+<!--                                No tienes una cuenta ! contacta a tu Administrador<a href="#" class="ml-2">contactate a tu Administrador</a>-->
                             </div>
                             <div class="d-flex justify-content-center links">
                                 <a href="#">Olvidaste tu Password ?</a>

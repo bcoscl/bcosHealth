@@ -40,6 +40,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     $(id)[0].reset();
+                    removeValidation(id);
                     //alert('Insert OK');
                     $.unblockUI();
                     //$("#navData").html(data);

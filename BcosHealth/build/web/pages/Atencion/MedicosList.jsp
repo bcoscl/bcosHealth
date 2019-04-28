@@ -5,7 +5,7 @@
 <%@include file="../includes/header.jsp" %>
 
 
-<title>Bcos Health - Medicos List</title>
+<title>Bcos Health - Lista de Atención</title>
 
 <script src="./js/MedicoList.js"></script>
 
@@ -23,7 +23,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Medicos List</span>
+        <span >	Lista de Atención</span>
 
         <div class="animated fadeIn">
             <div class="card">
@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_length" id="DataTables_Table_0_length">
-                                    <label>Lista de Atencion de :</label>
+                                    <label>Lista de Atención de :</label>
                                     <select class="form-control" id="medico_select" name="select1">
 
                                     </select>
@@ -43,7 +43,7 @@
                             <div class="col-sm-12 col-md-6">
 
                                 <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                    <label>Search:<input type="search" id="entradafilter" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0">
+                                    <label>Buscar:<input type="search" id="entradafilter" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0">
                                     </label>
                                 </div>
                             </div>

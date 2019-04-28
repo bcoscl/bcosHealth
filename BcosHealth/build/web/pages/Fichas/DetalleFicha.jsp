@@ -12,7 +12,7 @@
             <li class="nav-item btn-group">
                 <a id="a-profile" data-toggle="tab" class="nav-link active" href="#home">
                     <i class="blue ace-icon fa fa-user bigger-120"></i>
-                    Profile
+                    Perfil
                 </a>
                 <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>

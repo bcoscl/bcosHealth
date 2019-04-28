@@ -64,6 +64,7 @@ $(document).ready(function () {
 
                 success: function (data) {
                     CargaConsultas();
+                    removeValidation(id);
                     $("#primaryModalConsulta").modal('hide');
                     //alert('Insert OK');
                     $.unblockUI();

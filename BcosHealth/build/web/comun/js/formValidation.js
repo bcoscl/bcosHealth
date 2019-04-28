@@ -15,8 +15,13 @@ function validationform(formularioName) {
         continuar = true;
     }
     form.addClass('was-validated');
-   
+
     return continuar;
 }
+function removeValidation(formularioName) {
+    var formulario = formularioName;
+    var form = $(formulario);
+    form.removeClass('was-validated');
 
+}
 

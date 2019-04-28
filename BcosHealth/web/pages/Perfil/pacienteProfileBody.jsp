@@ -161,4 +161,4 @@
 
 
 <!--modal de agregar a la lista de atencion de medicos-->
-<%@include file="../includes/popups/PopUpsEditPacienteInformation.jsp" %>
+
