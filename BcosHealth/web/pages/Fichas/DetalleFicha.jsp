@@ -26,7 +26,7 @@
             <li class="nav-item btn-group">
                 <a data-toggle="tab" class="nav-link" href="#Cronicas">
                     <i class="ace-icon fa fas fa-heartbeat bigger-120" style="color: #ff2600"></i>
-                    Enfermedades Cronicas
+                    Enfermedades Crónicas
                 </a>
                 <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
@@ -34,14 +34,14 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="javascript:popupAddCronica();">
                         <!--<i class="ace-icon fa fas fa-plus-square bigger-120" style="color: #ff2600"></i>-->
-                        Agregar Enfermedad cronica</a></a>                   
+                        Agregar Enfermedad crónica</a></a>                   
                 </div>
             </li>
 
             <li class="nav-item btn-group">
                 <a data-toggle="tab"  class="nav-link" href="#Farmacos">
                     <i class="ace-icon fa  fa-flask bigger-120" style="color: #00b50e"></i>
-                    Farmacos
+                    Fármacos
                 </a>
                 <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
@@ -49,7 +49,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="javascript:popupAddFarmacos();">
                         <!--<i class="ace-icon fa  fa-plus-square bigger-120" style="color: #00b50e" ></i>-->
-                        Agregar Farmaco</a>                 
+                        Agregar Fármaco</a>                 
                 </div>
 
             </li>

@@ -19,7 +19,7 @@
         <ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
             <li class="nav-item btn-group">
                 <a class="nav-link active show" id="pills-home-tab" data-toggle="pill" href="#pills-home" 
-                   role="tab" aria-controls="pills-home" aria-selected="true">Información Basica</a>
+                   role="tab" aria-controls="pills-home" aria-selected="true">Información Básica</a>
                 
             </li>
             <li class="nav-item btn-group">
@@ -34,12 +34,12 @@
             </li>
             <li class="nav-item  btn-group">
                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" 
-                   role="tab" aria-controls="pills-contact" aria-selected="false">Historial de Examenes</a>
+                   role="tab" aria-controls="pills-contact" aria-selected="false">Historial de Exámenes</a>
                 <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:popupAddExamenes();">Nuevo Examen</a>                   
+                    <a class="dropdown-item" href="javascript:popupAddExamenes();">Nuevo Exámen</a>                   
                 </div>
             </li>
         </ul>

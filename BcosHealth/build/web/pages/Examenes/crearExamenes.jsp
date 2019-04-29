@@ -22,7 +22,7 @@
 <div id="ui-view">
     <div class="card">
         <div class="card-header">
-            <strong>Crear Examenes</strong></div>
+            <strong>Crear Exámenes</strong></div>
         <div class="card-body">
             <form id="formCrearExamen" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 

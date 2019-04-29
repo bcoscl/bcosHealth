@@ -16,7 +16,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Listar Examenes</span>
+        <span >	Listar Exámenes</span>
 
         <div class="animated fadeIn">
             <div class="card">

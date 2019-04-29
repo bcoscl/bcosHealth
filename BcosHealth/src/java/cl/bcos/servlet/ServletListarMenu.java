@@ -130,50 +130,51 @@ public class ServletListarMenu extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
         StringBuilder menu = new StringBuilder();
+        StringBuilder roles = new StringBuilder();
 
         menu.append("<ul class=\"nav\"> ");
 
         for (Rol str : res.getRoles()) {
 
             String rol = str.getRol();
-
-            if (rol.equalsIgnoreCase("SUPER-ADMIN")) {
-
-                menu.append(getOpcHome());
-                menu.append(getOpcAvanzadas());
-                menu.append(getOpcAdministracion());
-                menu.append(getOpcAtencion());
-                menu.append(getOpcRecepcion());
-                menu.append(getOpcFicha());
-                menu.append(getOpcExamenes());
-                break;
-            } else if (rol.equalsIgnoreCase("ADMIN")) {
-                menu.append(getOpcHome());
-                menu.append(getOpcAdministracion());
-                menu.append(getOpcModulos());
-                menu.append(getOpcAtencion());
-                menu.append(getOpcRecepcion());
-                menu.append(getOpcFicha());
-                menu.append(getOpcExamenes());
-                break;
-
-            }
-            if (rol.equalsIgnoreCase("MEDICO")) {
-                menu.append(getOpcHome());
-                menu.append(getOpcModulos());
-                menu.append(getOpcAtencion());
-                menu.append(getOpcFicha());
-                menu.append(getOpcExamenes());
-                break;
-
-            } else if (rol.equalsIgnoreCase("RECEPCION")) {
-                menu.append(getOpcHome());
-                menu.append(getOpcModulos());
-                menu.append(getOpcRecepcion());
-                break;
-
-            }
+            roles.append(rol);
+            roles.append(",");
         }
+
+        if (roles.toString().contains("SUPER-ADMIN")) {
+
+            menu.append(getOpcHome());
+            menu.append(getOpcAvanzadas());
+            menu.append(getOpcAdministracion());
+            menu.append(getOpcModulos());
+            menu.append(getOpcAtencion());
+            menu.append(getOpcRecepcion());
+            menu.append(getOpcFicha());
+            menu.append(getOpcExamenes());
+
+        } else if (roles.toString().contains("ADMIN")) {
+            menu.append(getOpcHome());
+            menu.append(getOpcAdministracion());
+            menu.append(getOpcModulos());
+            menu.append(getOpcAtencion());
+            menu.append(getOpcRecepcion());
+            menu.append(getOpcFicha());
+            menu.append(getOpcExamenes());
+
+        } else if (roles.toString().contains("MEDICO")) {
+            menu.append(getOpcHome());
+            menu.append(getOpcModulos());
+            menu.append(getOpcAtencion());
+            menu.append(getOpcFicha());
+            menu.append(getOpcExamenes());
+
+        } else if (roles.toString().contains("RECEPCION")) {
+            menu.append(getOpcHome());
+            menu.append(getOpcModulos());
+            menu.append(getOpcRecepcion());
+
+        }
+
         menu.append("</ul> ");
 
         return menu.toString();
@@ -291,7 +292,7 @@ public class ServletListarMenu extends HttpServlet {
         out.append("                <li class=\"nav-title\">Administración</li> ");
         out.append("                <li class=\"nav-item nav-dropdown\">			 ");
         out.append("                    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"> ");
-        out.append("                        <i class=\"nav-icon icon-settings\"></i> Settings</a> ");
+        out.append("                        <i class=\"nav-icon icon-settings\"></i> Configuración</a> ");
         out.append("                    <ul class=\"nav-dropdown-items\"> ");
         out.append("                        <li class=\"nav-item nav-dropdown\">		 ");
         out.append("                            <a class=\"nav-link nav-dropdown-toggle ng-scope md-default-theme\" href=\"#\"> ");
@@ -329,16 +330,16 @@ public class ServletListarMenu extends HttpServlet {
         out.append("                </li> ");
         out.append("                <li class=\"nav-item nav-dropdown\">               ");
         out.append("                    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"> ");
-        out.append("                        <i class=\"nav-icon icon-people\"></i> Users</a> ");
+        out.append("                        <i class=\"nav-icon icon-people\"></i> Usuarios</a> ");
         out.append("                    <ul class=\"nav-dropdown-items\"> ");
         out.append("                        <li class=\"nav-item\"> ");
         out.append("                            <a class=\"nav-link\" href=\"../Users/ListarUsers.jsp\"> ");
-        out.append("                                <i class=\"nav-icon icon-list\"></i>Listar Users ");
+        out.append("                                <i class=\"nav-icon icon-list\"></i>Listar Usuarios ");
         out.append("                            </a> ");
         out.append("                        </li> ");
         out.append("                        <li class=\"nav-item\"> ");
         out.append("                            <a class=\"nav-link\" href=\"../Users/crearUsers.jsp\"> ");
-        out.append("                                <i class=\"nav-icon icon-plus\"></i>Crear Users ");
+        out.append("                                <i class=\"nav-icon icon-plus\"></i>Crear Usuarios ");
         out.append("                            </a> ");
         out.append("                        </li> ");
         out.append("                    </ul> ");
@@ -406,16 +407,16 @@ public class ServletListarMenu extends HttpServlet {
         StringBuilder out = new StringBuilder();
         out.append("                <li class=\"nav-item nav-dropdown\"> ");
         out.append("                    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"> ");
-        out.append("                        <i class=\"nav-icon icon-paper-clip\"></i> Examenes</a> ");
+        out.append("                        <i class=\"nav-icon icon-paper-clip\"></i> Exámenes</a> ");
         out.append("                    <ul class=\"nav-dropdown-items\"> ");
         out.append("                        <li class=\"nav-item\"> ");
         out.append("                            <a class=\"nav-link\" href=\"../Examenes/listarExamenes.jsp\"> ");
-        out.append("                                <i class=\"nav-icon icon-list\"></i>Listar Examenes ");
+        out.append("                                <i class=\"nav-icon icon-list\"></i>Listar Exámenes ");
         out.append("                            </a> ");
         out.append("                        </li> ");
         out.append("                        <li class=\"nav-item\"> ");
         out.append("                            <a class=\"nav-link\" href=\"../Examenes/crearExamenes.jsp\"> ");
-        out.append("                                <i class=\"nav-icon icon-plus\"></i>Crear Examenes ");
+        out.append("                                <i class=\"nav-icon icon-plus\"></i>Crear Exámenes ");
         out.append("                            </a> ");
         out.append("                        </li> ");
         out.append("                    </ul> ");

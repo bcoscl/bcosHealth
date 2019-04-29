@@ -79,7 +79,7 @@ function SuccesNotify() {
     $.notify({
         icon: 'fa fa-check-square-o fa-lg mt-6',
         title: 'Excelente !! ',
-        message: ' accion realiza con Exito',
+        message: ' acción realiza con Éxito',
         url: null,
         target: '_blank'}, {
         element: 'body',
@@ -128,7 +128,7 @@ function DangerNotify() {
     $.notify({
         icon: 'fa fa-check-square-o fa-lg mt-6',
         title: 'Ups!. ',
-        message: ' Se produjo un error al realizar la solicitud, por favor intentalo de nuevo',
+        message: ' Se produjo un error al realizar la solicitud, por favor inténtalo de nuevo',
         url: null,
         target: '_blank'}, {
         element: 'body',

@@ -7,7 +7,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Enfermedad Cronica</h4>
+                <h4 class="modal-title">Enfermedad Crónica</h4>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -38,7 +38,7 @@
                                     <div class="profile-info-name"> Nombre </div>
 
                                     <div class="profile-info-value">
-                                        <input class="form-control" id="modal_input_croncia_nombre" type="text" name="text-input" placeholder="Enfermedad Cronica" required>
+                                        <input class="form-control" id="modal_input_croncia_nombre" type="text" name="text-input" placeholder="Enfermedad Crónica" required>
                                     </div>
                                 </div>
 

@@ -55,7 +55,7 @@
                                 <div class="form-group col-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" name="exampleRadios" type="radio" id="gridCheck3">
-                                        <label class="form-check-label" for="gridCheck3">muestra examenes</label>
+                                        <label class="form-check-label" for="gridCheck3">muestra exámenes</label>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2">

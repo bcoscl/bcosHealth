@@ -5,7 +5,7 @@
 <%@include file="../includes/header.jsp" %>
 
 
-<title>Bcos Health - Lista de Atencion</title>
+<title>Bcos Health - Lista de Atención</title>
 
 <script src="./js/atencionList.js"></script>
 <link href="../../pages/Fichas/css/detalleFichas.css" rel="stylesheet">  
@@ -21,7 +21,7 @@
 
 <div id="ui-view"><div>
 
-        <span >	Lista de Atencion</span>
+        <span >	Lista de Atención</span>
 
         <div class="animated fadeIn">
             <div class="card">
