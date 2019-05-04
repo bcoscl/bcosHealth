@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="selectpicker">Profesion</label>
+                    <label class="col-md-3 col-form-label" for="selectpicker">Profesión</label>
                     <div class="col-md-9" id="profesiones_select_content">
 
                         <!--                        <select class="selectpicker" multiple id="profesion_select">

@@ -42,6 +42,8 @@ public class ServletCrearConsulta extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -60,7 +62,7 @@ public class ServletCrearConsulta extends HttpServlet {
             }
 
             String token = (String) tokensession.getAttribute("token");
-            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
+            Log.info("Session PACIENTE" + (String) tokensession.getAttribute("PACIENTE"));
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("Paciente :" + Paciente);
@@ -81,6 +83,7 @@ public class ServletCrearConsulta extends HttpServlet {
             parameter.put("consult_c_createdate", fechaCreacion);
             parameter.put("consult_c_obs_consulta", consulta_obs);
             parameter.put("consult_c_paciente_name", consult_paciente_name);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

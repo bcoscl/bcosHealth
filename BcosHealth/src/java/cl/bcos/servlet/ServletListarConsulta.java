@@ -42,8 +42,10 @@ public class ServletListarConsulta extends HttpServlet {
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         response.setContentType("text/html;charset=iso-8859-1");
-
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         String token = (String) tokensession.getAttribute("token");
@@ -62,6 +64,7 @@ public class ServletListarConsulta extends HttpServlet {
         parameter.put("accion", accion);
         parameter.put("Paciente", Paciente);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {

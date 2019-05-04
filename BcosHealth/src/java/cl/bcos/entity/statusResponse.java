@@ -10,7 +10,16 @@ package cl.bcos.entity;
  * @author aacantero
  */
 public class statusResponse {
+    String numuser;
     status status;
+
+    public void setNumuser(String numuser) {
+        this.numuser = numuser;
+    }
+
+    public String getNumuser() {
+        return numuser;
+    }
 
     public void setStatus(status status) {
         this.status = status;

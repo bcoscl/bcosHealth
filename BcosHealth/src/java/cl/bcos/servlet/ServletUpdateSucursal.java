@@ -43,13 +43,14 @@ public class ServletUpdateSucursal extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
             String accion = (String) request.getParameter("accion");
             String id = (String) request.getParameter("id");
 
-            
             String checkbox_activo = (String) request.getParameter("checkbox_activo");
             String estado = "";
 
@@ -58,7 +59,7 @@ public class ServletUpdateSucursal extends HttpServlet {
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("id :" + id);
-            
+
             Log.info("checkbox_activo :" + checkbox_activo);
 
             Log.info("token bearer:" + token);
@@ -78,6 +79,8 @@ public class ServletUpdateSucursal extends HttpServlet {
 
             parameter.put("id", id);
             parameter.put("accion", accion);
+
+            parameter.put("empresasession", empresasession);
 //          
 
             parameter.put("checkbox_activo", estado);
@@ -109,9 +112,7 @@ public class ServletUpdateSucursal extends HttpServlet {
             }
         }
     }
-    
-    
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

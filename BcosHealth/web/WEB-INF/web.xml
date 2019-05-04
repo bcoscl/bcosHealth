@@ -241,6 +241,26 @@
         <servlet-name>ServletLogOut</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletLogOut</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletSendPassword</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletSendPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletChangePassword</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletChangePassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletOlvidoPasswordRedirect</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletOlvidoPasswordRedirect</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletChangeEmpresa</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletChangeEmpresa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletChangePasswordInSite</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletChangePasswordInSite</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -412,6 +432,26 @@
     <servlet-mapping>
         <servlet-name>ServletLogOut</servlet-name>
         <url-pattern>/ServletLogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletSendPassword</servlet-name>
+        <url-pattern>/ServletSendPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletChangePassword</servlet-name>
+        <url-pattern>/ServletChangePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletOlvidoPasswordRedirect</servlet-name>
+        <url-pattern>/ServletOlvidoPasswordRedirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletChangeEmpresa</servlet-name>
+        <url-pattern>/ServletChangeEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletChangePasswordInSite</servlet-name>
+        <url-pattern>/ServletChangePasswordInSite</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

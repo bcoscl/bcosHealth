@@ -48,6 +48,8 @@ public class ServletUpdateAttentionList extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -69,6 +71,7 @@ public class ServletUpdateAttentionList extends HttpServlet {
 
             parameter.put("accion", accion);
             parameter.put("row", row);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

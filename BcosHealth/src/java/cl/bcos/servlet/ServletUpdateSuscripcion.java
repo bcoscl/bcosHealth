@@ -43,6 +43,8 @@ public class ServletUpdateSuscripcion extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -100,6 +102,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
 
             parameter.put("checkbox_activo", estado);
             parameter.put("token", token);
+            parameter.put("empresasession", empresasession);
 
             String resultHttpRequest = "";
             try {

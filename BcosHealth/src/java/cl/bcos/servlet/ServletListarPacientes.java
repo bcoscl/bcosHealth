@@ -8,9 +8,6 @@ package cl.bcos.servlet;
 import cl.bcos.HttpRequest;
 import cl.bcos.entity.Paciente;
 import cl.bcos.entity.PacientesList;
-import cl.bcos.entity.Profile;
-import cl.bcos.entity.ProfileList;
-import cl.bcos.entity.suscripciones;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,6 +43,9 @@ public class ServletListarPacientes extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -69,6 +69,7 @@ public class ServletListarPacientes extends HttpServlet {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);
             //parameter.put("userMax", userMax);
+            parameter.put("empresasession", empresasession);
             parameter.put("token", token);
 
             String resultHttpRequest = "";
@@ -147,7 +148,7 @@ public class ServletListarPacientes extends HttpServlet {
         out.append("<th class=\"sorting \" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 10%;\">Rut</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Nombre</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 18%;\">Prevision</th>");
-        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 12%;\">Telefono</th>");
+        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 12%;\">Télefono</th>");
 
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 15%;\">Email</th>");
 //        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Role: activate to sort column ascending\" style=\"width: 10%;\">Plan</th>");

@@ -31,13 +31,13 @@ $(document).ready(function () {
 
         success: function (data) {
 
-                var valor = data.split("|");
-                $.unblockUI();
-                $("#usuarioSession_header").html(valor[1]);
-                $("#usuarioSession_header2").html(valor[1]);
-                $("#menuContent").html(valor[0]);
-                //$("#menuContent").addClass("sidebar");
-           
+            var valor = data.split("|");
+            $.unblockUI();
+            $("#usuarioSession_header").html(valor[1]);
+            $("#usuarioSession_header2").html(valor[1]);
+            $("#menuContent").html(valor[0]);
+            //$("#menuContent").addClass("sidebar");
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
@@ -70,8 +70,13 @@ $(document).ready(function () {
 //            alert($("#menuContent").html());
 });
 
+function CambioEmpresa() {
+    $('#modalCambioEmpresa').modal('toggle');
+}
 
-
+function CambioPassword() {
+    $("#modalCambioPasswordInSite").modal('toggle');
+}
 
 function SuccesNotify() {
 
@@ -79,7 +84,7 @@ function SuccesNotify() {
     $.notify({
         icon: 'fa fa-check-square-o fa-lg mt-6',
         title: 'Excelente !! ',
-        message: ' acción realiza con Éxito',
+        message: ' acción realizada con Éxito',
         url: null,
         target: '_blank'}, {
         element: 'body',

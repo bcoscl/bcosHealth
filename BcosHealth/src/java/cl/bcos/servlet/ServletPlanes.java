@@ -33,6 +33,8 @@ public class ServletPlanes extends HttpServlet {
 
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         String planName = (String) request.getParameter("planName");
         String userMax = (String) request.getParameter("userMax");
         String token = (String) tokensession.getAttribute("token");
@@ -48,6 +50,7 @@ public class ServletPlanes extends HttpServlet {
         parameter.put("planName", planName);
         parameter.put("userMax", userMax);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {

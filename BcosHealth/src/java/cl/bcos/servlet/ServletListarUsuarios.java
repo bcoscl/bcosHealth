@@ -44,6 +44,9 @@ public class ServletListarUsuarios extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -67,6 +70,7 @@ public class ServletListarUsuarios extends HttpServlet {
             //parameter.put("planName", planName);
             //parameter.put("userMax", userMax);
             parameter.put("token", token);
+            parameter.put("empresasession", empresasession);
 
             String resultHttpRequest = "";
             try {
@@ -144,7 +148,7 @@ public class ServletListarUsuarios extends HttpServlet {
         out.append("<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 10%;\">Rut</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Nombre</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 18%;\">Roles</th>");
-        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 12%;\">Telefono</th>");
+        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 12%;\">Télefono</th>");
 
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 15%;\">email</th>");
 //        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Role: activate to sort column ascending\" style=\"width: 10%;\">Plan</th>");

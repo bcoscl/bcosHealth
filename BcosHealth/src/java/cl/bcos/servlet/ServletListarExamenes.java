@@ -46,19 +46,21 @@ public class ServletListarExamenes extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String numuser = (String) request.getParameter("numuser_paciente");
-        Log.debug("numuser_paciente : "+numuser);
+        Log.debug("numuser_paciente : " + numuser);
 
         if (accion.equalsIgnoreCase(LE_BY_PACIENTE_TABLA)) {
-            tokensession.setAttribute("PACIENTE",numuser);
+            tokensession.setAttribute("PACIENTE", numuser);
             Log.debug("rut seteado desde el ingreso");
 
         }
-      
 
         String Paciente = (String) tokensession.getAttribute("PACIENTE");
         Log.info("accion :" + accion);
@@ -73,6 +75,7 @@ public class ServletListarExamenes extends HttpServlet {
         parameter.put("accion", accion);
         parameter.put("Paciente", Paciente);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {

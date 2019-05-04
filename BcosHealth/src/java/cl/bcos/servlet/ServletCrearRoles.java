@@ -42,6 +42,8 @@ public class ServletCrearRoles extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -60,7 +62,7 @@ public class ServletCrearRoles extends HttpServlet {
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("RoleName", RoleName);
-
+            parameter.put("empresasession", empresasession);
             parameter.put("token", token);
 
             String resultHttpRequest = "";

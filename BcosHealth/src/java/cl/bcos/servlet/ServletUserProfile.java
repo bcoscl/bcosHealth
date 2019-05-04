@@ -6,7 +6,6 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
-import cl.bcos.entity.Profile;
 import cl.bcos.entity.ProfileResponse;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -43,6 +42,9 @@ public class ServletUserProfile extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -50,13 +52,13 @@ public class ServletUserProfile extends HttpServlet {
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String userDetail = (String) tokensession.getAttribute("USER");
-        
-        if(userDetail != null){
+
+        if (userDetail != null) {
             Log.debug("Session user vacia");
             accion = "CP-BYUSER";
-        
+
         }
-        
+
         Log.info("accion :" + accion);
         Log.info(request);
         //Log.info("planname : " + planName);
@@ -69,6 +71,7 @@ public class ServletUserProfile extends HttpServlet {
         parameter.put("accion", accion);
         parameter.put("numUser", userDetail);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {
@@ -82,17 +85,17 @@ public class ServletUserProfile extends HttpServlet {
             if (res.getStatus().getMessage().equalsIgnoreCase("SELECT_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
                 response.setStatus(200);
                 try {
-                       
+
                     //if (accion.equalsIgnoreCase("CP-PERFIL")) {
-                        out.println(getUserProfilePipe(res));
+                    out.println(getUserProfilePipe(res));
                     //}
 //                        else if (accion.equalsIgnoreCase("LP-SELECT")) {
 //                            out.println(getPlanesSelect(res));
 //                        }
 
                 } catch (Exception e) {
-                    Log.error(" NO Existe Informacion : "+e);
-                    
+                    Log.error(" NO Existe Informacion : " + e);
+
                     out.println("Imposible recuperar la informacion");
                     response.setStatus(404);
 
@@ -121,7 +124,7 @@ public class ServletUserProfile extends HttpServlet {
         StringBuilder out = new StringBuilder();
 
         out.append("<span>");
-        out.append(res.getProfile().getName()+" "+res.getProfile().getLastName());
+        out.append(res.getProfile().getName() + " " + res.getProfile().getLastName());
         out.append("</span>");
         out.append("|");
         out.append("<span>");

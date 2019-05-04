@@ -47,6 +47,9 @@ public class ServletListarSucursales extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -65,6 +68,7 @@ public class ServletListarSucursales extends HttpServlet {
         //parameter.put("planName", planName);
         parameter.put("accion", accion);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {
@@ -87,8 +91,8 @@ public class ServletListarSucursales extends HttpServlet {
                         } else if (accion.equalsIgnoreCase(LISTAR_SELECT)) {
                             Log.info("Select ");
                             out.println(getSucursalesSelect(res));
-                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE)||
-                                accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE_BY_ACTIVE)) {
+                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE)
+                                || accion.equalsIgnoreCase(LISTAR_SELECT_MULTIPLE_BY_ACTIVE)) {
                             Log.info("Select ");
                             out.println(getSucursalesMultiple(res));
                         }
@@ -149,7 +153,7 @@ public class ServletListarSucursales extends HttpServlet {
         out.append("<tr role=\"row\">");
         out.append("<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 10%;\">Sucursal</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">comuna</th>");
-        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">Telefono</th>");
+        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">Télefono</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">email</th>");
 
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 15%;\">contacto</th>");

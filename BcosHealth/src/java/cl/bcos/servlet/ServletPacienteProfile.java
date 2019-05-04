@@ -42,6 +42,9 @@ public class ServletPacienteProfile extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -49,14 +52,14 @@ public class ServletPacienteProfile extends HttpServlet {
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String PacieteDetail = (String) tokensession.getAttribute("PACIENTE");
-        Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
-         Log.debug("Session paciente "+PacieteDetail);
-        if(PacieteDetail != null){
+        Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
+        Log.debug("Session paciente " + PacieteDetail);
+        if (PacieteDetail != null) {
             Log.debug("Session user vacia");
             accion = "CP-BYUSER";
-        
+
         }
-        
+
         Log.info("accion :" + accion);
         Log.info(request);
         //Log.info("planname : " + planName);
@@ -69,6 +72,7 @@ public class ServletPacienteProfile extends HttpServlet {
         parameter.put("accion", accion);
         parameter.put("numUser", PacieteDetail);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {
@@ -82,17 +86,17 @@ public class ServletPacienteProfile extends HttpServlet {
             if (res.getStatus().getMessage().equalsIgnoreCase("SELECT_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
                 response.setStatus(200);
                 try {
-                       
+
                     //if (accion.equalsIgnoreCase("CP-PERFIL")) {
-                        out.println(getPacienteProfilePipe(res));
+                    out.println(getPacienteProfilePipe(res));
                     //}
 //                        else if (accion.equalsIgnoreCase("LP-SELECT")) {
 //                            out.println(getPlanesSelect(res));
 //                        }
 
                 } catch (Exception e) {
-                    Log.error(" NO Existe Informacion : "+e);
-                    
+                    Log.error(" NO Existe Informacion : " + e);
+
                     out.println("Imposible recuperar la informacion");
                     response.setStatus(404);
 
@@ -119,11 +123,9 @@ public class ServletPacienteProfile extends HttpServlet {
     private String getPacienteProfilePipe(PacienteResponse res) {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
-        
-        
 
         out.append("<span>");
-        out.append(res.getPaciente().getC_pacientename()+" "+res.getPaciente().getC_apellidos());
+        out.append(res.getPaciente().getC_pacientename() + " " + res.getPaciente().getC_apellidos());
         out.append("</span>");
         out.append("|");
         out.append("<span>");

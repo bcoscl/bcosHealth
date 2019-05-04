@@ -43,6 +43,8 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -57,15 +59,14 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
             String fecha_nacimiento_paciente = (String) request.getParameter("paciente_fecha_nacimiento");
             String edad_paciente = (String) request.getParameter("paciente_edad");
             String prevision = (String) request.getParameter("paciente_prevision");
-            
+
             String aboutme_obs_paciente = (String) request.getParameter("paciente_obs");
             String direccion_paciente = (String) request.getParameter("paciente_direccion");
             String sexo = (String) request.getParameter("paciente_sexo");
 
-           
             String token = (String) tokensession.getAttribute("token");
             String numuser_paciente = (String) tokensession.getAttribute("PACIENTE");
-            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
 
             Log.info(request);
             Log.info("accion : " + accion);
@@ -79,7 +80,7 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
             Log.info("fecha_nacimiento_paciente :" + fecha_nacimiento_paciente);
             Log.info("edad_paciente :" + edad_paciente);
             Log.info("prevision :" + prevision);
-            
+
             Log.info("aboutme_obs_paciente :" + aboutme_obs_paciente);
             Log.info("direccion_paciente :" + direccion_paciente);
             Log.info("sexo :" + sexo);
@@ -104,6 +105,8 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
             parameter.put("aboutme_obs_paciente", aboutme_obs_paciente);
             parameter.put("direccion_paciente", direccion_paciente);
             parameter.put("sexo", sexo);
+
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 
@@ -134,7 +137,7 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
                     Log.info("TOKEN_NO_VALIDO");
                     response.setStatus(401);
 
-                }  else {
+                } else {
                     Log.info("UPDATE_NO_OK");
                     response.setStatus(400);  // 400 Bad Request - Registro Duplicado  
                 }

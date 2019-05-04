@@ -43,6 +43,8 @@ public class ServletCrearPaciente extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -62,7 +64,7 @@ public class ServletCrearPaciente extends HttpServlet {
             String direccion_paciente = (String) request.getParameter("direccion_paciente");
             String sexo = (String) request.getParameter("sexo_paciente");
 
-            if (isapre_name_paciente!=null && !isapre_name_paciente.isEmpty()) {
+            if (isapre_name_paciente != null && !isapre_name_paciente.isEmpty()) {
                 prevision = prevision + ", " + isapre_name_paciente;
             }
 
@@ -105,6 +107,7 @@ public class ServletCrearPaciente extends HttpServlet {
             parameter.put("aboutme_obs_paciente", aboutme_obs_paciente);
             parameter.put("direccion_paciente", direccion_paciente);
             parameter.put("sexo", sexo);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

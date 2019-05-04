@@ -8,8 +8,6 @@ package cl.bcos.servlet;
 import cl.bcos.HttpRequest;
 import cl.bcos.entity.Param;
 import cl.bcos.entity.ParamList;
-import cl.bcos.entity.SuscripcionesList;
-import cl.bcos.entity.suscripciones;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,7 +29,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String LISTAR_TABLA = "LC-TABLA";
     //private static final String LISTAR_SELECT = "LS-SELECT";
-   // private static final String LISTAR_SELECT_BY = "LS-SELECT-BY-EMPRESA";
+    // private static final String LISTAR_SELECT_BY = "LS-SELECT-BY-EMPRESA";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,6 +46,9 @@ public class ServletListarConfiguraciones extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -65,6 +66,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
         //parameter.put("userMax", userMax);
+        parameter.put("empresasession", empresasession);
         parameter.put("token", token);
 
         String resultHttpRequest = "";
@@ -85,7 +87,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
 
                         if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
                             out.println(getParamsTabla(res));
-                        } else{ 
+                        } else {
                             Log.error(" NO SOPORTADO ");
                         }
 
@@ -110,8 +112,8 @@ public class ServletListarConfiguraciones extends HttpServlet {
                         out.println(" </tbody>");
                         out.println(" </table>");
                         out.println(" </div>");
-                        
-                    } 
+
+                    }
 
                 }
 
@@ -159,7 +161,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
         for (Param str : res.getParam()) {
 
             out.append("<tr role=\"row\" class=\"odd\">");
-            
+
             out.append("<td class=\"sorting_1 \">");
             out.append(str.getParams_n_grupo());
             out.append("</td>");
@@ -184,7 +186,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
 //            out.append("<td class=\"sorting_1 \">");
 //            out.append(str.getParams_d_ultmod());
 //            out.append("</td>");
-            
+
             out.append("<td> ");
             out.append("<a class=\"btn btn-success\" href=\"javascript:copyParam('");
             out.append(str.getParams_n_grupo());
@@ -199,7 +201,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
             out.append("','");
             out.append(str.getParams_n_param4());
             out.append("');\"> ");
-            
+
             out.append("<i class=\"fa fa-copy\"></i> ");
             out.append("</a> ");
             out.append("<a class=\"btn btn-info\" href=\"javascript:EditParam('");
@@ -215,7 +217,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
             out.append("','");
             out.append(str.getParams_n_param4());
             out.append("');\"> ");
-            
+
             out.append("<i class=\"fa fa-edit\"></i> ");
             out.append("</a> ");
             out.append("<a class=\"btn btn-danger\" href=\"javascript:deleteParam(");
@@ -224,9 +226,6 @@ public class ServletListarConfiguraciones extends HttpServlet {
             out.append("<i class=\"fa fa-trash-o\"></i> ");
             out.append("</a> ");
             out.append("</td>");
-            
-
-            
 
             //out.append("<!--<td>\n" +
             //out.append("<a class=\"btn btn-success\" href=\"#\">\n" +
@@ -282,4 +281,3 @@ public class ServletListarConfiguraciones extends HttpServlet {
     }
 
 }
-

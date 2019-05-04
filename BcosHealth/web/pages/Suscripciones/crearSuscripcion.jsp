@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Telefono de Contacto</label>
+                    <label class="col-md-3 col-form-label" for="text-input">Télefono de Contacto</label>
                     <div class="col-md-9">
                         <input class="form-control" id="numero_telefono" value ="+569" type="text" name="text-input" placeholder="numero de Telefono +569" required>
                     </div>

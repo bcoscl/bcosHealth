@@ -2,13 +2,11 @@
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     
     
-    
-    
      <header class="app-header navbar">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../base/index.jsp">
             <img class="navbar-brand-full" src="../../comun/img/brand/logo.png" width="89" height="40" alt=" Logo full">
             <img class="navbar-brand-minimized" src="../../comun/img/brand/logo.png" width="30" height="30" alt=" Logo minimized">
         </a>
@@ -36,21 +34,26 @@
 
         <!-- bara superior derecha -->
         <ul class="nav navbar-nav ml-auto">
-            <li class="breadcrumb-item d-md-down-none"><span id="usuarioSession_header"></span></li>          
+            <li class="breadcrumb-item d-md-down-none">
+                <span id="usuarioSession_header">(Empresa no definida)</span>
+            <span id="empresa_header"></span>
+            </li>          
             <li class="nav-item dropdown">		
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-avatar" src="../../comun/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="../../comun/img/avatars/6.jpg" alt="imagen">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
                         <strong>Account</strong>
                     </div>
                     <a class="dropdown-item" href="../../ServletUserProfileRedirect">
-                        <i class="fa fa-user"></i> Profile</a>
-                    <a class="dropdown-item" href="../Perfil/ChangePass.jsp">
+                        <i class="fa fa-user"></i> Perfil</a>
+                    <a class="dropdown-item" href="javascript:CambioEmpresa();">
+                        <i class="fa fa-tags"></i> Empresa</a>
+                    <a class="dropdown-item" href="javascript:CambioPassword();">
                         <i class="fa fa-key"></i> Cambiar Clave</a>
                     <a class="dropdown-item" href="../../ServletLogOut">
-                        <i class="fa fa-lock"></i> Logout</a>
+                        <i class="fa fa-lock"></i> Salir</a>
                 </div>
             </li>
         </ul>
@@ -68,7 +71,9 @@
         <main class="main">
             <!-- Breadcrumb-->
             <ol class="breadcrumb d-md-none">
-                <li class="breadcrumb-item"><span id="usuarioSession_header2"></span></li>  
+                <li class="breadcrumb-item"><span id="usuarioSession_header2">(Empresa no definida)</span>
+                <span id="empresa_header2"></span>
+                </li>  
             </ol>
             <ol class="breadcrumb d-none d-lg-block"></ol>
 

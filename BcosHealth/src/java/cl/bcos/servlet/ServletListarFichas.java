@@ -43,6 +43,9 @@ public class ServletListarFichas extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
         HttpSession Paciente = request.getSession(true);
 
@@ -59,16 +62,17 @@ public class ServletListarFichas extends HttpServlet {
 
         if (accion.equalsIgnoreCase("LF-DETALLE")) {
             Paciente.setAttribute("PACIENTE", user);
-            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
 
         } else {
-            Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
+            Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
             String URL = "http://localhost:9090/bcos/api/json/listarFichas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);
             //parameter.put("userMax", userMax);
             parameter.put("token", token);
+            parameter.put("empresasession", empresasession);
 
             String resultHttpRequest = "";
             try {
@@ -143,9 +147,9 @@ public class ServletListarFichas extends HttpServlet {
         out.append("  <tr role=\"row\">");
         out.append("  <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 20%;\">Rut</th>");
         out.append("  <th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Paciente</th>");
-        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Primera Atencion</th>");
-        out.append("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Dr Ultima Antecion</th>	");
-        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Fecha Ultima Atencion</th>");
+        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Primera Atención</th>");
+        out.append("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Dr Ultima Atención</th>	");
+        out.append("   <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Fecha Ultima Atención</th>");
 
         out.append(" <th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Actions: activate to sort column ascending\" style=\"width: 2%;\">Detalle</th> ");
         out.append("  </tr>");

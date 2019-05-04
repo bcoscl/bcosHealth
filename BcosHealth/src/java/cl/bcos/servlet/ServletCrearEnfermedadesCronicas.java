@@ -42,6 +42,8 @@ public class ServletCrearEnfermedadesCronicas extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -51,8 +53,8 @@ public class ServletCrearEnfermedadesCronicas extends HttpServlet {
             String cronica_obs = (String) request.getParameter("cronica_obs");
 
             String token = (String) tokensession.getAttribute("token");
-            
-            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
+
+            Log.info("Session PACIENTE" + (String) tokensession.getAttribute("PACIENTE"));
 
             Log.info(request);
             Log.info("accion : " + accion);
@@ -69,6 +71,7 @@ public class ServletCrearEnfermedadesCronicas extends HttpServlet {
             parameter.put("Paciente", Paciente);
             parameter.put("cronica_name", cronica_name);
             parameter.put("cronica_obs", cronica_obs);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

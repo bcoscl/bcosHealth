@@ -41,22 +41,22 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="email-input">Param1</label>
+                    <label class="col-md-3 col-form-label" for="text-input">Param1</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="param1" type="email" name="email-input" placeholder="parametro 1" required>
+                        <input class="form-control" id="param1" type="text" name="email-input" placeholder="parametro 1" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Param2</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="param2" value ="" type="text" name="text-input" placeholder="parametro 1">
+                        <input class="form-control" id="param2" value ="" type="text" name="text-input" placeholder="parametro 2">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Param3</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="param3" value ="" type="text" name="text-input" placeholder="parametro 2">
+                        <input class="form-control" id="param3" value ="" type="text" name="text-input" placeholder="parametro 3">
                     </div>
                 </div>
                 <div class="form-group row">

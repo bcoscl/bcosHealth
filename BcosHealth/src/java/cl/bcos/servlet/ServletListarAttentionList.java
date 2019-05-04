@@ -44,8 +44,10 @@ public class ServletListarAttentionList extends HttpServlet {
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         response.setContentType("text/html;charset=iso-8859-1");
-
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
         HttpSession Paciente = request.getSession(true);
 
@@ -79,6 +81,7 @@ public class ServletListarAttentionList extends HttpServlet {
             parameter.put("doctor", doctor);
             parameter.put("accion", accion);
             parameter.put("token", token);
+            parameter.put("empresasession", empresasession);
 
             String resultHttpRequest = "";
             try {

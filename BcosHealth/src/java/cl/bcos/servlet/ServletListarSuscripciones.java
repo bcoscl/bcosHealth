@@ -46,6 +46,9 @@ public class ServletListarSuscripciones extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         //String planName = (String) request.getParameter("planName");
@@ -63,6 +66,7 @@ public class ServletListarSuscripciones extends HttpServlet {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
         //parameter.put("userMax", userMax);
+        parameter.put("empresasession", empresasession);
         parameter.put("token", token);
 
         String resultHttpRequest = "";
@@ -83,8 +87,8 @@ public class ServletListarSuscripciones extends HttpServlet {
 
                         if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
                             out.println(getSuscripcionesTabla(res));
-                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT)||
-                                accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
+                        } else if (accion.equalsIgnoreCase(LISTAR_SELECT)
+                                || accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
                             Log.info("Select ");
                             out.println(getSuscripcionesSelect(res));
                         }
@@ -110,10 +114,10 @@ public class ServletListarSuscripciones extends HttpServlet {
                         out.println(" </tbody>");
                         out.println(" </table>");
                         out.println(" </div>");
-                        
-                    } else if (accion.equalsIgnoreCase(LISTAR_SELECT)||
-                            accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
-                         out.append("<option value=\"0\">Sin resultados..</option>");
+
+                    } else if (accion.equalsIgnoreCase(LISTAR_SELECT)
+                            || accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
+                        out.append("<option value=\"0\">Sin resultados..</option>");
                     }
 
                 }
@@ -147,7 +151,7 @@ public class ServletListarSuscripciones extends HttpServlet {
         out.append("<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Username: activate to sort column descending\" style=\"width: 10%;\">Empresa</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">Nombre Contacto</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">email</th>");
-        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">numero</th>");
+        out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 10%;\">Número</th>");
 
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 15%;\">Fecha Inicio</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Role: activate to sort column ascending\" style=\"width: 10%;\">Plan</th>");

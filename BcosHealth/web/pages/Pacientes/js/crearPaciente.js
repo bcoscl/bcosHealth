@@ -162,7 +162,8 @@ $(document).ready(function () {
                 error: function (jqXHR, textStatus, errorThrown) {
 
                     var mensaje;
-
+                    $(id)[0].reset();
+                    removeValidation(id);
                     $.unblockUI();
 //                    $("#msgResultError").removeAttr('style');
 //                    $("#msgResultError").removeClass('fade show-none');

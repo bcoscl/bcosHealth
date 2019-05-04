@@ -43,6 +43,9 @@ public class ServletListarMenu extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         String MENU = (String) tokensession.getAttribute("MENU");
@@ -71,6 +74,7 @@ public class ServletListarMenu extends HttpServlet {
                 Map<String, String> parameter = new HashMap<String, String>();
 
                 parameter.put("accion", accion);
+                parameter.put("empresasession", empresasession);
                 parameter.put("token", token);
 
                 String resultHttpRequest = "";

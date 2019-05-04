@@ -106,7 +106,7 @@ public class ServletLogin extends HttpServlet {
                 out.println("Credenciale incorrectas");
                 
                 response.sendRedirect(
-                        "./pages/base/LoginPage.html");
+                        "./pages/base/LoginPage.jsp");
             }
             
         } catch (MalformedURLException e) {

@@ -136,7 +136,7 @@
                     </div>
                     <label class="col-md-2 col-form-label" for="text-input">(*) indique la isapre</label>
                     <div class="col-md-3">
-                        <input class="form-control" id="isapre_name_paciente" value ="" type="text" name="text-input" placeholder="nombre Isapre" required>
+                        <input class="form-control" id="isapre_name_paciente" value ="" type="text" name="text-input" placeholder="nombre Isapre" >
                     </div>
                 </div>
 

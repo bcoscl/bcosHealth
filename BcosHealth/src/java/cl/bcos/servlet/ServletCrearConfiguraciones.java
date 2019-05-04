@@ -42,6 +42,7 @@ public class ServletCrearConfiguraciones extends HttpServlet {
 
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -76,6 +77,7 @@ public class ServletCrearConfiguraciones extends HttpServlet {
             parameter.put("params_param2", params_param2);
             parameter.put("params_param3", params_param3);
             parameter.put("params_param4", params_param4);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

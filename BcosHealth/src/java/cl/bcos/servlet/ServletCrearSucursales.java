@@ -43,6 +43,8 @@ public class ServletCrearSucursales extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -83,6 +85,7 @@ public class ServletCrearSucursales extends HttpServlet {
             parameter.put("select_empresa_name", select_empresa_name);
             parameter.put("checkbox_activo", checkbox_activo);
             parameter.put("accion", accion);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

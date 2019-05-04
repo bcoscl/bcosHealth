@@ -42,6 +42,8 @@ public class ServletCrearFarmacos extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -69,6 +71,7 @@ public class ServletCrearFarmacos extends HttpServlet {
             parameter.put("Paciente", Paciente);
             parameter.put("farmaco_name", farmaco_name);
             parameter.put("farmaco_obs", farmaco_obs);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 

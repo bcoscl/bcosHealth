@@ -44,12 +44,15 @@ public class ServletListarFarmacos extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
 
         HttpSession tokensession = request.getSession(true);
+
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         PrintWriter out = response.getWriter();
 
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         String Paciente = (String) tokensession.getAttribute("PACIENTE");
-        Log.info("Session PACIENTE "+(String) tokensession.getAttribute("PACIENTE"));
+        Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
 
         Log.info("accion :" + accion);
         Log.info("Paciente :" + Paciente);
@@ -63,6 +66,7 @@ public class ServletListarFarmacos extends HttpServlet {
         parameter.put("accion", accion);
         parameter.put("Paciente", Paciente);
         parameter.put("token", token);
+        parameter.put("empresasession", empresasession);
 
         String resultHttpRequest = "";
         try {

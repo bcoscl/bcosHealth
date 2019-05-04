@@ -42,6 +42,8 @@ public class ServletCrearExamenes extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         HttpSession tokensession = request.getSession(true);
 
+        String empresasession = (String) tokensession.getAttribute("EMPRESA");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
@@ -52,11 +54,11 @@ public class ServletCrearExamenes extends HttpServlet {
             String examen_url = (String) request.getParameter("examen_url");
             String examen_pacientename = (String) request.getParameter("examen_pacientename");
             String examen_pacientename_numuser = (String) request.getParameter("examen_pacientename_numuser");
-            
+
             if (accion.equalsIgnoreCase("IE")) {
                 Paciente = examen_pacientename_numuser;
             }
-            Log.info("Session PACIENTE"+(String) tokensession.getAttribute("PACIENTE"));
+            Log.info("Session PACIENTE" + (String) tokensession.getAttribute("PACIENTE"));
             String token = (String) tokensession.getAttribute("token");
 
             Log.info(request);
@@ -78,6 +80,7 @@ public class ServletCrearExamenes extends HttpServlet {
             parameter.put("exa_c_obs", examen_obs);
             parameter.put("exa_c_url", examen_url);
             parameter.put("examen_pacientename", examen_pacientename);
+            parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
 
