@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarPlanes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarPlanes.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,7 +60,7 @@ public class ServletListarPlanes extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = "http://localhost:9090/bcos/api/json/listarPlanes";
+        String URL = PATH + "/bcos/api/json/listarPlanes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);

@@ -26,6 +26,8 @@ import org.apache.log4j.Logger;
 public class ServletChangePasswordInSite extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletChangePasswordInSite.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,7 +55,7 @@ public class ServletChangePasswordInSite extends HttpServlet {
             Log.info("pass : " + pass);
             Log.info("token : " + token);
 
-            String URL = "http://localhost:9090/bcos/api/json/changePasswordInSite";
+            String URL = PATH + "/bcos/api/json/changePasswordInSite";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 
@@ -74,7 +76,7 @@ public class ServletChangePasswordInSite extends HttpServlet {
 
                 } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
                     Log.info("TOKEN_NO_VALIDO");
-                    
+
                     response.setStatus(401);
 
                 } else {
@@ -84,7 +86,7 @@ public class ServletChangePasswordInSite extends HttpServlet {
             } catch (Exception e) {
                 Log.error(e);
                 response.setStatus(404);
-                
+
             }
 
         }

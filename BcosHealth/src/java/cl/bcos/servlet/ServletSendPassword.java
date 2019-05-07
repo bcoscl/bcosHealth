@@ -25,6 +25,8 @@ import org.apache.log4j.Logger;
 public class ServletSendPassword extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearConfiguraciones.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,7 +56,7 @@ public class ServletSendPassword extends HttpServlet {
             Log.info("numuser : " + numuser);
             Log.info("email :" + olvido_email);
 
-            String URL = "http://localhost:9090/bcos/api/json/recuperarPassword";
+            String URL = PATH + "/bcos/api/json/recuperarPassword";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("accion", accion);

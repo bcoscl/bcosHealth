@@ -25,6 +25,8 @@ import org.apache.log4j.Logger;
 public class ServletPlanes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPlanes.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,7 +46,7 @@ public class ServletPlanes extends HttpServlet {
         Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = "http://localhost:9090/bcos/api/json/planes";
+        String URL = PATH + "/bcos/api/json/planes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("planName", planName);

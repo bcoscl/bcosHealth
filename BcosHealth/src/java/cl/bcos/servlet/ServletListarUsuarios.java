@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarUsuarios extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarUsuarios.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static final String MEDICO = "MEDICO";
 
     /**
@@ -64,7 +66,7 @@ public class ServletListarUsuarios extends HttpServlet {
 
         } else {
 
-            String URL = "http://localhost:9090/bcos/api/json/ListarUsuarios";
+            String URL = PATH + "/bcos/api/json/ListarUsuarios";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);

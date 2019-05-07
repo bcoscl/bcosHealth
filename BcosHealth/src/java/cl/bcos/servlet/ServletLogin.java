@@ -26,8 +26,10 @@ import org.apache.log4j.Logger;
  * @author aacantero
  */
 public class ServletLogin extends HttpServlet {
-    
+
     private static final Logger Log = Logger.getLogger(ServletLogin.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,19 +44,16 @@ public class ServletLogin extends HttpServlet {
             throws ServletException, IOException, Exception {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         HttpSession tokensession = request.getSession(true);
-        
+
         response.setContentType("text/html;charset=iso-8859-1");
         PrintWriter out = response.getWriter();
-        
+
         String User = request.getParameter("username");
         String Password = request.getParameter("password");
         String accion = request.getParameter("accion");
-        
-              
 
-       tokensession.setAttribute("MENU",null);
-        
-        
+        tokensession.setAttribute("MENU", null);
+
         Log.info("User : " + User + " - Password : " + Password);
         //ImplementacionJWT jwt = new ImplementacionJWT();
         //GenerarTokenJWT token = jwt.getGeneraJWT();
@@ -63,52 +62,50 @@ public class ServletLogin extends HttpServlet {
         String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        String URL = "http://localhost:9090/bcos/api/json/SSO";
-        
-         Map<String, String> parameter = new HashMap<String, String>();
+        String URL = PATH + "/bcos/api/json/SSO";
+
+        Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("User", User);
         parameter.put("Password", Password);
         parameter.put("accion", accion);
         //parameter.put("token", token);
 
         try {
-            
+
             resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, "");
             Log.info(resultHttpRequest);
             LoginJsonResponse res = new Gson().fromJson(resultHttpRequest, LoginJsonResponse.class);
 
             Log.info("res.message : " + res.getStatus().getMessage());
             Log.info("res.message : " + res.getStatus().getCode());
-            
-                        
+
             if (res.getStatus().getStatusCode() != 200) {
                 Log.info("Failed : HTTP error code : "
                         + res.getStatus().getStatusCode());
-                
+
                 response.sendRedirect(
                         "./pages/base/401.html");
-            }                    
-           
-            
+            }
+
             if (res.getStatus().getStatusCode() == 200 && res.getLogin().equalsIgnoreCase("OK")) {
                 Log.info("login : " + res.getLogin());
                 Log.info("Code status : " + res.getStatus().getStatusCode());
                 Log.info("token " + res.getToken());
-                
+
                 tokensession.setAttribute("token", res.getToken());// token bearer
-                
+
                 Log.info("token de session : " + tokensession.getAttribute("token"));
                 response.sendRedirect(
                         "./pages/base/index.jsp");
-                
+
             } else {
                 Log.error("Credenciale incorrectas");
                 out.println("Credenciale incorrectas");
-                
+
                 response.sendRedirect(
                         "./pages/base/LoginPage.jsp");
             }
-            
+
         } catch (MalformedURLException e) {
             Log.error(e);
             response.sendRedirect(
@@ -117,7 +114,7 @@ public class ServletLogin extends HttpServlet {
             Log.error(e);
             response.sendRedirect(
                     "./pages/base/404.html");
-            
+
             Log.error(e);
         }
 
@@ -156,7 +153,7 @@ public class ServletLogin extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
-            
+
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(ServletLogin.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -177,7 +174,7 @@ public class ServletLogin extends HttpServlet {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
-            
+
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(ServletLogin.class
                     .getName()).log(Level.SEVERE, null, ex);

@@ -27,7 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarAttentionList extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarAttentionList.class);
-
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static final String AT_TABLA_BY_DOC = "AT-TABLA-BY-DOC";
     private static final String AT_TABLA = "AT-TABLA";
 
@@ -75,7 +76,7 @@ public class ServletListarAttentionList extends HttpServlet {
                 doctor = "TOKEN";
             }
 
-            String URL = "http://localhost:9090/bcos/api/json/listarAttentionList";
+            String URL = PATH + "/bcos/api/json/listarAttentionList";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("doctor", doctor);

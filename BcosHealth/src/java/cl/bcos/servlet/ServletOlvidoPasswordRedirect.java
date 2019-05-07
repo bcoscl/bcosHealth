@@ -26,6 +26,8 @@ import org.apache.log4j.Logger;
 public class ServletOlvidoPasswordRedirect extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletOlvidoPasswordRedirect.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,7 +51,7 @@ public class ServletOlvidoPasswordRedirect extends HttpServlet {
             Log.info(request);
             Log.info("token : " + token);
 
-            String URL = "http://localhost:9090/bcos/api/json/validaToken";
+            String URL = PATH + "/bcos/api/json/validaToken";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 
@@ -64,9 +66,9 @@ public class ServletOlvidoPasswordRedirect extends HttpServlet {
                 Log.info("res.message : " + res.getStatus().getCode());
 
                 if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
-                    
+
                     tokenReinicio.setAttribute("TOKEN_RESET", token);
-                    
+
                     response.sendRedirect(
                             "./pages/Password/CambioPassword.jsp");
 

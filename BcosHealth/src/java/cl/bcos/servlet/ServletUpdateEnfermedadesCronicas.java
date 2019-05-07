@@ -26,6 +26,8 @@ import org.apache.log4j.Logger;
 public class ServletUpdateEnfermedadesCronicas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateEnfermedadesCronicas.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -68,7 +70,7 @@ public class ServletUpdateEnfermedadesCronicas extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            String URL = "http://localhost:9090/bcos/api/json/updateEnfermedadesCronicas";
+            String URL = PATH + "/bcos/api/json/updateEnfermedadesCronicas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

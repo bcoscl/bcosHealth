@@ -26,6 +26,8 @@ import org.apache.log4j.Logger;
 public class ServletUpdateSucursal extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateSuscripcion.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -64,7 +66,7 @@ public class ServletUpdateSucursal extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            String URL = "http://localhost:9090/bcos/api/json/updateSucursales";
+            String URL = PATH + "/bcos/api/json/updateSucursales";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             if (accion.equalsIgnoreCase("LS-ACTIVAR")) {

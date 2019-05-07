@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarProfesiones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarProfesiones.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static final String LISTAR_TABLA = "LP-TABLA";
     private static final String LISTAR_SELECT = "LP-SELECT";
 
@@ -61,7 +63,7 @@ public class ServletListarProfesiones extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = "http://localhost:9090/bcos/api/json/listarProfesiones";
+        String URL = PATH + "/bcos/api/json/listarProfesiones";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);

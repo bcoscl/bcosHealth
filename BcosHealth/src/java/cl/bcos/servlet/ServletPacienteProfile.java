@@ -26,6 +26,8 @@ import org.apache.log4j.Logger;
 public class ServletPacienteProfile extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPacienteProfile.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -66,7 +68,7 @@ public class ServletPacienteProfile extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = "http://localhost:9090/bcos/api/json/PacienteProfile";
+        String URL = PATH + "/bcos/api/json/PacienteProfile";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

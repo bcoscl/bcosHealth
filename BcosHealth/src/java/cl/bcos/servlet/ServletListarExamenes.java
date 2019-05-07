@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 public class ServletListarExamenes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarExamenes.class);
+    private static final String ENDPOINT_PATH = "URLPATH";
+    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static final String CE_EXAMENES_PROFILE = "CE-EXAMENES-PROFILE";
     private static final String LE_TABLA = "LE-TABLA";
     private static final String LE_BY_PACIENTE_TABLA = "LE-TABLA-BY-PACIENTE";
@@ -69,7 +71,7 @@ public class ServletListarExamenes extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        String URL = "http://localhost:9090/bcos/api/json/listarExamenes";
+        String URL = PATH + "/bcos/api/json/listarExamenes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
