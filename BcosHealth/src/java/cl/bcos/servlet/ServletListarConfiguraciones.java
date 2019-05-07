@@ -28,7 +28,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH);
     private static final String LISTAR_TABLA = "LC-TABLA";
     //private static final String LISTAR_SELECT = "LS-SELECT";
     // private static final String LISTAR_SELECT_BY = "LS-SELECT-BY-EMPRESA";

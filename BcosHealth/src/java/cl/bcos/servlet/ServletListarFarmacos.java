@@ -28,7 +28,7 @@ public class ServletListarFarmacos extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarFarmacos.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH);
     private static final String CF_FARMACOS_PROFILE = "CF-FARMACOS-PROFILE";
 
     /**

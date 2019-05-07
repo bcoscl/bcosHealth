@@ -26,7 +26,7 @@ public class ServletPlanes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPlanes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

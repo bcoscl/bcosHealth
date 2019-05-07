@@ -5,7 +5,7 @@
 <%@include file="../includes/header.jsp" %>
 
 
-<title>Bcos Health - Listar Planes</title>
+<title>Bcos Health - Listar Fichas</title>
 
 <script src="./js/listarFichas.js"></script>
 

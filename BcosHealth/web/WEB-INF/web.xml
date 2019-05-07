@@ -261,6 +261,10 @@
         <servlet-name>ServletChangePasswordInSite</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletChangePasswordInSite</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletExportarFichas</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletExportarFichas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -452,6 +456,10 @@
     <servlet-mapping>
         <servlet-name>ServletChangePasswordInSite</servlet-name>
         <url-pattern>/ServletChangePasswordInSite</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletExportarFichas</servlet-name>
+        <url-pattern>/ServletExportarFichas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

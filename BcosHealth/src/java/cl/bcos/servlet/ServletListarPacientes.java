@@ -28,7 +28,7 @@ public class ServletListarPacientes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarPacientes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -95,6 +95,9 @@ public class ServletListarPacientes extends HttpServlet {
                             } else if (accion.equalsIgnoreCase("LU-SELECT")) {
                                 Log.info("Select ");
                                 out.println(getPacientesSelect(res));
+                            } else if (accion.equalsIgnoreCase("LU-SELECT-MULTIPLE")) {
+                                Log.info("Select ");
+                                out.println(getPacientesSelectMultiple(res));
                             }
 
                         }
@@ -287,6 +290,33 @@ public class ServletListarPacientes extends HttpServlet {
         }
         Log.debug(out.toString());
         //out.append(" </div>");
+        return out.toString();
+    }
+
+    private String getPacientesSelectMultiple(PacientesList res) {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        StringBuilder out = new StringBuilder();
+
+        out.append("<select id=\"select_export_pacientes\" class=\"selectpicker\" multiple data-live-search=\"true\" data-width=\"100%\">");
+        String numuser = "";
+        for (Paciente str : res.getPaciente()) {
+
+            numuser = str.getC_numuser();
+            if (numuser.isEmpty()) {
+                numuser = str.getC_pacientename();
+            }
+            out.append("<option value=\"");
+            out.append(str.getC_numuser());
+            out.append("\"");
+            //out.append(numuser);
+            out.append(">[");
+            out.append(str.getC_numuser()+" | "+str.getC_pacientename() + " " + str.getC_apellidos());
+            out.append("]</option>");
+
+        }
+        out.append(" </select>");
+        Log.debug(out.toString());
+
         return out.toString();
     }
 

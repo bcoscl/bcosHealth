@@ -27,7 +27,7 @@ public class ServletChangePasswordInSite extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletChangePasswordInSite.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH);
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
