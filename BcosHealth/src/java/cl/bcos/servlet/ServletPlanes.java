@@ -26,7 +26,8 @@ public class ServletPlanes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPlanes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,7 +47,7 @@ public class ServletPlanes extends HttpServlet {
         Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = PATH + "/bcos/api/json/planes";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/planes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("planName", planName);

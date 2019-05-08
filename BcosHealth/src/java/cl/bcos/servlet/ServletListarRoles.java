@@ -28,7 +28,8 @@ public class ServletListarRoles extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarRoles.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
     private static final String LISTAR_TABLA = "LR-TABLA";
     private static final String LISTAR_SELECT = "LR-SELECT";
 
@@ -63,7 +64,7 @@ public class ServletListarRoles extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        String URL = PATH + "/bcos/api/json/listarRoles";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarRoles";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);

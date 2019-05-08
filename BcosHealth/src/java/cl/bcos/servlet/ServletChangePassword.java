@@ -27,7 +27,8 @@ public class ServletChangePassword extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletChangePassword.class);
 private static final String ENDPOINT_PATH = "URLPATH";
-private static final String PATH = System.getProperty(ENDPOINT_PATH);
+private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+private static String https = "https://";
 	
 
     /**
@@ -56,7 +57,7 @@ private static final String PATH = System.getProperty(ENDPOINT_PATH);
             Log.info("pass : " + pass);
             Log.info("tokenReset : " + tokenReset);
 
-            String URL = PATH+"/bcos/api/json/changePassword";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH+"/bcos/api/json/changePassword";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

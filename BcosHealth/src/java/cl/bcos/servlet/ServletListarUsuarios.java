@@ -28,7 +28,8 @@ public class ServletListarUsuarios extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarUsuarios.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
     private static final String MEDICO = "MEDICO";
 
     /**
@@ -66,7 +67,7 @@ public class ServletListarUsuarios extends HttpServlet {
 
         } else {
 
-            String URL = PATH + "/bcos/api/json/ListarUsuarios";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/ListarUsuarios";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);

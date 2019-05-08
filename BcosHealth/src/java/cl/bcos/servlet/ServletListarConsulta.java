@@ -28,7 +28,8 @@ public class ServletListarConsulta extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarConsulta.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
     private static final String CC_CONSULTAS_PROFILE = "CC-CONSULTAS-PROFILE";
 
     /**
@@ -60,7 +61,7 @@ public class ServletListarConsulta extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        String URL = PATH + "/bcos/api/json/listarConsultas";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarConsultas";
 // try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

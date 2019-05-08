@@ -27,7 +27,8 @@ public class ServletUpdateFarmacos extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateFarmacos.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,7 +71,7 @@ public class ServletUpdateFarmacos extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            String URL = PATH + "/bcos/api/json/updateFarmacos";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateFarmacos";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

@@ -27,7 +27,8 @@ public class ServletUpdateEnfermedadesCronicas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateEnfermedadesCronicas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,7 +71,7 @@ public class ServletUpdateEnfermedadesCronicas extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            String URL = PATH + "/bcos/api/json/updateEnfermedadesCronicas";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateEnfermedadesCronicas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

@@ -26,7 +26,8 @@ public class ServletSendPassword extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearConfiguraciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -56,7 +57,7 @@ public class ServletSendPassword extends HttpServlet {
             Log.info("numuser : " + numuser);
             Log.info("email :" + olvido_email);
 
-            String URL = PATH + "/bcos/api/json/recuperarPassword";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/recuperarPassword";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("accion", accion);

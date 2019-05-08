@@ -29,7 +29,8 @@ public class ServletLogin extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletLogin.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,7 +63,7 @@ public class ServletLogin extends HttpServlet {
         String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        String URL = PATH + "/bcos/api/json/SSO";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/SSO";
 
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("User", User);

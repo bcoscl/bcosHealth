@@ -28,7 +28,8 @@ public class ServletListarMenu extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarMenu.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -71,7 +72,7 @@ public class ServletListarMenu extends HttpServlet {
             } else {
                 Log.info("NO EXISTE MENU, SE CARGA SEGUN ACCESOS");
 
-                String URL = PATH + "/bcos/api/json/listarMenu";
+                if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarMenu";
 
                 Map<String, String> parameter = new HashMap<String, String>();
 

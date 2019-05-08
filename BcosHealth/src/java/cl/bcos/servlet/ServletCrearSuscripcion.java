@@ -27,7 +27,8 @@ public class ServletCrearSuscripcion extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearSuscripcion.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -75,7 +76,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            String URL = PATH + "/bcos/api/json/crearSuscripcion";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearSuscripcion";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("nombre_empresa", nombre_empresa);

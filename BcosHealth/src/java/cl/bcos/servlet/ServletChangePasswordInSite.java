@@ -27,8 +27,8 @@ public class ServletChangePasswordInSite extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletChangePasswordInSite.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
-
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+private static String https = "https://";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -55,7 +55,7 @@ public class ServletChangePasswordInSite extends HttpServlet {
             Log.info("pass : " + pass);
             Log.info("token : " + token);
 
-            String URL = PATH + "/bcos/api/json/changePasswordInSite";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/changePasswordInSite";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

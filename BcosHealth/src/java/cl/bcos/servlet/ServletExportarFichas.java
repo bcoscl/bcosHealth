@@ -31,7 +31,8 @@ public class ServletExportarFichas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletExportarFichas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH);
+    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static String https = "https://";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -66,7 +67,7 @@ public class ServletExportarFichas extends HttpServlet {
 
         Log.info(request);
 
-        String URL = PATH + "/bcos/api/json/exportFichas";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/exportFichas";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);
@@ -332,16 +333,16 @@ public class ServletExportarFichas extends HttpServlet {
         value = value.replace("[", ",");
 
         value = value.replace(" ", "");
-        Log.debug("value despues del replace :" + value);
+        //Log.debug("value despues del replace :" + value);
         String valor[] = value.split(",");
 
         String valorLimpio = "";
         for (int i = 0; i < valor.length; i++) {
             if (!valor[i].isEmpty()) {
-                Log.debug("valor : " + valor[i]);
+                //Log.debug("valor : " + valor[i]);
                 String valor_ = valor[i];
-                String val[] = valor_.split("|");
-                Log.debug("val[0] " + val[0]);
+                String val[] = valor_.replace("|",",").split(",");
+                //Log.debug("val[0] " + val[0]);
                 if (valorLimpio.isEmpty()) {
                     valorLimpio = val[0];
                 } else {
