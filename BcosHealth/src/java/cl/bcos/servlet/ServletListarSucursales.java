@@ -65,7 +65,7 @@ public class ServletListarSucursales extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarSucursales";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarSucursales";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);

@@ -67,7 +67,7 @@ public class ServletListarPacientes extends HttpServlet {
 
         } else {
             Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/ListarPacientes";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/ListarPacientes";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);

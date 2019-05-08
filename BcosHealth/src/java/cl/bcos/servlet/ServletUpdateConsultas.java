@@ -71,7 +71,7 @@ public class ServletUpdateConsultas extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateConsultas";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateConsultas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

@@ -62,7 +62,7 @@ public class ServletListarEnfermedadesCronicas extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarEnfermedadesCronicas";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarEnfermedadesCronicas";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

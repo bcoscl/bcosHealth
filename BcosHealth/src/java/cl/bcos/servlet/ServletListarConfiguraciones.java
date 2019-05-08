@@ -64,7 +64,7 @@ public class ServletListarConfiguraciones extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarParam";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarParam";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

@@ -67,7 +67,7 @@ public class ServletUpdateSucursal extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateSucursales";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateSucursales";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             if (accion.equalsIgnoreCase("LS-ACTIVAR")) {

@@ -71,7 +71,7 @@ public class ServletCrearConfiguraciones extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearParam";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearParam";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("params_grupo", params_grupo);

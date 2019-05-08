@@ -72,7 +72,7 @@ public class ServletListarExamenes extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarExamenes";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarExamenes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

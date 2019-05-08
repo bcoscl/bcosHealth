@@ -63,7 +63,7 @@ public class ServletLogin extends HttpServlet {
         String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/SSO";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/SSO";
 
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("User", User);

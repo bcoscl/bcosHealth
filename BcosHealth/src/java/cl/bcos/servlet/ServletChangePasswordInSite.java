@@ -55,7 +55,7 @@ private static String https = "https://";
             Log.info("pass : " + pass);
             Log.info("token : " + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/changePasswordInSite";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/changePasswordInSite";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

@@ -67,7 +67,7 @@ public class ServletExportarFichas extends HttpServlet {
 
         Log.info(request);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/exportFichas";
+        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/exportFichas";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);
@@ -352,6 +352,10 @@ public class ServletExportarFichas extends HttpServlet {
             }
 
         }
+        valorLimpio = valorLimpio.trim();
+        valorLimpio = valorLimpio.replace(",", "','");
+        valorLimpio = "'"+valorLimpio+"'";
+        
         Log.debug(valorLimpio);
         return valorLimpio;
     }

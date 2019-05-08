@@ -80,7 +80,7 @@ public class ServletUpdateSuscripcion extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateSuscripcion";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateSuscripcion";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             if (accion.equalsIgnoreCase("LS-ACTIVAR")) {

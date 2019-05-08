@@ -61,7 +61,7 @@ public class ServletCrearRoles extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearRole";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearRole";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("RoleName", RoleName);

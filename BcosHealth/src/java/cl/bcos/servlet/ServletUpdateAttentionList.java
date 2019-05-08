@@ -68,7 +68,7 @@ public class ServletUpdateAttentionList extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updateAttentionList";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateAttentionList";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

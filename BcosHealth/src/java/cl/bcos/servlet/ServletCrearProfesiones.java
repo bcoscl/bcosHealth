@@ -61,7 +61,7 @@ public class ServletCrearProfesiones extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearProfesiones";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearProfesiones";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("profesionName", profesionName);

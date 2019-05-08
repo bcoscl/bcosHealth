@@ -76,7 +76,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearSuscripcion";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearSuscripcion";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("nombre_empresa", nombre_empresa);

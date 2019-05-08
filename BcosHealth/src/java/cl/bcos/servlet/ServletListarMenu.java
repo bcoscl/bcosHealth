@@ -72,7 +72,7 @@ public class ServletListarMenu extends HttpServlet {
             } else {
                 Log.info("NO EXISTE MENU, SE CARGA SEGUN ACCESOS");
 
-                if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarMenu";
+                if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarMenu";
 
                 Map<String, String> parameter = new HashMap<String, String>();
 

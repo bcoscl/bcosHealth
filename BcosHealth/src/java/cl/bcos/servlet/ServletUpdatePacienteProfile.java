@@ -90,7 +90,7 @@ public class ServletUpdatePacienteProfile extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/updatePacientes";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updatePacientes";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

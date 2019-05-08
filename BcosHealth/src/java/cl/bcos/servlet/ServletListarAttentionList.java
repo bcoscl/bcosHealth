@@ -77,7 +77,7 @@ public class ServletListarAttentionList extends HttpServlet {
                 doctor = "TOKEN";
             }
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/listarAttentionList";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarAttentionList";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("doctor", doctor);

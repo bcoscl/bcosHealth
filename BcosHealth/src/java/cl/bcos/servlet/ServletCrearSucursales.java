@@ -76,7 +76,7 @@ public class ServletCrearSucursales extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/crearSucursales";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearSucursales";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("nombre_sucursal", nombre_sucursal);

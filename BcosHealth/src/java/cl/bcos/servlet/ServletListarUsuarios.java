@@ -67,7 +67,7 @@ public class ServletListarUsuarios extends HttpServlet {
 
         } else {
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/ListarUsuarios";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/ListarUsuarios";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);

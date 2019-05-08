@@ -52,7 +52,7 @@ public class ServletOlvidoPasswordRedirect extends HttpServlet {
             Log.info(request);
             Log.info("token : " + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https +  PATH + "/bcos/api/json/validaToken";
+            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/validaToken";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 
