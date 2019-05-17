@@ -3,7 +3,7 @@
 
 
 <div class="modal fade" id="modalOlvido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-success" role="document">
+    <div class="modal-dialog modal-info" role="document">
         <div class="modal-content">
             <div class="modal-header" >
                 <h4 class="modal-title slide" >¿Olvidaste tu Password?</h4>
@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body" id="modal_title">
                 <form id="OlvidoForm">
-                      <div class="form-group row">
+                    <div class="form-group row">
 
                         <div class="col-md-12">
                             <label class="col-md-12 col-form-label" for="text-input">
@@ -53,4 +53,3 @@
     </div>
 
 </div>
- 

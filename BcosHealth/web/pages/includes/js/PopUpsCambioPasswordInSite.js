@@ -51,7 +51,7 @@ $(document).ready(function () {
                     },
 
                     success: function (data) {
-                        SuccesNotify('RESET');
+                        SuccesNotify2('RESET');
                         $(id)[0].reset();
                         removeValidation(id);
 
@@ -82,7 +82,7 @@ $(document).ready(function () {
             }
         } else {
 
-            DangerNotify('Las contraseñas no son iguales');
+            DangerNotify2('Las contraseñas no son iguales');
 
         }
     });
@@ -93,7 +93,7 @@ $(document).ready(function () {
 });
 
 
-function SuccesNotify(reset) {
+function SuccesNotify2(reset) {
 
 
     $.notify({
@@ -143,7 +143,7 @@ function SuccesNotify(reset) {
 
 }
 
-function DangerNotify(mensaje) {
+function DangerNotify2(mensaje) {
 
 
     $.notify({

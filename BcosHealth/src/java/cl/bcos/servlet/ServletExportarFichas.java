@@ -10,7 +10,6 @@ import cl.bcos.entity.Consultas;
 import cl.bcos.entity.ExportarFichas;
 import cl.bcos.entity.ExportarFichasList;
 import cl.bcos.entity.Paciente;
-import cl.bcos.entity.PacientesList;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,7 +30,7 @@ public class ServletExportarFichas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletExportarFichas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    private static final String PATH = System.getProperty(ENDPOINT_PATH, System.getenv(ENDPOINT_PATH));
     private static String https = "https://";
 
     /**
@@ -67,7 +66,10 @@ public class ServletExportarFichas extends HttpServlet {
 
         Log.info(request);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/exportFichas";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/exportFichas";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);
@@ -100,6 +102,9 @@ public class ServletExportarFichas extends HttpServlet {
                 } catch (Exception e) {
                     Log.error(" NO EXISTEN REGISTROS: " + e);
 
+                    out.append("<div class=\"card mb-0\"> ");
+                    out.append("         <div  id=\"headingOne\" role=\"tab\"> ");
+
                     out.println("<div class=\"col-sm-12\">");
                     out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
                     out.println("   <thead>");
@@ -116,7 +121,7 @@ public class ServletExportarFichas extends HttpServlet {
                     out.println(" </tbody>");
                     out.println(" </table>");
                     out.println(" </div>");
-
+                    out.append("</div></div>");
                 }
 
             } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
@@ -341,7 +346,7 @@ public class ServletExportarFichas extends HttpServlet {
             if (!valor[i].isEmpty()) {
                 //Log.debug("valor : " + valor[i]);
                 String valor_ = valor[i];
-                String val[] = valor_.replace("|",",").split(",");
+                String val[] = valor_.replace("|", ",").split(",");
                 //Log.debug("val[0] " + val[0]);
                 if (valorLimpio.isEmpty()) {
                     valorLimpio = val[0];
@@ -354,8 +359,8 @@ public class ServletExportarFichas extends HttpServlet {
         }
         valorLimpio = valorLimpio.trim();
         valorLimpio = valorLimpio.replace(",", "','");
-        valorLimpio = "'"+valorLimpio+"'";
-        
+        valorLimpio = "'" + valorLimpio + "'";
+
         Log.debug(valorLimpio);
         return valorLimpio;
     }

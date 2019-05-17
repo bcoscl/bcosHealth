@@ -265,6 +265,10 @@
         <servlet-name>ServletExportarFichas</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletExportarFichas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletMaxUserAccess</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletMaxUserAccess</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -460,6 +464,10 @@
     <servlet-mapping>
         <servlet-name>ServletExportarFichas</servlet-name>
         <url-pattern>/ServletExportarFichas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMaxUserAccess</servlet-name>
+        <url-pattern>/ServletMaxUserAccess</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

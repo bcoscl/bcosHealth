@@ -88,7 +88,62 @@ $(document).ready(function () {
     });
 
 
-LoadSelect();
+
+    $.ajax({
+        url: "../../ServletMaxUserAccess",
+        dataType: "text",
+        data: {
+            accion: "MAX_USERS_ACCESS"
+        },
+        beforeSend: function () {
+
+            $.blockUI({message: $('#load'), css: {
+                    padding: 0,
+                    margin: 0,
+                    width: '35%',
+                    top: '35%',
+                    left: '35%',
+                    textAlign: 'center',
+                    color: '#c8ced300',
+                    border: '0px',
+                    backgroundColor: '#c8ced300',
+                    cursor: 'wait'
+                }});
+        },
+
+        success: function (response) {
+            $.unblockUI();
+            LoadSelect(); 
+        },
+        error: function ( jqXHR, textStatus, errorThrown ) {
+
+            var mensaje;
+            var redirect;
+
+            $.unblockUI();
+
+          //   alert(jqXHR + " - "+textStatus+" - "+errorThrown);
+            if(jqXHR.status==400){  
+                  //redirect =  errorThrown;
+                  window.location.href = errorThrown;
+                  //location.href  = "../../pages/Users/maximoAlcanzado.jsp";
+                
+            }else if (jqXHR.status == 500) {
+                // Server side error
+                mensaje = " Error server side - status : " + jqXHR.status;
+            } else if (jqXHR.status == 404) {
+                mensaje = " Sitio not found - status : " + jqXHR.status;
+            } else if (jqXHR.status == 401) {
+                location.href = "../../pages/base/sorry.html";
+            } else {
+                mensaje = " - status : " + jqXHR.status;
+
+            }
+        }
+    });
+
+
+
 
 
 
@@ -149,7 +204,7 @@ LoadSelect();
 
                 success: function (data) {
                     $(id)[0].reset();
-                    
+
                     removeValidation(id);
                     $.unblockUI();
 //                    $("#msgResult").removeAttr('style');
@@ -160,7 +215,7 @@ LoadSelect();
 //                    }, 2000);
                     SuccesNotify();
                     LoadSelect();
-                    
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
@@ -252,9 +307,9 @@ LoadSelect();
 
 });
 
-function LoadSelect(){
-    
-    
+function LoadSelect() {
+
+
 // carga Select de roles
     $.ajax({
         url: "../../ServletListarRoles",
@@ -421,7 +476,7 @@ function LoadSelect(){
             }
         }
     });
-    
+
 }
 
 
