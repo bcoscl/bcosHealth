@@ -5,9 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="Expires" content="-1" />
+        <meta http-equiv="Cache-Control" content="private" />
+        <meta http-equiv="Cache-Control" content="no-store" />
+        <meta http-equiv="Pragma" content="no-cache" />
 
 
-        <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+        
         
         <!-- Icons-->
          <link href="../../comun/css/padding.css" rel="stylesheet">   
