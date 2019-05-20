@@ -27,7 +27,7 @@ public class ServletUpdateExamenes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateExamenes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**

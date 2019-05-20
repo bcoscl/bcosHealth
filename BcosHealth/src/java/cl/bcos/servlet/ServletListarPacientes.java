@@ -28,7 +28,7 @@ public class ServletListarPacientes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarPacientes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -67,7 +67,10 @@ public class ServletListarPacientes extends HttpServlet {
 
         } else {
             Log.info("Session PACIENTE " + (String) tokensession.getAttribute("PACIENTE"));
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/ListarPacientes";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/ListarPacientes";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             //parameter.put("planName", planName);
@@ -105,22 +108,29 @@ public class ServletListarPacientes extends HttpServlet {
                     } catch (Exception e) {
                         Log.error(" NO EXISTEN REGISTROS: " + e);
 
-                        out.println("<div class=\"col-sm-12\">");
-                        out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
-                        out.println("   <thead>");
-                        out.println("  <tr role=\"row\">");
-                        out.println("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Registros</th>	");
-                        out.println("  </tr>");
-                        out.println("  </thead>");
-                        out.println("  <tbody class=\"contenidobusqueda\">");
-                        out.println("<tr role=\"row\" class=\"odd\">");
-                        out.println("<td class=\"sorting_1 \">");
-                        out.println("Sin Registros..");
-                        out.println("</td>");
-                        out.println(" </tr>\n");
-                        out.println(" </tbody>");
-                        out.println(" </table>");
-                        out.println(" </div>");
+                        if (accion.equalsIgnoreCase("LP-TABLA")) {
+
+                            out.println("<div class=\"col-sm-12\">");
+                            out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
+                            out.println("   <thead>");
+                            out.println("  <tr role=\"row\">");
+                            out.println("  <th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 20%;\">Registros</th>	");
+                            out.println("  </tr>");
+                            out.println("  </thead>");
+                            out.println("  <tbody class=\"contenidobusqueda\">");
+                            out.println("<tr role=\"row\" class=\"odd\">");
+                            out.println("<td class=\"sorting_1 \">");
+                            out.println("Sin Registros..");
+                            out.println("</td>");
+                            out.println(" </tr>\n");
+                            out.println(" </tbody>");
+                            out.println(" </table>");
+                            out.println(" </div>");
+
+                        } else if (accion.equalsIgnoreCase("LU-SELECT") || accion.equalsIgnoreCase("LU-SELECT-MULTIPLE")) {
+                            Log.info("Select sin registros ");
+                            out.println("sin Registros..");
+                        }
 
                     }
 
@@ -311,7 +321,7 @@ public class ServletListarPacientes extends HttpServlet {
             out.append("\"");
             //out.append(numuser);
             out.append(">[");
-            out.append(str.getC_numuser()+" | "+str.getC_pacientename() + " " + str.getC_apellidos());
+            out.append(str.getC_numuser() + " | " + str.getC_pacientename() + " " + str.getC_apellidos());
             out.append("]</option>");
 
         }

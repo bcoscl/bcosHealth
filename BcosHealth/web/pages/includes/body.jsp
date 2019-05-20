@@ -16,22 +16,22 @@
 
 
         <!-- opciones superiores -->
-                <ul class="nav navbar-nav d-md-down-none">
+<!--                <ul class="nav navbar-nav d-md-down-none">
                     <li class="nav-item px-3">
                         
-                        <!--<a class="nav-link" href="soporte@bcos.cl"  target="_top">Soporte</a>-->
+                        <a class="nav-link" href="soporte@bcos.cl"  target="_top">Soporte</a>
                         <a class="nav-link" href="javascript:SuccesNotify();">Notify Success</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" href="javascript:DangerNotify();">Notify Danger</a>
                     </li>
-<!--                    <li class="nav-item px-3">
+                    <li class="nav-item px-3">
                         <a class="nav-link" href="#">Fichas</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" href="#">Pacientes</a>
-                    </li>        -->
-                </ul>
+                    </li>        
+                </ul>-->
 
 
         <!-- bara superior derecha -->

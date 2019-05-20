@@ -28,11 +28,12 @@ public class ServletListarSuscripciones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
     private static final String LISTAR_SELECT_BY = "LS-SELECT-BY-EMPRESA";
+    private static final String LISTAR_SELECT_ADMIN = "LS-SELECT-ADMIN";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -91,7 +92,8 @@ public class ServletListarSuscripciones extends HttpServlet {
                         if (accion.equalsIgnoreCase(LISTAR_TABLA)) {
                             out.println(getSuscripcionesTabla(res));
                         } else if (accion.equalsIgnoreCase(LISTAR_SELECT)
-                                || accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
+                                || accion.equalsIgnoreCase(LISTAR_SELECT_BY)
+                                || accion.equalsIgnoreCase(LISTAR_SELECT_ADMIN)) {
                             Log.info("Select ");
                             out.println(getSuscripcionesSelect(res));
                         }
@@ -119,7 +121,8 @@ public class ServletListarSuscripciones extends HttpServlet {
                         out.println(" </div>");
 
                     } else if (accion.equalsIgnoreCase(LISTAR_SELECT)
-                            || accion.equalsIgnoreCase(LISTAR_SELECT_BY)) {
+                            || accion.equalsIgnoreCase(LISTAR_SELECT_BY)
+                            || accion.equalsIgnoreCase(LISTAR_SELECT_ADMIN)) {
                         out.append("<option value=\"0\">Sin resultados..</option>");
                     }
 

@@ -28,7 +28,7 @@ public class ServletListarMenu extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarMenu.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -172,6 +172,7 @@ public class ServletListarMenu extends HttpServlet {
             menu.append(getOpcHome());
             menu.append(getOpcModulos());
             menu.append(getOpcAtencion());
+            menu.append(getOpcRecepcionDoctor());
             menu.append(getOpcFicha());
             menu.append(getOpcExamenes());
 
@@ -382,6 +383,26 @@ public class ServletListarMenu extends HttpServlet {
         out.append("                        <li class=\"nav-item\"> ");
         out.append("                            <a class=\"nav-link\" href=\"../Atencion/MedicosList.jsp\"> ");
         out.append("                                <i class=\"nav-icon icon-list\"></i>Listas de Atención ");
+        out.append("                            </a> ");
+        out.append("                        </li> ");
+        out.append("                    </ul>		 ");
+        out.append("                </li> ");
+        return out.toString();
+    }
+    private String getOpcRecepcionDoctor() {
+        StringBuilder out = new StringBuilder();
+        out.append("                <li class=\"nav-item nav-dropdown\">   ");
+        out.append("                    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"> ");
+        out.append("                        <i class=\"nav-icon icon-emotsmile\"></i> Recepción</a> ");
+        out.append("                    <ul class=\"nav-dropdown-items\"> ");
+        out.append("                        <li class=\"nav-item\"> ");
+        out.append("                            <a class=\"nav-link\" href=\"../Pacientes/ListarPacientes.jsp\"> ");
+        out.append("                                <i class=\"nav-icon icon-list\"></i>Listar Pacientes ");
+        out.append("                            </a> ");
+        out.append("                        </li> ");
+        out.append("                        <li class=\"nav-item\"> ");
+        out.append("                            <a class=\"nav-link\" href=\"../Pacientes/crearPacientes.jsp\"> ");
+        out.append("                                <i class=\"nav-icon icon-plus\"></i>Crear Pacientes ");
         out.append("                            </a> ");
         out.append("                        </li> ");
         out.append("                    </ul>		 ");

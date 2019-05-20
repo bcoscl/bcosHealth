@@ -9,7 +9,7 @@ $(document).ready(function () {
         url: "../../ServletListarSuscripciones",
         dataType: "text",
         data: {
-            accion: "LS-SELECT"
+            accion: "LS-SELECT-ADMIN"
         },
         beforeSend: function () {
             $.blockUI({message: $('#load'), css: {

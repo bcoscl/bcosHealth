@@ -29,7 +29,8 @@ public class ServletLogin extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletLogin.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    
     private static String https = "https://";
 
     /**
@@ -63,7 +64,10 @@ public class ServletLogin extends HttpServlet {
         String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/SSO";
+        if(PATH.contains("localhost")){ https = "http://";}
+        
+        String URL = https+PATH+ "/bcos/api/json/SSO";
+        Log.info("API: "+URL);
 
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("User", User);
@@ -74,7 +78,7 @@ public class ServletLogin extends HttpServlet {
         try {
 
             resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, "");
-            Log.info(resultHttpRequest);
+            Log.info("Response Api : "+resultHttpRequest);
             LoginJsonResponse res = new Gson().fromJson(resultHttpRequest, LoginJsonResponse.class);
 
             Log.info("res.message : " + res.getStatus().getMessage());
@@ -172,11 +176,12 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+       Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
 
         } catch (Exception ex) {
+            Log.error(ex.getStackTrace());
             java.util.logging.Logger.getLogger(ServletLogin.class
                     .getName()).log(Level.SEVERE, null, ex);
         }

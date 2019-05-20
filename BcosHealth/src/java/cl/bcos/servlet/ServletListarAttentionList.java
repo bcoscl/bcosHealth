@@ -28,7 +28,7 @@ public class ServletListarAttentionList extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarAttentionList.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = System.getProperty(ENDPOINT_PATH,System.getenv(ENDPOINT_PATH));
+    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String AT_TABLA_BY_DOC = "AT-TABLA-BY-DOC";
     private static final String AT_TABLA = "AT-TABLA";
