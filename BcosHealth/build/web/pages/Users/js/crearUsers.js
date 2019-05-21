@@ -71,8 +71,12 @@ $(document).ready(function () {
 //                    $("#msgResultError").addClass('fade show-none');
 //                }, 2000);
                 DangerNotify();
+                if (jqXHR.status == 400) {
+                    //redirect =  errorThrown;
+                    window.location.href = errorThrown;
+                    //location.href  = "../../pages/Users/maximoAlcanzado.jsp";
 
-                if (jqXHR.status == 500) {
+                } else if (jqXHR.status == 500) {
                     // Server side error
                     mensaje = " Error server side - status : " + jqXHR.status;
                 } else if (jqXHR.status == 404) {
@@ -113,22 +117,22 @@ $(document).ready(function () {
 
         success: function (response) {
             $.unblockUI();
-            LoadSelect(); 
+            LoadSelect();
         },
-        error: function ( jqXHR, textStatus, errorThrown ) {
+        error: function (jqXHR, textStatus, errorThrown) {
 
             var mensaje;
             var redirect;
 
             $.unblockUI();
 
-          //   alert(jqXHR + " - "+textStatus+" - "+errorThrown);
-            if(jqXHR.status==400){  
-                  //redirect =  errorThrown;
-                  window.location.href = errorThrown;
-                  //location.href  = "../../pages/Users/maximoAlcanzado.jsp";
-                
-            }else if (jqXHR.status == 500) {
+            //   alert(jqXHR + " - "+textStatus+" - "+errorThrown);
+            if (jqXHR.status == 400) {
+                //redirect =  errorThrown;
+                window.location.href = errorThrown;
+                //location.href  = "../../pages/Users/maximoAlcanzado.jsp";
+
+            } else if (jqXHR.status == 500) {
                 // Server side error
                 mensaje = " Error server side - status : " + jqXHR.status;
             } else if (jqXHR.status == 404) {
@@ -215,6 +219,7 @@ $(document).ready(function () {
 //                    }, 2000);
                     SuccesNotify();
                     LoadSelect();
+                    location.reload();
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -229,6 +234,7 @@ $(document).ready(function () {
 //                        $("#msgResultError").addClass('fade show-none');
 //                    }, 2000);
                     DangerNotify();
+                    location.reload();
 
                     if (jqXHR.status == 500) {
                         // Server side error

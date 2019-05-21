@@ -55,14 +55,12 @@ public class ServletListarSuscripciones extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        //String planName = (String) request.getParameter("planName");
-        //String userMax = (String) request.getParameter("userMax");
+
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         Log.info("accion :" + accion);
         Log.info(request);
-        //Log.info("planname : " + planName);
-        //Log.info("User MAX :" + userMax);
+
         Log.info("token bearer:" + token);
 
         if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarSuscripcion";
@@ -162,7 +160,7 @@ public class ServletListarSuscripciones extends HttpServlet {
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Date registered: activate to sort column ascending\" style=\"width: 15%;\">Fecha Inicio</th>");
         out.append("<th class=\"sorting d-none d-sm-table-cell\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Role: activate to sort column ascending\" style=\"width: 10%;\">Plan</th>");
         out.append("<th class=\"sorting \" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Status: activate to sort column ascending\" style=\"width: 10%;\">Estado</th>");
-        //<!--<th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Actions: activate to sort column ascending\" style=\"width: 5%;\">Acciones</th>-->" 
+        out.append("<th class=\"sorting\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-label=\"Actions: activate to sort column ascending\" style=\"width: 5%;\">Acciones</th>");
         out.append("</tr>");
         out.append("</thead>");
         out.append("<tbody class=\"contenidobusqueda\">");
@@ -219,17 +217,32 @@ public class ServletListarSuscripciones extends HttpServlet {
 
             out.append("</td>");
 
-            //out.append("<!--<td>\n" +
+            out.append("<td>");
             //out.append("<a class=\"btn btn-success\" href=\"#\">\n" +
             //out.append("<i class=\"fa fa-search-plus\"></i>\n" +
             //out.append("</a>\n" +
-            //out.append("<a class=\"btn btn-info\" href=\"#\">\n" +
-            //out.append("<i class=\"fa fa-edit\"></i>\n" +
-            //out.append("</a>\n" +
+            
+            //empresa, contacto, email,numero,plan,id
+            
+            out.append("<a class=\"btn btn-success\" href=\"javascript:editSuscripcion('");
+            out.append(str.getNombre_empresa());
+            out.append("','");
+            out.append(str.getNombre_contacto());
+            out.append("','");
+            out.append(str.getEmail());
+            out.append("','");
+            out.append(str.getTelefono());
+            out.append("','");
+            out.append(str.getNombre_plan());
+            out.append("',");
+            out.append(str.getId());
+            out.append(");\">");
+            out.append("<i class=\"fa fa-edit\"></i>");
+            out.append("</a>");
             //out.append("<a class=\"btn btn-danger\" href=\"#\">\n" +
             //out.append("<i class=\"fa fa-trash-o\"></i>\n" +
             //out.append("</a>\n" +
-            //out.append("</td>-->\n" +
+            out.append("</td>");
             out.append("</tr>");
 
         }

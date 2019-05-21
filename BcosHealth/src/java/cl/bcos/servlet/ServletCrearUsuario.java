@@ -156,6 +156,14 @@ public class ServletCrearUsuario extends HttpServlet {
 
                     response.setStatus(200);
 
+                }else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_OK") && 
+                        res.getStatus().getCode().equalsIgnoreCase("400")) {
+                     Log.info("MAXIMO ALCANZADO");
+                    
+                    response.sendError(400, "../../pages/Users/maximoAlcanzado.jsp");
+                    
+                    
+
                 } else {
                     Log.info("INSERT_NO_OK");
                     response.setStatus(400);  // 400 Bad Request - Registro Duplicado  

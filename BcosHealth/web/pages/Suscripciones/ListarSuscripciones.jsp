@@ -120,4 +120,5 @@
                 </div>-->
 
         <%@include file="../includes/message/message.jsp" %>
+        <%@include file="../includes/popups/PopUpsEditarSuscripcion.jsp" %>
         <%@include file="../includes/footer.jsp" %>
