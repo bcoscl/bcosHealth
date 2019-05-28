@@ -6,12 +6,19 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
+import cl.bcos.constants.CommonConstants;
+import cl.bcos.entity.S3Response;
 import cl.bcos.entity.statusResponse;
+import cl.bcos.service.AdmS3;
+import cl.bcos.utils.UtilsRandom;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +34,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearSuscripcion.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -60,8 +67,13 @@ public class ServletCrearSuscripcion extends HttpServlet {
             String select_plan_code = (String) request.getParameter("select_plan_code");
             String select_plan_name = (String) request.getParameter("select_plan_name");
             String checkbox_activo = (String) request.getParameter("checkbox_activo");
+            String bucketname = "";
 
             String token = (String) tokensession.getAttribute("token");
+
+            bucketname = nombre_empresa.replaceAll(" ", "-");
+            //bucketname = bucketname+"-"+getRandom();
+            bucketname = bucketname + "." + UtilsRandom.getRandom();
 
             Log.info(request);
             Log.info("accion : " + accion);
@@ -73,10 +85,16 @@ public class ServletCrearSuscripcion extends HttpServlet {
             Log.info("select_plan_code :" + select_plan_code);
             Log.info("select_plan_name :" + select_plan_name);
             Log.info("checkbox_activo :" + checkbox_activo);
+            Log.info("bucketname :" + bucketname);
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearSuscripcion";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+
+            String URL2 = https + PATH + "/bcos/api/json/S3";
+            String URL = https + PATH + "/bcos/api/json/crearSuscripcion";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("nombre_empresa", nombre_empresa);
@@ -88,11 +106,21 @@ public class ServletCrearSuscripcion extends HttpServlet {
             parameter.put("select_plan_name", select_plan_name);
             parameter.put("checkbox_activo", checkbox_activo);
             parameter.put("empresasession", empresasession);
+            parameter.put("bucketName", bucketname);
 
             parameter.put("token", token);
 
             String resultHttpRequest = "";
             try {
+
+
+                /*Crea el Bucket de la suscripcion*/
+                Map<String, String> parameter_exa = new HashMap<String, String>();
+                parameter_exa.put("accion", accion);
+                parameter_exa.put("empresasession", empresasession);
+                parameter_exa.put("nombre_empresa", nombre_empresa);
+                parameter_exa.put("token", token);
+
                 resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, token);
                 Log.info(resultHttpRequest);
                 statusResponse res = new Gson().fromJson(resultHttpRequest, statusResponse.class);
@@ -100,6 +128,7 @@ public class ServletCrearSuscripcion extends HttpServlet {
                 Log.info("res.message : " + res.getStatus().getCode());
 
                 if (res.getStatus().getMessage().equalsIgnoreCase("INSERT_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
+                    crearBucket(parameter_exa, URL2, token);
                     response.setStatus(200);
                 } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
                     Log.info("TOKEN_NO_VALIDO");
@@ -168,5 +197,40 @@ public class ServletCrearSuscripcion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void crearBucket(Map<String, String> parameter_exa, String URL2, String token) throws IOException, Exception {
+        /*llamada de imagen*/
+
+        String resultHttpRequest_exa = HttpRequest.HttpRequesPostMethod(URL2, parameter_exa, token);
+        Log.info(resultHttpRequest_exa);
+
+        S3Response s3 = new Gson().fromJson(resultHttpRequest_exa, S3Response.class);
+
+        Log.info("S3 res.message : " + s3.getStatus().getMessage());
+        Log.info("S3 res.message : " + s3.getStatus().getCode());
+
+        CommonConstants c = new CommonConstants(s3.getS3().getACCESS_KEY_ID(), s3.getS3().getACCESS_SEC_KEY(), s3.getS3().getBUCKETNAME().toLowerCase());
+        AdmS3 admS3 = new AdmS3(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
+
+        admS3.crearBucket(CommonConstants.BUCKET_NAME);
+        Log.info(" crea el Bucket " + CommonConstants.BUCKET_NAME + " - OK");
+
+        admS3.crearCarpeta(CommonConstants.BUCKET_NAME, s3.getS3().getFOLDER_NAME_EXAMENES().toLowerCase());
+        Log.info(" carpeta :" + s3.getS3().getFOLDER_NAME_EXAMENES() + " - OK");
+
+        admS3.crearCarpeta(CommonConstants.BUCKET_NAME, s3.getS3().getFOLDER_NAME_PROFILE().toLowerCase());
+        Log.info(" carpeta :" + s3.getS3().getFOLDER_NAME_PROFILE() + " - OK");
+
+        try {
+            admS3.generaPolitica(CommonConstants.BUCKET_NAME, "", s3.getS3().getPOLICY_RULES());
+            Log.info(" Politicas OK ");
+        } catch (Exception ex) {
+
+            Log.error(ex);
+            java.util.logging.Logger.getLogger(ServletCrearSuscripcion.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
+        }
+
+    }
 
 }

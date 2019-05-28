@@ -3,15 +3,16 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3 center">
 
-           
-            <img class="rounded img-fluid img-thumbnail" alt=" Avatar" onerror="this.src='../../pages/Perfil/img/ProfilePerson.jpg'"  id="avatar2" src="" >
+            <input id="input_id" style="display: none;" type="text" name="input_id">
+            <img class="rounded img-fluid img-thumbnail" alt=" Avatar" onerror="this.src='../../pages/Perfil/img/ProfilePerson.jpg'"  id="avatarUserProfile"
+                 src="" >
             
             <div class="space space-4"></div>
-            <a href="javascript:void(0)"  id="fileupload" class="btn btn-sm btn-block btn-success">
+            <a href="javascript:popupAddfile();"  id="fileupload" class="btn btn-sm btn-block btn-success">
                 <i class="ace-icon fa fa-cloud-upload bigger-120"></i>
-                <span class="bigger-110">Subir imagen</span>
+                <span class="bigger-110">Cambiar imgen</span>
             </a>
-            <input id="upload-file" type="file" style="display: none;"/>
+            <!--<input id="upload-file" type="file" style="display: none;"/>-->
 
         </div><!-- /.col -->
 

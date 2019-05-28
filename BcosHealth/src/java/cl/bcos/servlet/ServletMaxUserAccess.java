@@ -21,14 +21,14 @@ import org.apache.log4j.Logger;
 
 /**
  *
- 
+ *
  * @author aacantero
  */
 public class ServletMaxUserAccess extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateConsultas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -53,21 +53,21 @@ public class ServletMaxUserAccess extends HttpServlet {
         HttpSession tokensession = request.getSession(true);
 
         //String empresasession = (String) tokensession.getAttribute("EMPRESA");
-
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
             String token = (String) tokensession.getAttribute("token");
-            
+
             String empresasession = (String) tokensession.getAttribute("EMPRESA");
-        
+
             //Log.info(request);
-            
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}
-            
-            String URL = https+PATH+"/bcos/api/json/userMax";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+
+            String URL = https + PATH + "/bcos/api/json/userMax";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 
@@ -97,25 +97,22 @@ public class ServletMaxUserAccess extends HttpServlet {
                         && res.getStatus().getCode().equalsIgnoreCase("200")) {
                     Log.info("PLAN OK - MAX OK");
                     response.setStatus(200);
-                    
-                    
-                } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && 
-                        res.getStatus().getCode().equalsIgnoreCase("401")) {
+
+                } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO")
+                        && res.getStatus().getCode().equalsIgnoreCase("401")) {
                     Log.info("TOKEN_NO_VALIDO");
                     response.setStatus(401);
 
-                }else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_OK") && 
-                        res.getStatus().getCode().equalsIgnoreCase("400")) {
-                     Log.info("MAXIMO ALCANZADO");
-                    
+                } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_OK")
+                        && res.getStatus().getCode().equalsIgnoreCase("400")) {
+                    Log.info("MAXIMO ALCANZADO");
+
                     response.sendError(400, "../../pages/Users/maximoAlcanzado.jsp");
-                    
-                    
 
                 } else {
                     Log.info("MAX_NO_OK 404");
                     response.setStatus(404);  // 404 not found
-                   
+
                 }
 
             } catch (Exception e) {

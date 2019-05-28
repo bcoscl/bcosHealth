@@ -27,7 +27,7 @@ public class ServletUpdateAttentionList extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateAttentionList.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -68,7 +68,10 @@ public class ServletUpdateAttentionList extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateAttentionList";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/updateAttentionList";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

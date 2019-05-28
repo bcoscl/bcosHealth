@@ -81,7 +81,7 @@ $(document).ready(function () {
 //envio de informacion
 
     $("#submitButton").click(function (e) {
-
+       
         var id = ($(this).parent().parent().find("form")).attr("id");
         id = "#" + id;
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
                     accion: "IE",
                     examen_name: $("#nombre_examen").val(),
                     examen_obs: $("#obs_examen").val(),
-                    examen_url: $("#upload-file-examen").val(),
+                    //examen_url: $("#upload-file-examen").val(),
                     examen_pacientename_numuser: $("#select_Pacientes option:selected").val(),
                     examen_pacientename: $("#select_Pacientes option:selected").text()
 
@@ -124,8 +124,10 @@ $(document).ready(function () {
 //                        $("#msgResult").fadeOut(500);
 //                        $("#msgResult").addClass('fade show-none');
 //                    }, 2000);
+                    $("#examenid").val(data);
                     SuccesNotify();
-
+                    $("#formCrearExamenFile").submit();               
+                    
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 

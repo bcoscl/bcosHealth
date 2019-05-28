@@ -27,7 +27,7 @@ public class ServletCrearPaciente extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearPaciente.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -92,7 +92,10 @@ public class ServletCrearPaciente extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearPaciente";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/crearPaciente";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

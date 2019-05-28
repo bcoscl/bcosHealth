@@ -28,7 +28,7 @@ public class ServletListarFarmacos extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarFarmacos.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String CF_FARMACOS_PROFILE = "CF-FARMACOS-PROFILE";
 
@@ -63,7 +63,10 @@ public class ServletListarFarmacos extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarFarmacos";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/listarFarmacos";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

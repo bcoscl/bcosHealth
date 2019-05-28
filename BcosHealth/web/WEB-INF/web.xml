@@ -269,6 +269,18 @@
         <servlet-name>ServletMaxUserAccess</servlet-name>
         <servlet-class>cl.bcos.servlet.ServletMaxUserAccess</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletUploadArchivo</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletUploadArchivo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletUploadArchivoExamen</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletUploadArchivoExamen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletGetUrlExamen</servlet-name>
+        <servlet-class>cl.bcos.servlet.ServletGetUrlExamen</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
         <url-pattern>/ServletPlanes</url-pattern>
@@ -468,6 +480,18 @@
     <servlet-mapping>
         <servlet-name>ServletMaxUserAccess</servlet-name>
         <url-pattern>/ServletMaxUserAccess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletUploadArchivo</servlet-name>
+        <url-pattern>/ServletUploadArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletUploadArchivoExamen</servlet-name>
+        <url-pattern>/ServletUploadArchivoExamen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletGetUrlExamen</servlet-name>
+        <url-pattern>/ServletGetUrlExamen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

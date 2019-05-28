@@ -83,5 +83,6 @@
     <div class="sk-circle12 sk-circle"></div>
 </div>-->
 <%@include file="../includes/message/message.jsp" %>
+<%@include file="../includes/popups/PopUpsSubirArchivo.jsp" %>
 <!-- foofter -->
 <%@include file="../includes/footer.jsp" %>

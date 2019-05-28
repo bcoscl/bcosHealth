@@ -27,7 +27,7 @@ public class ServletCrearProfesiones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearProfesiones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -61,7 +61,10 @@ public class ServletCrearProfesiones extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearProfesiones";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/crearProfesiones";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("profesionName", profesionName);

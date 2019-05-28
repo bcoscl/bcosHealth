@@ -28,7 +28,7 @@ public class ServletListarExamenes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarExamenes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String CE_EXAMENES_PROFILE = "CE-EXAMENES-PROFILE";
     private static final String LE_TABLA = "LE-TABLA";
@@ -72,7 +72,10 @@ public class ServletListarExamenes extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarExamenes";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/listarExamenes";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
@@ -167,10 +170,18 @@ public class ServletListarExamenes extends HttpServlet {
             out.append(examenname);
             out.append("        </a>  ");
             out.append("         <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">");
-            out.append("             <a class=\"dropdown-item\" onclick=\"javascript:popupVerExamenes(");
-            out.append(str.getExa_n_id());
-            out.append(")\">Ver</a>");
-            out.append("             <a class=\"dropdown-item\" onclick=\"javascript:popupEditExamenes('");
+
+            if (str.getExa_c_url() != null && !str.getExa_c_url().equalsIgnoreCase("")
+                    && !str.getExa_c_url().equalsIgnoreCase("null")) {
+                out.append("     <a class=\"dropdown-item\" onclick=\"javascript:DetalleExamen('");
+                out.append(str.getExa_n_id());
+                out.append("','");
+                out.append(str.getExa_c_url());
+                out.append("')\">Ver</a>");
+
+            }
+
+            out.append("  <a class=\"dropdown-item\" onclick=\"javascript:popupEditExamenes('");
             out.append(str.getExa_c_name());
             out.append("','");
             out.append(str.getExa_c_obs());
@@ -246,11 +257,17 @@ public class ServletListarExamenes extends HttpServlet {
             out.append("</td>");
 
             out.append(" <td class=\"flex-row\"> ");
-            out.append("      <a class=\"btn btn-success\" href=\"javascript:Detalle('");
-            out.append(str.getExa_n_id());
-            out.append("');\"> ");
-            out.append("     <i class=\"fa fa-search-plus\"></i> ");
-            out.append("       </a> ");
+
+            if (str.getExa_c_url() != null && !str.getExa_c_url().equalsIgnoreCase("")
+                    && !str.getExa_c_url().equalsIgnoreCase("null")) {
+                out.append("      <a class=\"btn btn-success\" href=\"javascript:DetalleExamen('");
+                out.append(str.getExa_n_id());
+                out.append("','");
+                out.append(str.getExa_c_url());
+                out.append("');\"> ");
+                out.append("     <i class=\"fa fa-search-plus\"></i> ");
+                out.append("       </a> ");
+            }
             out.append("  </td> ");
 
             out.append("</tr>");

@@ -121,4 +121,5 @@
         </div>-->
 
 <%@include file="../includes/message/message.jsp" %>
+<%@include file="../includes/popups/PopUpsVerExamenes.jsp" %>
         <%@include file="../includes/footer.jsp" %>

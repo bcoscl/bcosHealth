@@ -6,8 +6,11 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
+import cl.bcos.constants.CommonConstants;
 import cl.bcos.entity.Rol;
 import cl.bcos.entity.RolList;
+import cl.bcos.entity.S3Response;
+import cl.bcos.service.AdmS3;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,7 +31,7 @@ public class ServletListarMenu extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarMenu.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -72,7 +75,10 @@ public class ServletListarMenu extends HttpServlet {
             } else {
                 Log.info("NO EXISTE MENU, SE CARGA SEGUN ACCESOS");
 
-                if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarMenu";
+                if (PATH.contains("localhost")) {
+                    https = "http://";
+                }
+                String URL = https + PATH + "/bcos/api/json/listarMenu";
 
                 Map<String, String> parameter = new HashMap<String, String>();
 
@@ -100,7 +106,9 @@ public class ServletListarMenu extends HttpServlet {
                             if (res.getRoles().size() > 0) {
 
                                 String menuRequest = getMenu(res);
-                                menuRequest = menuRequest + "|" + res.getNOMBRE();
+                                Log.info("ruta de la imagen : " + res.getIMG());
+                                menuRequest = menuRequest + "|" + res.getNOMBRE() + "|" + getImgS3(empresasession, token, res.getIMG()) + "|" + getMenuAccount(res);
+
                                 tokensession.setAttribute("MENU", menuRequest);
 
                                 out.println(menuRequest);
@@ -389,6 +397,7 @@ public class ServletListarMenu extends HttpServlet {
         out.append("                </li> ");
         return out.toString();
     }
+
     private String getOpcRecepcionDoctor() {
         StringBuilder out = new StringBuilder();
         out.append("                <li class=\"nav-item nav-dropdown\">   ");
@@ -467,6 +476,80 @@ public class ServletListarMenu extends HttpServlet {
         StringBuilder out = new StringBuilder();
         out.append("                <li class=\"nav-title\">Modulos</li> ");
         return out.toString();
+    }
+
+    private String getImgS3(String empresasession, String token, String urlPerfil) throws IOException {
+
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        StringBuilder out = new StringBuilder();
+
+        /*Crea el Bucket de la suscripcion*/
+        Map<String, String> parameter = new HashMap<String, String>();
+        parameter.put("accion", "USER_PROFILE_FILE");
+        parameter.put("empresasession", empresasession);
+        parameter.put("token", token);
+
+        String URL2 = https + PATH + "/bcos/api/json/S3";
+
+        String resultHttpRequest_exa = HttpRequest.HttpRequesPostMethod(URL2, parameter, token);
+        Log.info(resultHttpRequest_exa);
+
+        S3Response s3 = new Gson().fromJson(resultHttpRequest_exa, S3Response.class);
+
+        Log.info("S3 res.message : " + s3.getStatus().getMessage());
+        Log.info("S3 res.message : " + s3.getStatus().getCode());
+
+        CommonConstants c = new CommonConstants(s3.getS3().getACCESS_KEY_ID(), s3.getS3().getACCESS_SEC_KEY(), s3.getS3().getBUCKETNAME().toLowerCase());
+        AdmS3 admS3 = new AdmS3(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
+        Log.info("imagen avantar rescatada");
+        String url = admS3.preUrl(CommonConstants.BUCKET_NAME, urlPerfil, 30);
+        return url;
+
+    }
+
+    private String getMenuAccount(RolList res) {
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        StringBuilder out = new StringBuilder();
+        StringBuilder menu = new StringBuilder();
+        StringBuilder roles = new StringBuilder();
+
+        for (Rol str : res.getRoles()) {
+
+            String rol = str.getRol();
+            roles.append(rol);
+            roles.append(",");
+        }
+
+        if (roles.toString().contains("SUPER-ADMIN")) {
+
+            menu.append("<div class=\"dropdown-header text-center\">");
+            menu.append("                        <strong>Account</strong>");
+            menu.append("</div>");
+            menu.append("<a class=\"dropdown-item\" href=\"../../ServletUserProfileRedirect\">");
+            menu.append("	<i class=\"fa fa-user\"></i> Perfil</a>");
+            menu.append("<a class=\"dropdown-item\" href=\"javascript:CambioEmpresa();\">");
+            menu.append("	<i class=\"fa fa-tags\"></i> Empresa</a>");
+            menu.append("<a class=\"dropdown-item\" href=\"javascript:CambioPassword();\">");
+            menu.append("	<i class=\"fa fa-key\"></i> Cambiar Clave</a>");
+            menu.append("<a class=\"dropdown-item\" href=\"../../ServletLogOut\">");
+            menu.append("	<i class=\"fa fa-lock\"></i> Salir</a>");
+
+        } else {
+
+            menu.append("<div class=\"dropdown-header text-center\">");
+            menu.append("                        <strong>Account</strong>");
+            menu.append("</div>");
+            menu.append("<a class=\"dropdown-item\" href=\"../../ServletUserProfileRedirect\">");
+            menu.append("	<i class=\"fa fa-user\"></i> Perfil</a>");
+
+            menu.append("<a class=\"dropdown-item\" href=\"javascript:CambioPassword();\">");
+            menu.append("	<i class=\"fa fa-key\"></i> Cambiar Clave</a>");
+            menu.append("<a class=\"dropdown-item\" href=\"../../ServletLogOut\">");
+            menu.append("	<i class=\"fa fa-lock\"></i> Salir</a>");
+
+        }
+
+        return menu.toString();
     }
 
 }

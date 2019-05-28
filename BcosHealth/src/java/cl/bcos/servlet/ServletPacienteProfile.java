@@ -27,7 +27,7 @@ public class ServletPacienteProfile extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPacienteProfile.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -69,7 +69,10 @@ public class ServletPacienteProfile extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/PacienteProfile";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/PacienteProfile";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);

@@ -29,8 +29,8 @@ public class ServletLogin extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletLogin.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
-    
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
+
     private static String https = "https://";
 
     /**
@@ -64,10 +64,12 @@ public class ServletLogin extends HttpServlet {
         String resultHttpRequest = "";
         //String tokken = token.generaToken("bcosHealth", "login", "public");
         //Log.info(tokken);
-        if(PATH.contains("localhost")){ https = "http://";}
-        
-        String URL = https+PATH+ "/bcos/api/json/SSO";
-        Log.info("API: "+URL);
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+
+        String URL = https + PATH + "/bcos/api/json/SSO";
+        Log.info("API: " + URL);
 
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("User", User);
@@ -78,7 +80,7 @@ public class ServletLogin extends HttpServlet {
         try {
 
             resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter, "");
-            Log.info("Response Api : "+resultHttpRequest);
+            Log.info("Response Api : " + resultHttpRequest);
             LoginJsonResponse res = new Gson().fromJson(resultHttpRequest, LoginJsonResponse.class);
 
             Log.info("res.message : " + res.getStatus().getMessage());
@@ -95,9 +97,11 @@ public class ServletLogin extends HttpServlet {
             if (res.getStatus().getStatusCode() == 200 && res.getLogin().equalsIgnoreCase("OK")) {
                 Log.info("login : " + res.getLogin());
                 Log.info("Code status : " + res.getStatus().getStatusCode());
-                Log.info("token " + res.getToken());
+                Log.info("setea token session" + res.getToken());
+                Log.info("setea Empresa session" + res.getStatus().getMessage());
 
                 tokensession.setAttribute("token", res.getToken());// token bearer
+                tokensession.setAttribute("EMPRESA", res.getStatus().getMessage());// empresa de la session
 
                 Log.info("token de session : " + tokensession.getAttribute("token"));
                 response.sendRedirect(
@@ -176,7 +180,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             processRequest(request, response);
 

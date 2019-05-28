@@ -27,7 +27,7 @@ public class ServletUpdateSucursal extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateSuscripcion.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -67,7 +67,10 @@ public class ServletUpdateSucursal extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateSucursales";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/updateSucursales";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             if (accion.equalsIgnoreCase("LS-ACTIVAR")) {

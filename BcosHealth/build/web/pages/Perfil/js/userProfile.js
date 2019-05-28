@@ -44,6 +44,8 @@ $(document).ready(function () {
             $("#input_email").html(valor[5]);
             $("#input_roles").html(valor[6]);
             $("#input_aboutMe").html(valor[7]);
+            $("#avatarUserProfile").attr("src",valor[8]);
+            $("#input_id").val(valor[9]);
 
             //$("#msgResult").removeAttr('style');
             //$("#msgResult").removeClass('fade show-none');
@@ -81,10 +83,6 @@ $(document).ready(function () {
     });
 
 
-
-    $("#fileupload").click(function () {
-        $("#upload-file").click();
-    })
 
 
 });

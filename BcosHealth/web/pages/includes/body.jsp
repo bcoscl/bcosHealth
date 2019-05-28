@@ -42,20 +42,10 @@
             </li>          
             <li class="nav-item dropdown">		
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-avatar" src="../../comun/img/avatars/6.jpg" alt="imagen">
+                    <img class="img-avatar" src="" id="img_avatar" onerror="this.src='../../comun/img/avatars/6.jpg'" alt="imagen">
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header text-center">
-                        <strong>Account</strong>
-                    </div>
-                    <a class="dropdown-item" href="../../ServletUserProfileRedirect">
-                        <i class="fa fa-user"></i> Perfil</a>
-                    <a class="dropdown-item" href="javascript:CambioEmpresa();">
-                        <i class="fa fa-tags"></i> Empresa</a>
-                    <a class="dropdown-item" href="javascript:CambioPassword();">
-                        <i class="fa fa-key"></i> Cambiar Clave</a>
-                    <a class="dropdown-item" href="../../ServletLogOut">
-                        <i class="fa fa-lock"></i> Salir</a>
+                <div id ="menuAccount" class="dropdown-menu dropdown-menu-right">
+                    <!-- menu account -->
                 </div>
             </li>
         </ul>

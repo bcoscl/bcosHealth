@@ -28,7 +28,7 @@ public class ServletListarSucursales extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
@@ -65,7 +65,10 @@ public class ServletListarSucursales extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarSucursales";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/listarSucursales";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         //parameter.put("planName", planName);

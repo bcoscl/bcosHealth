@@ -27,7 +27,7 @@ public class ServletUpdateConsultas extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateConsultas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -71,7 +71,10 @@ public class ServletUpdateConsultas extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/updateConsultas";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/updateConsultas";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
 

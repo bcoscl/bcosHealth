@@ -91,6 +91,7 @@
 <%@include file="../includes/popups/PopUpsFarmaco.jsp" %>
 <%@include file="../includes/popups/PopUpsExamenes.jsp" %>
 <%@include file="../includes/popups/PopUpsEditPacienteInformation.jsp" %>
+<%@include file="../includes/popups/PopUpsVerExamenes.jsp" %>
 <%@include file="../includes/footer.jsp" %>
 
 

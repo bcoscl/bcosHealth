@@ -40,12 +40,13 @@ public class ServletChangeEmpresa extends HttpServlet {
 
             String accion = (String) request.getParameter("accion");
             String empresa = (String) request.getParameter("empresa");
-
+            
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("empresa :" + empresa);
 
             empresasession.setAttribute("EMPRESA", empresa);
+            empresasession.setAttribute("MENU", null);
             Log.info("CAMBIO EMPRESA OK :" + empresa);
 
         }

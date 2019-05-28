@@ -28,7 +28,7 @@ public class ServletListarSuscripciones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
@@ -55,7 +55,6 @@ public class ServletListarSuscripciones extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-
         String token = (String) tokensession.getAttribute("token");
         String accion = (String) request.getParameter("accion");
         Log.info("accion :" + accion);
@@ -63,7 +62,10 @@ public class ServletListarSuscripciones extends HttpServlet {
 
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/listarSuscripcion";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/listarSuscripcion";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
@@ -221,9 +223,8 @@ public class ServletListarSuscripciones extends HttpServlet {
             //out.append("<a class=\"btn btn-success\" href=\"#\">\n" +
             //out.append("<i class=\"fa fa-search-plus\"></i>\n" +
             //out.append("</a>\n" +
-            
+
             //empresa, contacto, email,numero,plan,id
-            
             out.append("<a class=\"btn btn-success\" href=\"javascript:editSuscripcion('");
             out.append(str.getNombre_empresa());
             out.append("','");

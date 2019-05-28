@@ -14,6 +14,23 @@ import java.util.List;
 public class RolList {
     
     String NOMBRE;
+    String IMG;
+
+    public void setIMG(String IMG) {
+        this.IMG = IMG;
+    }
+
+    public void setRol(List<Rol> Rol) {
+        this.Rol = Rol;
+    }
+
+    public String getIMG() {
+        return IMG;
+    }
+
+    public List<Rol> getRol() {
+        return Rol;
+    }
     List<Rol> Rol;
     status status;
 

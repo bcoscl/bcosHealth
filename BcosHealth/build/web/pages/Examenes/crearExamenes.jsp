@@ -49,9 +49,10 @@
 
                         </select>
                     </div>
-                    
-                </div>
 
+                </div>
+            </form>
+            <form id="formCrearExamenFile" name ="formCrearExamenFile" class="form-horizontal" action="../../ServletUploadArchivoExamen?accion=UploadOnlyFile" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Adjunto</label>
                     <div class="col-md-3">
@@ -60,9 +61,12 @@
                             <i class="ace-icon fa fa-cloud-upload bigger-120"></i>
                             <span class="bigger-110">Subir Examen</span>
                         </a>
-                        <input id="upload-file-examen" type="file" style="display: none;"/>
-
+                        <input id="upload-file-examen" name ="upload-file-examen" type="file" style="display: none;"/>
+                        <input id="examenid" name ="examenid" type="text" style="display: none;"/>
                     </div>
+                    <!--                    <div class="col-md-6">
+                                            <label class="col-md-3 col-form-label" for="select1">ruta :</label>
+                                        </div>-->
                 </div>
 
 
@@ -118,5 +122,6 @@
     <div class="sk-circle12 sk-circle"></div>
 </div>-->
 <%@include file="../includes/message/message.jsp" %>
+<%@include file="../includes/popups/PopUpsSubirArchivoExamen.jsp" %>
 <!-- foofter -->
 <%@include file="../includes/footer.jsp" %>

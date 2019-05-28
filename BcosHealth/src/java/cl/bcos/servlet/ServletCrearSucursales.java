@@ -27,7 +27,7 @@ public class ServletCrearSucursales extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -76,7 +76,10 @@ public class ServletCrearSucursales extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearSucursales";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/crearSucursales";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("nombre_sucursal", nombre_sucursal);

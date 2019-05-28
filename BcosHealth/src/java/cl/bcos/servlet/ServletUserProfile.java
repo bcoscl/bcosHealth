@@ -6,7 +6,10 @@
 package cl.bcos.servlet;
 
 import cl.bcos.HttpRequest;
+import cl.bcos.constants.CommonConstants;
 import cl.bcos.entity.ProfileResponse;
+import cl.bcos.entity.S3Response;
+import cl.bcos.service.AdmS3;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,7 +30,7 @@ public class ServletUserProfile extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUserProfile.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -68,7 +71,10 @@ public class ServletUserProfile extends HttpServlet {
         //Log.info("User MAX :" + userMax);
         Log.info("token bearer:" + token);
 
-        if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/Profile";
+        if (PATH.contains("localhost")) {
+            https = "http://";
+        }
+        String URL = https + PATH + "/bcos/api/json/Profile";
 //            try {
         Map<String, String> parameter = new HashMap<String, String>();
         parameter.put("accion", accion);
@@ -90,7 +96,7 @@ public class ServletUserProfile extends HttpServlet {
                 try {
 
                     //if (accion.equalsIgnoreCase("CP-PERFIL")) {
-                    out.println(getUserProfilePipe(res));
+                    out.println(getUserProfilePipe(res, empresasession, token));
                     //}
 //                        else if (accion.equalsIgnoreCase("LP-SELECT")) {
 //                            out.println(getPlanesSelect(res));
@@ -122,9 +128,31 @@ public class ServletUserProfile extends HttpServlet {
         /* TODO output your page here. You may use following sample code. */
     }
 
-    private String getUserProfilePipe(ProfileResponse res) {
+    private String getUserProfilePipe(ProfileResponse res, String empresasession, String token) throws IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
         StringBuilder out = new StringBuilder();
+
+        /*Crea el Bucket de la suscripcion*/
+        Map<String, String> parameter = new HashMap<String, String>();
+        parameter.put("accion", "USER_PROFILE_FILE");
+        parameter.put("empresasession", empresasession);
+        parameter.put("token", token);
+
+        String URL2 = https + PATH + "/bcos/api/json/S3";
+
+        String resultHttpRequest_exa = HttpRequest.HttpRequesPostMethod(URL2, parameter, token);
+        Log.info(resultHttpRequest_exa);
+
+        S3Response s3 = new Gson().fromJson(resultHttpRequest_exa, S3Response.class);
+
+        Log.info("S3 res.message : " + s3.getStatus().getMessage());
+        Log.info("S3 res.message : " + s3.getStatus().getCode());
+
+        CommonConstants c = new CommonConstants(s3.getS3().getACCESS_KEY_ID(), s3.getS3().getACCESS_SEC_KEY(), s3.getS3().getBUCKETNAME().toLowerCase());
+        AdmS3 admS3 = new AdmS3(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
+        
+        String url = admS3.preUrl(CommonConstants.BUCKET_NAME, res.getProfile().getImgUrl(), 15);
+        Log.info("preURL Input: " + url);
 
         out.append("<span>");
         out.append(res.getProfile().getName() + " " + res.getProfile().getLastName());
@@ -157,6 +185,12 @@ public class ServletUserProfile extends HttpServlet {
         out.append("<span>");
         out.append(res.getProfile().getAboutMe());
         out.append("</span>");
+        out.append("|");
+
+        out.append(url);
+         out.append("|");
+
+        out.append(res.getProfile().getUserId());
 
         Log.debug(out.toString());
         return out.toString();

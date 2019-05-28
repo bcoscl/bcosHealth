@@ -27,7 +27,7 @@ public class ServletCrearRoles extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearRoles.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/  private static final String PATH = System.getenv(ENDPOINT_PATH);
+    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
     private static String https = "https://";
 
     /**
@@ -61,7 +61,10 @@ public class ServletCrearRoles extends HttpServlet {
 
             Log.info("token bearer:" + token);
 
-            if(PATH.contains("localhost")){https = "http://";}String URL = https+PATH+ "/bcos/api/json/crearRole";
+            if (PATH.contains("localhost")) {
+                https = "http://";
+            }
+            String URL = https + PATH + "/bcos/api/json/crearRole";
 //            try {
             Map<String, String> parameter = new HashMap<String, String>();
             parameter.put("RoleName", RoleName);
