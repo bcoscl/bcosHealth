@@ -31,13 +31,13 @@ $(document).ready(function () {
                 ACCION = "PUP-EXAMENES-CREATE";
                 URL = "../../ServletCrearExamenes";
             }
-
+            var row_id = $("#modal_input_examenes_id").val();
             $.ajax({
                 url: URL,
                 dataType: "text",
                 data: {
                     accion: ACCION,
-                    row: $("#modal_input_examenes_id").val(),
+                    row: row_id,
                     examen_name: $("#modal_input_examenes_nombre").val(),
                     examen_obs: $("#modal_input_examenes_observacion").val(),
                     examen_pacientename: nombre
@@ -60,16 +60,25 @@ $(document).ready(function () {
                 },
 
                 success: function (data) {
-                    CargaInicialExamenes();
-                    removeValidation(id);
-                    $('#largeModalExamen').modal('hide');
+                    
+                   $("#examenid").val($("#modal_input_examenes_id").val());
+                    
+                    if ($("#upload-file-examen").get(0).files.length != null &&
+                            $("#upload-file-examen").get(0).files.length != 0) {
+                        SuccesNotify();
+                        $("#formCrearExamenFile").submit();
+                    }
+                    
+                    
+                    //CargaInicialExamenes();
+                   // removeValidation(id);
+                    //$('#largeModalExamen').modal('hide');
                     //alert('Insert OK');
-                    $.unblockUI();
-                    cleanExamenes();
-                    SuccesNotify();
+                    //$.unblockUI();
+                    //cleanExamenes();
+                    //SuccesNotify();
                     //$("#contenido").html(data);
-
-
+                    
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#largeModalExamen').modal('hide');

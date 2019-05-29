@@ -13,7 +13,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formExamenespup">
+                <form id="formCrearExamenFile" name ="formCrearExamenFile" class="form-horizontal" action="../../ServletUploadArchivoExamen?accion=EXAMENFICHA" method="post" enctype="multipart/form-data">
 
                     <h4 class="blue">
                         <span class="middle" id="modal_input_examenes_pacienteName"></span>
@@ -31,7 +31,7 @@
                         <div class="col-xs-12 col-sm-12">
 
                             <div class="profile-user-info">
-
+                               
                                 <div class="profile-info-row">
                                     <div class="profile-info-name"> Nombre </div>
 
@@ -47,17 +47,24 @@
                                         <input class="form-control" id="modal_input_examenes_observacion" type="text" name="text-input" placeholder="Observación del Examen" required>
                                     </div>
                                 </div>
-                                <div class="profile-info-row">
-                                    <div class="profile-info-name"> Examen </div>
+                                
+                                
+                                    <div class="profile-info-row">
+                                        <div class="profile-info-name"> Examen </div>
 
-                                    <div class="profile-info-value" >
-                                        <a href="javascript:void(0)"  id="fileuploadExamen" class="btn btn-sm btn-block btn-success">
-                                            <i class="ace-icon fa fa-cloud-upload bigger-120"></i>
-                                            <span class="bigger-110">Subir Examen</span>
-                                        </a>
-                                        <input id="upload-file-examen" type="file" style="display: none;"/>
+                                        <div class="profile-info-value" >
+                                            
+                                            <a href="javascript:void(0)"  id="fileuploadExamen" class="btn btn-sm btn-block btn-success">
+                                                <i class="ace-icon fa fa-cloud-upload bigger-120"></i>
+                                                <span class="bigger-110">Subir Examen</span>
+                                            </a>
+                                             <input id="upload-file-examen" name ="upload-file-examen" type="file" style="display: none;"/>
+                                             <input id="examenid" name ="examenid" type="text" style="display: none;"/>
+                                             
+                                        </div>
+
                                     </div>
-                                </div>
+                               
 
                             </div>
                         </div><!-- /.col -->
@@ -68,9 +75,9 @@
 
 
 
+</form>
 
 
-                </form>
             </div>
 
             <div class="modal-footer">

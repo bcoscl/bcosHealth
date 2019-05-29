@@ -27,7 +27,7 @@ public class ServletUpdateExamenes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUpdateExamenes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     /**
@@ -60,7 +60,7 @@ public class ServletUpdateExamenes extends HttpServlet {
             String exa_n_id = (String) request.getParameter("row");
             String exa_c_name = (String) request.getParameter("examen_name");
             String exa_c_obs = (String) request.getParameter("examen_obs");
-            String exa_c_url = (String) request.getParameter("examen_url");
+            //String exa_c_url = (String) request.getParameter("examen_url");
             String examen_pacientename = (String) request.getParameter("examen_pacientename");
 
             String token = (String) tokensession.getAttribute("token");
@@ -70,7 +70,7 @@ public class ServletUpdateExamenes extends HttpServlet {
             Log.info("exa_n_id :" + exa_n_id);
             Log.info("exa_c_name :" + exa_c_name);
             Log.info("exa_c_obs :" + exa_c_obs);
-            Log.info("exa_c_url :" + exa_c_url);
+           // Log.info("exa_c_url :" + exa_c_url);
             Log.info("examen_pacientename :" + examen_pacientename);
 
             Log.info("token bearer:" + token);
@@ -86,7 +86,7 @@ public class ServletUpdateExamenes extends HttpServlet {
             parameter.put("exa_n_id", exa_n_id);
             parameter.put("exa_c_name", exa_c_name);
             parameter.put("exa_c_obs", exa_c_obs);
-            parameter.put("exa_c_url", exa_c_url);
+            //parameter.put("exa_c_url", exa_c_url);
             parameter.put("examen_pacientename", examen_pacientename);
             parameter.put("empresasession", empresasession);
 

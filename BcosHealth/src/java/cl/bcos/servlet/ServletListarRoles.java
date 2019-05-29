@@ -28,7 +28,7 @@ public class ServletListarRoles extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarRoles.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
     private static final String LISTAR_TABLA = "LR-TABLA";
     private static final String LISTAR_SELECT = "LR-SELECT";

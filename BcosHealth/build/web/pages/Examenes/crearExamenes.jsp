@@ -52,7 +52,7 @@
 
                 </div>
             </form>
-            <form id="formCrearExamenFile" name ="formCrearExamenFile" class="form-horizontal" action="../../ServletUploadArchivoExamen?accion=UploadOnlyFile" method="post" enctype="multipart/form-data">
+            <form id="formCrearExamenFile" name ="formCrearExamenFile" class="form-horizontal" action="../../ServletUploadArchivoExamen?accion=EXAMEN" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="select1">Adjunto</label>
                     <div class="col-md-3">

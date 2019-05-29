@@ -38,7 +38,7 @@ public class ServletUploadArchivoExamen extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletUploadArchivoExamen.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    /*private static final String PATH = "api.bcos.cl";*/    private static final String PATH = System.getenv(ENDPOINT_PATH);
+    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     /**
@@ -65,7 +65,7 @@ public class ServletUploadArchivoExamen extends HttpServlet {
             String id = (String) request.getParameter("examenid");
             String accion = (String) request.getParameter("accion");
             Log.info("id: " + id);
-              
+
             try {
                 if (PATH.contains("localhost")) {
                     https = "http://";
@@ -91,13 +91,10 @@ public class ServletUploadArchivoExamen extends HttpServlet {
                 AdmS3 admS3 = new AdmS3(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
 
                 // Utiliza Part para accesar al objeto que viene de parametro
-              
                 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
                 Log.info("file name: " + fileName);
-               
 
                 fileName = UtilsRandom.getRandom() + "-" + fileName;
-               
 
                 //fileName = fwe[0] + "." + UtilsRandom.getRandom() + "." + fwe[1];
                 if (!"".equals(s3.getS3().getFOLDER_NAME_EXAMENES())) {
@@ -119,51 +116,53 @@ public class ServletUploadArchivoExamen extends HttpServlet {
 
                     url = admS3.preUrl(CommonConstants.BUCKET_NAME, fileName, 5);
                     Log.info("preURL Input: " + url);
-                    
-                    if (accion !=null && accion.equalsIgnoreCase("UploadOnlyFile")) {
-                        /*Actualizar el Perfil con el nombre de la imagen fileNameProfile */
-                        if (PATH.contains("localhost")) {
-                            https = "http://";
-                        }
-                        String URL = https + PATH + "/bcos/api/json/updateExamenFile";
-//            try {
-                        Map<String, String> parameter2 = new HashMap<String, String>();
 
-                        parameter2.put("token", token);
-                        parameter2.put("empresasession", empresasession);
-                        parameter2.put("examenUrl", fileName);
-                        parameter2.put("id", id);
-
-                        String resultHttpRequest = "";
-                        try {
-                            resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter2, token);
-                            Log.info(resultHttpRequest);
-                            statusResponse res = new Gson().fromJson(resultHttpRequest, statusResponse.class);
-
-                            Log.info("res.message : " + res.getStatus().getMessage());
-                            Log.info("res.message : " + res.getStatus().getCode());
-
-                            if (res.getStatus().getMessage().equalsIgnoreCase("UPDATE_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
-                                response.setStatus(200);
-                                
-                            } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
-                                Log.info("TOKEN_NO_VALIDO");
-                                //response.setStatus(401);
-                                response.sendRedirect("./pages/base/sorry.html");
-
-                            } else {
-                                Log.info("UPDATE_NO_OK");
-                                response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
-                            }
-
-                        } catch (Exception e) {
-                            Log.error(e);
-                            response.setStatus(404);
-                        }
+                    /*Actualizar el Perfil con el nombre de la imagen fileNameProfile */
+                    if (PATH.contains("localhost")) {
+                        https = "http://";
                     }
+                    String URL = https + PATH + "/bcos/api/json/updateExamenFile";
+//            try {
+                    Map<String, String> parameter2 = new HashMap<String, String>();
+
+                    parameter2.put("token", token);
+                    parameter2.put("empresasession", empresasession);
+                    parameter2.put("examenUrl", fileName);
+                    parameter2.put("id", id);
+
+                    String resultHttpRequest = "";
+                    try {
+                        resultHttpRequest = HttpRequest.HttpRequesPostMethod(URL, parameter2, token);
+                        Log.info(resultHttpRequest);
+                        statusResponse res = new Gson().fromJson(resultHttpRequest, statusResponse.class);
+
+                        Log.info("res.message : " + res.getStatus().getMessage());
+                        Log.info("res.message : " + res.getStatus().getCode());
+
+                        if (res.getStatus().getMessage().equalsIgnoreCase("UPDATE_OK") && res.getStatus().getCode().equalsIgnoreCase("200")) {
+                            response.setStatus(200);
+
+                        } else if (res.getStatus().getMessage().equalsIgnoreCase("TOKEN_NO_VALIDO") && res.getStatus().getCode().equalsIgnoreCase("401")) {
+                            Log.info("TOKEN_NO_VALIDO");
+                            //response.setStatus(401);
+                            response.sendRedirect("./pages/base/sorry.html");
+
+                        } else {
+                            Log.info("UPDATE_NO_OK");
+                            response.setStatus(400);  // 400 Bad Request - no se eejcuto el insert  
+                        }
+
+                    } catch (Exception e) {
+                        Log.error(e);
+                        response.setStatus(404);
+                    }
+
                 }
-                
-                response.sendRedirect("./pages/Examenes/crearExamenes.jsp");
+                if (accion.equalsIgnoreCase("EXAMENFICHA")) {
+                    response.sendRedirect("./pages/Fichas/listarFichasTab.jsp");
+                } else if (accion.equalsIgnoreCase("EXAMEN")) {
+                    response.sendRedirect("./pages/Examenes/crearExamenes.jsp");
+                }
 
             } catch (Exception ex) {
                 ex.printStackTrace();

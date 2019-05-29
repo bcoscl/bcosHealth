@@ -10,11 +10,11 @@
             <img class="rounded img-fluid img-thumbnail" alt=" Avatar" onerror="this.src='../../pages/Perfil/img/ProfilePerson.jpg'"  id="avatar2" src="" >
 
 
-            <a href="javascript:void(0)"  id="fileupload" class="btn btn-sm btn-block btn-success">
+<!--            <a href="javascript:void(0)"  id="fileupload" class="btn btn-sm btn-block btn-success">
                 <i class="ace-icon fa fa-cloud-upload bigger-120"></i>
                 <span class="bigger-110">Subir imagen</span>
             </a>
-            <input id="upload-file" type="file" style="display: none;"/>
+            <input id="upload-file" type="file" style="display: none;"/>-->
 
 <!--            <a href="javascript:popupEditPacienteInformation();"  id="edit_button" class="btn btn-sm btn-block btn-outline-dark">
                 <i class="ace-icon fa fa-edit bigger-120"></i>
