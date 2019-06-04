@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <base href="./">
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,13 +12,13 @@
         <meta http-equiv="Cache-Control" content="private" />
         <meta http-equiv="Cache-Control" content="no-store" />
         <meta http-equiv="Pragma" content="no-cache" />
-        
-        
-        
-        
+        <link rel="icon" type="image/png" href="../../comun/img/favicon.ico" />
+
+
+
         <title>CoreUI Free Bootstrap Admin Template</title>
         <!-- Icons-->
-         <link rel="stylesheet" href="../../comun/css/401.css">
+        <link rel="stylesheet" href="../../comun/css/401.css">
         <link href="../../comun/css/coreui-icons.min.css" rel="stylesheet">
         <link href="../../comun/css/flag-icon.min.css" rel="stylesheet">
         <link href="../../comun/css/font-awesome.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
         <script src="../../comun/js/perfect-scrollbar.min.js"></script>
         <script src="../../comun/js/coreui.min.js"></script>
 
-       
+
         <!-- Global site tag (gtag.js) - Google Analytics-->
         <script>
             $(document).ready(function () {
@@ -42,12 +42,16 @@
                 function contador() {
                     $("#display").html(i);
                     if (i == 0) {
-                        location.href = '../base/LoginPage.jsp';
+                        //location.href = '../base/LoginPage.jsp';
+                        redireccionar();
                     }
                     i--;
                 }
                 setInterval(contador, 1000);
             });
+             function redireccionar(){
+                location.href = '../base/LoginPage.jsp';                
+            }
         </script>
 
 
@@ -55,15 +59,15 @@
 
     </head>
     <body class="app flex-row align-items-center" >
-        
-         <div class="container">
-                    
-                  
-       
+
+        <div class="container">
+
+
+
             <div class="row justify-content-center">
-               
-                <img src="../../comun/img/sorry.jpg" class="brand_logo" alt="Logo">                  
-                          
+
+                <img onclick="javascript:redireccionar();" src="../../comun/img/sorry.jpg" class="brand_logo" alt="Logo">                  
+
 
                 <div class="col-md-6">
                     <div class="clearfix">
@@ -71,7 +75,9 @@
                         <h4 class="pt-3">se te acabo el tiempo!</h4>
                         <h5 class="text-muted">Por favor ingresa nuevamente</h5>
                     </div>
-
+                    <div class="clearfix">
+                        <p class="text-muted">Si, no quieres esperar,<a href="javascript:redireccionar();"> haz click aqui</a></p>
+                    </div>
 
                 </div>
                 <div class="clearfix">

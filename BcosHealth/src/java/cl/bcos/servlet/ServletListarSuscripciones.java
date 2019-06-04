@@ -28,7 +28,7 @@ public class ServletListarSuscripciones extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarSuscripciones.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
     private static final String LISTAR_TABLA = "LS-TABLA";
     private static final String LISTAR_SELECT = "LS-SELECT";
@@ -47,7 +47,9 @@ public class ServletListarSuscripciones extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         HttpSession tokensession = request.getSession(true);
 

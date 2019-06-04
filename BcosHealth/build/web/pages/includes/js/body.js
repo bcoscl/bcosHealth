@@ -7,6 +7,19 @@ $(document).ready(function () {
 
 //    alert($("#menuContent").html());
 
+$("#menuContent").click(function() {  
+    
+//    var text = "";
+//   $(".open").each(function(){
+//        	  text = text+$(this).find("a").text() ;
+//        	});
+//    
+//    alert(text);
+   
+    
+    
+});
+
     $.ajax({
         url: "../../ServletListarMenu",
         dataType: "text",

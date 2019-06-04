@@ -26,13 +26,15 @@ public class ServletPlanes extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletPlanes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         HttpSession tokensession = request.getSession(true);
 

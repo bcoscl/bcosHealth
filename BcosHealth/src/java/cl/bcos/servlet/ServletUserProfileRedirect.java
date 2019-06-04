@@ -34,7 +34,9 @@ public class ServletUserProfileRedirect extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession tokensession = request.getSession(true);
 

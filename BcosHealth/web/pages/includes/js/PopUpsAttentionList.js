@@ -103,7 +103,8 @@ $(document).ready(function () {
                     modal_numuser: $("#modal_numuser").val(),
                     modal_mediconumuser: $("#medico_select option:selected").val(),
                     modal_mediconombre: $("#medico_select option:selected").text(),
-                    modal_motivo: $("#modal_motivo").val()
+                    modal_motivo: $("#modal_motivo").val(),
+                    modal_attentionListHora: $("#modal_attentionListHora").val()
                 },
                 beforeSend: function () {
 

@@ -29,7 +29,7 @@ public class ServletGetUrlExamen extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearExamenes.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     /**

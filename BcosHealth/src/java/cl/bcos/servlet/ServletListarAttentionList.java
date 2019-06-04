@@ -28,7 +28,7 @@ public class ServletListarAttentionList extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletListarAttentionList.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
     private static final String AT_TABLA_BY_DOC = "AT-TABLA-BY-DOC";
     private static final String AT_TABLA = "AT-TABLA";
@@ -45,7 +45,9 @@ public class ServletListarAttentionList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession tokensession = request.getSession(true);
 
         String empresasession = (String) tokensession.getAttribute("EMPRESA");
@@ -169,10 +171,10 @@ public class ServletListarAttentionList extends HttpServlet {
             out.append(" <tr role=\"row\" class=\"odd\">");
             out.append("<td class=\"sorting_1\">");
             out.append("    <div class=\"row\">");
-            out.append("        <div class=\"col-xs-12 col-sm-2 middle\">");
+            out.append("        <div class=\"col-xs-12 col-sm-3 middle\">");
             out.append("            <img class=\"img-thumbnail editable img-responsive\" alt=\" Avatar\" id=\"avatar2\" src=\"../Perfil/img/ProfilePerson.jpg\" >");
             out.append("        </div><!-- /.col -->");
-            out.append("        <div class=\"col-xs-12 col-sm-10\">");
+            out.append("        <div class=\"col-xs-12 col-sm-9\">");
             out.append("            <h4 class=\"blue\">");
             out.append("                <span class=\"middle\" id=\"input_nombre\">");
             out.append(str.getAt_c_pacientename());
@@ -196,6 +198,18 @@ public class ServletListarAttentionList extends HttpServlet {
             out.append("</span>");
             out.append("                    </div>");
             out.append("                </div>");
+            
+            out.append("                <div class=\"profile-info-row\">");
+            out.append("                    <div class=\"profile-info-name\"> Hora Cita </div>");
+            out.append("");
+            out.append("                    <div class=\"profile-info-value\" id=\"input_fecha_cita\">");
+            out.append("                        <span>");
+            out.append(str.getAt_d_fechacita());
+            out.append("</span>");
+            out.append("                    </div>");
+            out.append("                </div>");
+            
+            
             out.append("                <div class=\"profile-info-row\">");
             out.append("                    <div class=\"profile-info-name\"> Hora llegada </div>");
             out.append("");
@@ -205,6 +219,8 @@ public class ServletListarAttentionList extends HttpServlet {
             out.append("</span>");
             out.append("                    </div>");
             out.append("                </div>");
+            
+            
             out.append("            </div>");
             out.append("        </div><!-- /.col -->");
             out.append("    </div><!-- /.row -->");

@@ -69,7 +69,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="email-input">Email Contacto</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="email_contacto_paciente" type="email" name="email-input" placeholder="email de contacto" autocomplete="email" required>
+                        <input class="form-control" id="email_contacto_paciente" type="email" name="email-input" placeholder="email de contacto" autocomplete="email" >
                     </div>
                 </div>
 

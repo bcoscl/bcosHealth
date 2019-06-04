@@ -111,7 +111,7 @@ $(document).ready(function () {
 
 
 function nuevaConsulta() {
-
+    cleanConsulta();
     var numuser = $("#input_nombre").html();
     numuser = numuser.replace("<span>", "");
     numuser = numuser.replace("</span>", "");
@@ -145,6 +145,13 @@ function popupEditConsulta(titulo, observacion, id, nombre) {
 
     $("#modal_input_consulta_pacientename").val(nombre);
     $("#modal_input_consulta_titulo").val(titulo);
+        
+        
+        while(observacion.indexOf(" - ") != -1) {
+        observacion = observacion.replace(" - ","\n");
+        }
+        
+        
     $("#modal_input_consulta_observacion").val(observacion);
     $("#modal_input_consulta_id").val(id);
     $("#modal_input_consulta_accion").val("MOD");

@@ -9,7 +9,7 @@
         <meta http-equiv="Cache-Control" content="private" />
         <meta http-equiv="Cache-Control" content="no-store" />
         <meta http-equiv="Pragma" content="no-cache" />
-
+        <link rel="icon" type="image/png" href="../../comun/img/favicon.ico" />
 
         
         

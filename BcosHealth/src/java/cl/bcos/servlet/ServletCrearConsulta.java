@@ -27,7 +27,7 @@ public class ServletCrearConsulta extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletCrearEnfermedadesCronicas.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     /**
@@ -42,7 +42,9 @@ public class ServletCrearConsulta extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession tokensession = request.getSession(true);
 
         String empresasession = (String) tokensession.getAttribute("EMPRESA");
@@ -63,6 +65,8 @@ public class ServletCrearConsulta extends HttpServlet {
                 fechaCreacion = fechaCreacion.trim();
 
             }
+            
+            
 
             String token = (String) tokensession.getAttribute("token");
             Log.info("Session PACIENTE" + (String) tokensession.getAttribute("PACIENTE"));

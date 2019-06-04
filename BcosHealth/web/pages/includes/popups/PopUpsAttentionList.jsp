@@ -38,6 +38,14 @@
                     <div class="form-row">
 
                         <div class="form-group col-md-12">
+                            <label>Hora de la cita :</label>                        
+                            <input class="form-control" id="modal_attentionListHora" type="time" name="text-input" required >
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-12">
                             <label>¿Motivo de la visita?</label>
                             <div class="form-row">
                                 <div class="form-group col-md-3">

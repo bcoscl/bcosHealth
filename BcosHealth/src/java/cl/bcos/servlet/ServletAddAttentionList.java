@@ -27,7 +27,7 @@ public class ServletAddAttentionList extends HttpServlet {
 
     private static final Logger Log = Logger.getLogger(ServletAddAttentionList.class);
     private static final String ENDPOINT_PATH = "URLPATH";
-    private static final String PATH = "api.bcos.cl";/*    private static final String PATH = System.getenv(ENDPOINT_PATH);*/
+    private static final String PATH = "api.health.bcos.cl";   /* private static final String PATH = System.getenv(ENDPOINT_PATH);*/
     private static String https = "https://";
 
     /**
@@ -48,7 +48,10 @@ public class ServletAddAttentionList extends HttpServlet {
             throws ServletException, IOException {
         Log.debug(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        response.setContentType("text/html;charset=iso-8859-1");
+        /*response.setContentType("text/html;charset=iso-8859-1");*/        
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        
         HttpSession tokensession = request.getSession(true);
         String empresasession = (String) tokensession.getAttribute("EMPRESA");
 
@@ -61,6 +64,7 @@ public class ServletAddAttentionList extends HttpServlet {
             String numuser_medico = (String) request.getParameter("modal_mediconumuser");
             String nombre_medico = (String) request.getParameter("modal_mediconombre");
             String motivo = (String) request.getParameter("modal_motivo");
+            String hora = (String) request.getParameter("modal_attentionListHora");
 
             String token = (String) tokensession.getAttribute("token");
 
@@ -71,6 +75,7 @@ public class ServletAddAttentionList extends HttpServlet {
             Log.info("numuser_medico :" + numuser_medico);
             Log.info("nombre_medico :" + nombre_medico);
             Log.info("motivo :" + motivo);
+            Log.info("hora :" + hora);
 
             Log.info("token bearer:" + token);
 
@@ -87,6 +92,7 @@ public class ServletAddAttentionList extends HttpServlet {
             parameter.put("numuser_medico", numuser_medico);
             parameter.put("nombre_medico", nombre_medico);
             parameter.put("motivo", motivo);
+            parameter.put("hora", hora);
             parameter.put("empresasession", empresasession);
 
             parameter.put("token", token);
