@@ -71,215 +71,227 @@
     </filter-mapping>-->
     <servlet>
         <servlet-name>ServletPlanes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletPlanes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Planes.ServletPlanes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletLogin</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletLogin</servlet-class>
+        <servlet-class>cl.bcos.servlet.Session.ServletLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarPlanes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarPlanes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Planes.ServletListarPlanes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearSuscripcion</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearSuscripcion</servlet-class>
+        <servlet-class>cl.bcos.servlet.Suscripciones.ServletCrearSuscripcion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarSuscripciones</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarSuscripciones</servlet-class>
+        <servlet-class>cl.bcos.servlet.Suscripciones.ServletListarSuscripciones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateSuscripcion</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateSuscripcion</servlet-class>
+        <servlet-class>cl.bcos.servlet.Suscripciones.ServletUpdateSuscripcion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarFichas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarFichas</servlet-class>
+        <servlet-class>cl.bcos.servlet.Fichas.ServletListarFichas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearUsuario</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearUsuario</servlet-class>
+        <servlet-class>cl.bcos.servlet.Usuarios.ServletCrearUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletPassGenerate</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletPassGenerate</servlet-class>
+        <servlet-class>cl.bcos.servlet.Password.ServletPassGenerate</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearRoles</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearRoles</servlet-class>
+        <servlet-class>cl.bcos.servlet.Roles.ServletCrearRoles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarRoles</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarRoles</servlet-class>
+        <servlet-class>cl.bcos.servlet.Roles.ServletListarRoles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearProfesiones</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearProfesiones</servlet-class>
+        <servlet-class>cl.bcos.servlet.Profesiones.ServletCrearProfesiones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarProfesiones</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarProfesiones</servlet-class>
+        <servlet-class>cl.bcos.servlet.Profesiones.ServletListarProfesiones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUserProfile</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUserProfile</servlet-class>
+        <servlet-class>cl.bcos.servlet.Usuarios.ServletUserProfile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateUsuarios</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateUsuarios</servlet-class>
+        <servlet-class>cl.bcos.servlet.Usuarios.ServletUpdateUsuarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarUsuarios</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarUsuarios</servlet-class>
+        <servlet-class>cl.bcos.servlet.Usuarios.ServletListarUsuarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUserProfileRedirect</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUserProfileRedirect</servlet-class>
+        <servlet-class>cl.bcos.servlet.Usuarios.ServletUserProfileRedirect</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearSucursales</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearSucursales</servlet-class>
+        <servlet-class>cl.bcos.servlet.Sucursales.ServletCrearSucursales</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarSucursales</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarSucursales</servlet-class>
+        <servlet-class>cl.bcos.servlet.Sucursales.ServletListarSucursales</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateSucursal</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateSucursal</servlet-class>
+        <servlet-class>cl.bcos.servlet.Sucursales.ServletUpdateSucursal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearPaciente</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearPaciente</servlet-class>
+        <servlet-class>cl.bcos.servlet.Pacientes.ServletCrearPaciente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarPacientes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarPacientes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Pacientes.ServletListarPacientes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletPacienteProfile</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletPacienteProfile</servlet-class>
+        <servlet-class>cl.bcos.servlet.Pacientes.ServletPacienteProfile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletAddAttentionList</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletAddAttentionList</servlet-class>
+        <servlet-class>cl.bcos.servlet.attentionList.ServletAddAttentionList</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarAttentionList</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarAttentionList</servlet-class>
+        <servlet-class>cl.bcos.servlet.attentionList.ServletListarAttentionList</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateAttentionList</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateAttentionList</servlet-class>
+        <servlet-class>cl.bcos.servlet.attentionList.ServletUpdateAttentionList</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarEnfermedadesCronicas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarEnfermedadesCronicas</servlet-class>
+        <servlet-class>cl.bcos.servlet.EnfermedadesCronicas.ServletListarEnfermedadesCronicas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateEnfermedadesCronicas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateEnfermedadesCronicas</servlet-class>
+        <servlet-class>cl.bcos.servlet.EnfermedadesCronicas.ServletUpdateEnfermedadesCronicas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearEnfermedadesCronicas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearEnfermedadesCronicas</servlet-class>
+        <servlet-class>cl.bcos.servlet.EnfermedadesCronicas.ServletCrearEnfermedadesCronicas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarFarmacos</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarFarmacos</servlet-class>
+        <servlet-class>cl.bcos.servlet.Farmacos.ServletListarFarmacos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateFarmacos</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateFarmacos</servlet-class>
+        <servlet-class>cl.bcos.servlet.Farmacos.ServletUpdateFarmacos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearFarmacos</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearFarmacos</servlet-class>
+        <servlet-class>cl.bcos.servlet.Farmacos.ServletCrearFarmacos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearConsulta</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearConsulta</servlet-class>
+        <servlet-class>cl.bcos.servlet.Consultas.ServletCrearConsulta</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarConsulta</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarConsulta</servlet-class>
+        <servlet-class>cl.bcos.servlet.Consultas.ServletListarConsulta</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarExamenes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarExamenes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Examenes.ServletListarExamenes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateExamenes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateExamenes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Examenes.ServletUpdateExamenes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearExamenes</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearExamenes</servlet-class>
+        <servlet-class>cl.bcos.servlet.Examenes.ServletCrearExamenes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdatePacienteProfile</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdatePacienteProfile</servlet-class>
+        <servlet-class>cl.bcos.servlet.Pacientes.ServletUpdatePacienteProfile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUpdateConsultas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUpdateConsultas</servlet-class>
+        <servlet-class>cl.bcos.servlet.Consultas.ServletUpdateConsultas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarConfiguraciones</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarConfiguraciones</servlet-class>
+        <servlet-class>cl.bcos.servlet.params.ServletListarConfiguraciones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletCrearConfiguraciones</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletCrearConfiguraciones</servlet-class>
+        <servlet-class>cl.bcos.servlet.params.ServletCrearConfiguraciones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletListarMenu</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletListarMenu</servlet-class>
+        <servlet-class>cl.bcos.servlet.Menu.ServletListarMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletLogOut</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletLogOut</servlet-class>
+        <servlet-class>cl.bcos.servlet.Session.ServletLogOut</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletSendPassword</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletSendPassword</servlet-class>
+        <servlet-class>cl.bcos.servlet.Password.ServletSendPassword</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletChangePassword</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletChangePassword</servlet-class>
+        <servlet-class>cl.bcos.servlet.Password.ServletChangePassword</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletOlvidoPasswordRedirect</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletOlvidoPasswordRedirect</servlet-class>
+        <servlet-class>cl.bcos.servlet.Password.ServletOlvidoPasswordRedirect</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletChangeEmpresa</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletChangeEmpresa</servlet-class>
+        <servlet-class>cl.bcos.servlet.Menu.ServletChangeEmpresa</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletChangePasswordInSite</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletChangePasswordInSite</servlet-class>
+        <servlet-class>cl.bcos.servlet.Password.ServletChangePasswordInSite</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletExportarFichas</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletExportarFichas</servlet-class>
+        <servlet-class>cl.bcos.servlet.Fichas.ServletExportarFichas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletMaxUserAccess</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletMaxUserAccess</servlet-class>
+        <servlet-class>cl.bcos.servlet.Suscripciones.ServletMaxUserAccess</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUploadArchivo</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUploadArchivo</servlet-class>
+        <servlet-class>cl.bcos.servlet.Files.ServletUploadArchivo</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletUploadArchivoExamen</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletUploadArchivoExamen</servlet-class>
+        <servlet-class>cl.bcos.servlet.Files.ServletUploadArchivoExamen</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletGetUrlExamen</servlet-name>
-        <servlet-class>cl.bcos.servlet.ServletGetUrlExamen</servlet-class>
+        <servlet-class>cl.bcos.servlet.Examenes.ServletGetUrlExamen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCrearEvaluacion</servlet-name>
+        <servlet-class>cl.bcos.servlet.Evaluacion.ServletCrearEvaluacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletUpdateEvaluacion</servlet-name>
+        <servlet-class>cl.bcos.servlet.Evaluacion.ServletUpdateEvaluacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletListarEvaluacion</servlet-name>
+        <servlet-class>cl.bcos.servlet.Evaluacion.ServletListarEvaluacion</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletPlanes</servlet-name>
@@ -492,6 +504,18 @@
     <servlet-mapping>
         <servlet-name>ServletGetUrlExamen</servlet-name>
         <url-pattern>/ServletGetUrlExamen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearEvaluacion</servlet-name>
+        <url-pattern>/ServletCrearEvaluacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletUpdateEvaluacion</servlet-name>
+        <url-pattern>/ServletUpdateEvaluacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletListarEvaluacion</servlet-name>
+        <url-pattern>/ServletListarEvaluacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

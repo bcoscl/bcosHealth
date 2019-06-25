@@ -129,8 +129,8 @@ $(document).ready(function () {
             //   alert(jqXHR + " - "+textStatus+" - "+errorThrown);
             if (jqXHR.status == 400) {
                 //redirect =  errorThrown;
-                window.location.href = errorThrown;
-                //location.href  = "../../pages/Users/maximoAlcanzado.jsp";
+                //window.location.href = errorThrown;
+                window.location.href  = "../../pages/Users/maximoAlcanzado.jsp";
 
             } else if (jqXHR.status == 500) {
                 // Server side error

@@ -17,9 +17,12 @@
 <div class="row">
     <div class="col">
         <ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
-            <li class="nav-item btn-group">
+            <li id="ibClick" class="nav-item btn-group">
                 <a class="nav-link active show" id="pills-home-tab" data-toggle="pill" href="#pills-home" 
                    role="tab" aria-controls="pills-home" aria-selected="true">Información Básica</a>
+                <button type="button" class="btn btn-sm btn-secondary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                </button>
                 
             </li>
             <li class="nav-item btn-group">
@@ -40,6 +43,16 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="javascript:popupAddExamenes();">Nuevo Exámen</a>                   
+                </div>
+            </li>
+            <li id="evaClick" class="nav-item btn-group">
+                <a class="nav-link" id="pills-eva-tab" data-toggle="pill" href="#pills-eva" 
+                   role="tab" aria-controls="pills-eva" aria-selected="false">Evaluación Corporal</a>
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="javascript:nuevaeva();">Nueva Evaluación</a>                   
                 </div>
             </li>
         </ul>
@@ -73,6 +86,15 @@
 
                 <!-- FIN tab 3 -->
             </div>
+            <div class="tab-pane fade" id="pills-eva" role="tabpanel" aria-labelledby="pills-eva-tab">
+                <!-- tab 4 -->
+
+
+                <%@include file="../Evaluaciones/evaluaciones.jsp" %>
+
+
+                <!-- FIN tab 4 -->
+            </div>
 
 
         </div>
@@ -92,6 +114,7 @@
 <%@include file="../includes/popups/PopUpsExamenes.jsp" %>
 <%@include file="../includes/popups/PopUpsEditPacienteInformation.jsp" %>
 <%@include file="../includes/popups/PopUpsVerExamenes.jsp" %>
+<%@include file="../includes/popups/PopUpsEvaluacion.jsp" %>
 <%@include file="../includes/footer.jsp" %>
 
 

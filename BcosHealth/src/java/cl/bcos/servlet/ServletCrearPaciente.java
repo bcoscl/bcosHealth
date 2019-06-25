@@ -72,6 +72,14 @@ public class ServletCrearPaciente extends HttpServlet {
             if (isapre_name_paciente != null && !isapre_name_paciente.isEmpty()) {
                 prevision = prevision + ", " + isapre_name_paciente;
             }
+            
+            
+            try{
+               email_contacto_paciente = email_contacto_paciente.toLowerCase();
+            }catch(Exception e ){
+                Log.error("no se pudo converir en minusculas el email.");
+            }
+            
 
             String token = (String) tokensession.getAttribute("token");
 

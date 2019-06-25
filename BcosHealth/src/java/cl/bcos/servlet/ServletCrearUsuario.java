@@ -65,6 +65,12 @@ public class ServletCrearUsuario extends HttpServlet {
             String password = (String) request.getParameter("password");
             String checkbox_activo = (String) request.getParameter("checkbox_activo");
 
+            try{
+                email_contacto_user = email_contacto_user.toLowerCase();
+            }catch(Exception e ){
+                Log.error("no se pudo converir en minusculas el email.");
+            }
+            
             String token = (String) tokensession.getAttribute("token");
             try {
                 if (!sucursal_select.isEmpty() && !sucursal_select.equalsIgnoreCase("")) {

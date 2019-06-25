@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 //    alert($("#menuContent").html());
 
+
 $("#menuContent").click(function() {  
     
 //    var text = "";
@@ -84,6 +85,12 @@ $("#menuContent").click(function() {
 
 //            alert($("#menuContent").html());
 });
+
+function Export() {
+    window.print();
+
+}
+
 
 function CambioEmpresa() {
     $('#modalCambioEmpresa').modal('toggle');
@@ -286,3 +293,6 @@ function DangerNotifyMsg(str,element,position) {
     });
 
 }
+
+
+

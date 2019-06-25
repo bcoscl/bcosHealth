@@ -10,7 +10,7 @@
         <!--        <ul class="nav nav-tabs padding-18">-->
         <ul  class="nav nav-tabs">
             <li class="nav-item btn-group">
-                <a id="a-profile" data-toggle="tab" class="nav-link active" href="#home">
+                <a id="a-profile" data-toggle="tab" class="profile nav-link active" href="#home">
                     <i class="blue ace-icon fa fa-user bigger-120"></i>
                     Perfil
                 </a>
@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item btn-group">
-                <a data-toggle="tab" class="nav-link" href="#Cronicas">
+                <a data-toggle="tab" class="profile nav-link" href="#Cronicas">
                     <i class="ace-icon fa fas fa-heartbeat bigger-120" style="color: #ff2600"></i>
                     Enfermedades Crónicas
                 </a>
@@ -39,7 +39,7 @@
             </li>
 
             <li class="nav-item btn-group">
-                <a data-toggle="tab"  class="nav-link" href="#Farmacos">
+                <a data-toggle="tab"  class="profile nav-link" href="#Farmacos">
                     <i class="ace-icon fa  fa-flask bigger-120" style="color: #00b50e"></i>
                     Fármacos
                 </a>
@@ -59,7 +59,7 @@
 
         <div class="tab-content no-border padding-24">
 
-            <div id="home" class="tab-pane in active">
+            <div id="home" class="profile tab-pane in active">
                 <!-- profile -->
                 <%@include file="../Perfil/pacienteProfileBody.jsp" %>
 
@@ -67,7 +67,7 @@
             </div><!-- /#home -->
 
 
-            <div id="Cronicas" class="tab-pane">
+            <div id="Cronicas" class="profile tab-pane">
                 <!-- Enfermedades Cronicas -->
 
                 <%@include file="../Cronicas/cronicas.jsp" %>
@@ -76,7 +76,7 @@
                 <!-- FIN Enfermedades Cronicas -->
             </div><!-- /#feed -->
 
-            <div id="Farmacos" class="tab-pane">
+            <div id="Farmacos" class="profile tab-pane">
 
 
                 <!-- FARMACOS -->

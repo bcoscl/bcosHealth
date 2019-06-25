@@ -40,6 +40,7 @@ function CargaInicialCronica() {
 
             $.unblockUI();
             $("#contenidoCronica").html(data);
+            
 
 
         },

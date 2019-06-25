@@ -9,6 +9,17 @@ $(document).ready(function () {
     CargaProfileInicial();
 
 
+$("#ibClick").click(function (e) {
+    
+    $(".profile").removeClass("in active");
+    $(".profile").removeClass("active");
+    
+    $("#home").addClass("in active");
+    $("#a-profile").addClass("active");
+    
+});
+
+
 
     $("#fileupload").click(function () {
         $("#upload-file").click();
@@ -62,6 +73,12 @@ function CargaProfileInicial() {
             $("#input_estado_civil").html(valor[9]);
             $("#input_aboutMe").html(valor[10]);
             $("#input_sexo").html(valor[11]);
+            
+            //Carga el Nombre
+           $("#input_nombre_cronica").html(valor[0]);
+           $("#input_nombre_farmaco").html(valor[0]);
+           $("#input_nombre_examenesList").html(valor[0]);
+           $("#input_nombre_eva").html(valor[0]);
 
             //$("#msgResult").removeAttr('style');
             //$("#msgResult").removeClass('fade show-none');

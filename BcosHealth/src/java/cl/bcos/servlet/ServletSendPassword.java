@@ -54,6 +54,15 @@ public class ServletSendPassword extends HttpServlet {
             String numuser = (String) request.getParameter("usuario");
             String token = "SENDPASSWORD";
 
+            
+
+            try{
+               olvido_email = olvido_email.toLowerCase();
+            }catch(Exception e ){
+                Log.error("no se pudo converir en minusculas el email.");
+            }
+            
+            
             Log.info(request);
             Log.info("accion : " + accion);
             Log.info("numuser : " + numuser);

@@ -39,6 +39,7 @@ function CargaInicialFarmacos() {
 
             $.unblockUI();
             $("#contenidoFarmacos").html(data);
+            
 
 
         },

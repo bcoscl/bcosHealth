@@ -14,10 +14,7 @@ $(document).ready(function () {
 
 });
 
-function Export() {
-    window.print();
 
-}
 function CargaConsultas() {
 
 

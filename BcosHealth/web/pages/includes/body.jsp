@@ -1,4 +1,5 @@
 <script src="../../pages/includes/js/body.js"></script>
+<script src="../../pages/includes/js/comunFunctions.js"></script>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     
     
@@ -16,13 +17,16 @@
 
 
         <!-- opciones superiores -->
-<!--                <ul class="nav navbar-nav d-md-down-none">
+                <ul class="nav navbar-nav d-md-down-none">
                     <li class="nav-item px-3">
                         
-                        <a class="nav-link" href="soporte@bcos.cl"  target="_top">Soporte</a>
-                        <a class="nav-link" href="javascript:SuccesNotify();">Notify Success</a>
+                         <a class="nav-link" href="javascript:window.open('https://forms.gle/RZpiy2DZyYKU2XUZ6');"  target="_top">
+                             Comentarios <i class="nav-icon icon-speech"></i></a>
+                        
+<!--                        <a class="nav-link" href="soporte@bcos.cl"  target="_top">Soporte</a>
+                        <a class="nav-link" href="javascript:SuccesNotify();">Notify Success</a>-->
                     </li>
-                    <li class="nav-item px-3">
+                    <!--<li class="nav-item px-3">
                         <a class="nav-link" href="javascript:DangerNotify();">Notify Danger</a>
                     </li>
                     <li class="nav-item px-3">
@@ -30,8 +34,8 @@
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" href="#">Pacientes</a>
-                    </li>        
-                </ul>-->
+                    </li> -->       
+                </ul>
 
 
         <!-- bara superior derecha -->

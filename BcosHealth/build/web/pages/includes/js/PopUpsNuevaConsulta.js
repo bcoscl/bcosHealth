@@ -112,6 +112,8 @@ $(document).ready(function () {
 
 function nuevaConsulta() {
     cleanConsulta();
+    removeValidation("#formnuevaconsulta");
+    
     var numuser = $("#input_nombre").html();
     numuser = numuser.replace("<span>", "");
     numuser = numuser.replace("</span>", "");

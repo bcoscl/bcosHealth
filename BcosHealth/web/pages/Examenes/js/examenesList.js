@@ -38,6 +38,7 @@ function CargaInicialExamenes() {
 
             $.unblockUI();
             $("#contenidoExamenes").html(data);
+            
 
 
         },
