@@ -106,7 +106,7 @@ public class ServletListarEvaluacion extends HttpServlet {
                 } catch (Exception e) {
                     Log.error(" NO EXISTEN REGISTROS: " + e);
 
-                      out.println("<span>Sin Registros..</span>|Sin Registros...");
+                    out.println("<span>Sin Registros..</span>|Sin Registros...");
 //                    out.println("<div class=\"col-sm-12\">");
 //                    out.println("  <table class=\"table table-striped table-bordered datatable dataTable no-footer\" id=\"DataTables_Table_0\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\" style=\"border-collapse: collapse !important\">");
 //                    out.println("   <thead>");
@@ -201,6 +201,7 @@ public class ServletListarEvaluacion extends HttpServlet {
         out.append("    <th class=\"text-center\" style=\"width:10%;\">Fecha</th>");
         out.append("    <th class=\"text-center\" style=\"width:10%;\">Talla</th>");
         out.append("    <th class=\"text-center\" style=\"width:10%;\">Peso</th>");
+        out.append("    <th class=\"text-center\" style=\"width:10%;\">IMC</th>");
         out.append("    <th class=\"text-center\" style=\"width:10%;\" >Fatv</th>");
         out.append("    <th class=\"text-center\" style=\"width:10%;\">Fat</th>");
         out.append("    <th class=\"text-center\" style=\"width:10%;\">Musc</th>");
@@ -212,9 +213,7 @@ public class ServletListarEvaluacion extends HttpServlet {
 
             out.append("<tr>");
             out.append("    <td>");
-            
-            
-           
+
             out.append("<div class=\"header\">");
             out.append("  <a class=\"link\" href=\"javascript:void(0);\" id=\"dropdownMenuButton\" class=\"dropdown dropdown-toggle\" data-toggle=\"dropdown\">  <span class=\"from\"><i class=\"fa fa-user-md\"></i> Dr. ");
             out.append(str.getEva_c_ultmod_username());
@@ -236,56 +235,53 @@ public class ServletListarEvaluacion extends HttpServlet {
             out.append(str.getEva_n_fatv());
             out.append(",");
             out.append(str.getEva_n_musc());
+            out.append(",");
+            out.append(str.getEva_n_imc());
             out.append(");\">Modificar</a>");
             out.append("<a class=\"dropdown-item\"  onclick=\"javascript:popupDeleteEva(");
             out.append(str.getEva_n_id());
             out.append(");\">quitar de la lista</a> ");
             out.append(" </div>");
-            
-                        
-            
-            
-            
+
 //            out.append("        <div><i class=\"fa fa-user-md\"></i></i> Dr. ");
 //            out.append(str.getEva_c_ultmod_username());
 //            out.append("</div>");
-            
-            
-            
-            
-            
             out.append("        <hr>");
             out.append("        <div class=\"small text-muted\">");
             out.append("   <i class=\"fa fa-commenting\"></i>");
             out.append("   <span><strong>Comentario:</strong></span><br>");
-            out.append(str.getEva_n_obs_evaluacion());
+            out.append((str.getEva_n_obs_evaluacion().equalsIgnoreCase("")) ? " - " : str.getEva_n_obs_evaluacion());
             out.append("</div>");
             out.append("    </td>");
             out.append("    <td class=\"text-center\">");
-            out.append(str.getEva_d_eva_date());// fecha de evaluacion
+            out.append((str.getEva_d_eva_date().equalsIgnoreCase("")) ? " - " : str.getEva_d_eva_date());// fecha de evaluacion
             out.append("    </td>");
             out.append("    <td class=\"text-center\">");
-            out.append(str.getEva_n_talla());
+            out.append((str.getEva_n_talla().equalsIgnoreCase("")) ? " - " : str.getEva_n_talla());
             out.append(" mts</td>");
             out.append("    <td class=\"text-center\">");
-            out.append(str.getEva_n_peso());
+            out.append((str.getEva_n_peso().equalsIgnoreCase("")) ? " - " : str.getEva_n_peso());
             out.append(" Kg</td>");
-            out.append("    <td class=\"text-center\">");
-            out.append(str.getEva_n_fatv());// numero absoluto
+             out.append("    <td class=\"text-center\">");
+            out.append((str.getEva_n_imc().equalsIgnoreCase("")) ? " - " : str.getEva_n_imc());// IMC
             out.append("    </td>");
+            out.append("    <td class=\"text-center\">");
+            out.append((str.getEva_n_fatv().equalsIgnoreCase("")) ? " - " : str.getEva_n_fatv());// numero absoluto
+            out.append("    </td>");
+           
             out.append("    <td>");
             out.append("        <div class=\"clearfix\">");
             out.append("   <div class=\"float-center text-center\">");
             out.append("       <strong>");
-            out.append(str.getEva_n_fat());
+            out.append((str.getEva_n_fat().equalsIgnoreCase("")) ? " - " : str.getEva_n_fat());
             out.append(" %</strong>");
             out.append("   </div>");
             out.append("        </div>");
             out.append("        <div class=\"progress progress-xs\">");
             out.append("   <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: ");
-            out.append(str.getEva_n_fat());
+            out.append((str.getEva_n_fat().equalsIgnoreCase("")) ? " - " : str.getEva_n_fat());
             out.append("%\" aria-valuenow=\"");
-            out.append(str.getEva_n_fat());
+            out.append((str.getEva_n_fat().equalsIgnoreCase("")) ? " - " : str.getEva_n_fat());
             out.append("\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>");
             out.append("        </div>");
             out.append("    </td>");
@@ -293,15 +289,15 @@ public class ServletListarEvaluacion extends HttpServlet {
             out.append("        <div class=\"clearfix\">");
             out.append("   <div class=\"float-center text-center\">");
             out.append("       <strong>");
-            out.append(str.getEva_n_musc());
+            out.append((str.getEva_n_musc().equalsIgnoreCase("")) ? " - " : str.getEva_n_musc());
             out.append(" %</strong>");
             out.append("   </div>");
             out.append("        </div>");
             out.append("        <div class=\"progress progress-xs\">");
             out.append("   <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: ");
-            out.append(str.getEva_n_musc());
+            out.append((str.getEva_n_musc().equalsIgnoreCase("")) ? " - " : str.getEva_n_musc());
             out.append("%\" aria-valuenow=\"");
-            out.append(str.getEva_n_musc());
+            out.append((str.getEva_n_musc().equalsIgnoreCase("")) ? " - " : str.getEva_n_musc());
             out.append("\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>");
             out.append("        </div>");
             out.append("    </td>");
@@ -322,12 +318,14 @@ public class ServletListarEvaluacion extends HttpServlet {
         Map map = new HashMap();
         List<Chart> chart = new ArrayList();
 
+        /*FALTA EL IMC EN EL CANVAS*/
         String fechas = "";
         String talla = "";
         String peso = "";
         String fatv = "";
         String musc = "";
         String fat = "";
+        String imc = "";
 
         String ult_fechas = "";
         String ult_talla = "";
@@ -335,56 +333,125 @@ public class ServletListarEvaluacion extends HttpServlet {
         String ult_fatv = "";
         String ult_musc = "";
         String ult_fat = "";
+        String ult_imc = "";
+        String ult_comentario = "";
 
         float max_talla = 0;
         float max_peso = 0;
         float max_fatv = 0;
         float max_musc = 0;
         float max_fat = 0;
+        float max_imc = 0;
         float min = 0;
-        
+
         float min_talla = 1000;
         float min_peso = 1000;
         float min_fatv = 1000;
         float min_musc = 1000;
         float min_fat = 1000;
-        
+        float min_imc = 1000;
 
         int i = 0;
         for (Evaluaciones str : res.getEvaluaciones()) {
 
-             /*busca el maximo*/  
-            if (Float.parseFloat(str.getEva_n_talla()) > max_talla) {
-                max_talla = Float.parseFloat(str.getEva_n_talla());
+            /*busca el maximo*/
+            try {
+                if (Float.parseFloat(str.getEva_n_talla()) > max_talla) {
+                    max_talla = Float.parseFloat(str.getEva_n_talla());
+                }
+            } catch (NumberFormatException e) {
+                max_talla = 0;
+                Log.info("Error max_talla: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_peso()) > max_peso) {
-                max_peso = Float.parseFloat(str.getEva_n_peso());
+            try {
+                if (Float.parseFloat(str.getEva_n_peso()) > max_peso) {
+                    max_peso = Float.parseFloat(str.getEva_n_peso());
+                }
+            } catch (NumberFormatException e) {
+                max_peso = 0;
+                Log.info("Error max_peso: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_fatv()) > max_fatv) {
-                max_fatv = Float.parseFloat(str.getEva_n_fatv());
+            try {
+                if (Float.parseFloat(str.getEva_n_fatv()) > max_fatv) {
+                    max_fatv = Float.parseFloat(str.getEva_n_fatv());
+                }
+            } catch (NumberFormatException e) {
+                max_fatv = 0;
+                Log.info("Error max_fatv: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_fat()) > max_fat) {
-                max_fat = Float.parseFloat(str.getEva_n_fat());
+            try {
+                if (Float.parseFloat(str.getEva_n_fat()) > max_fat) {
+                    max_fat = Float.parseFloat(str.getEva_n_fat());
+                }
+            } catch (NumberFormatException e) {
+                max_fat = 0;
+                Log.info("Error max_fat: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_musc()) > max_musc) {
-                max_musc = Float.parseFloat(str.getEva_n_musc());
+            try {
+                if (Float.parseFloat(str.getEva_n_musc()) > max_musc) {
+                    max_musc = Float.parseFloat(str.getEva_n_musc());
+                }
+            } catch (NumberFormatException e) {
+                max_musc = 0;
+                Log.info("Error max_musc: " + e);
             }
-            
+            try {
+                if (Float.parseFloat(str.getEva_n_imc()) > max_imc) {
+                    max_imc = Float.parseFloat(str.getEva_n_imc());
+                }
+            } catch (NumberFormatException e) {
+                
+                Log.info("Error max_imc: " + e);
+            }
+
             /*busca el minimo*/
-            if (Float.parseFloat(str.getEva_n_talla()) < min_talla) {
-                min_talla = Float.parseFloat(str.getEva_n_talla());
+            try {
+                if (Float.parseFloat(str.getEva_n_talla()) < min_talla) {
+                    min_talla = Float.parseFloat(str.getEva_n_talla());
+                }
+            } catch (NumberFormatException e) {
+                min_talla = 0;
+                Log.info("Error min_talla: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_peso()) < min_peso) {
-                min_peso = Float.parseFloat(str.getEva_n_peso());
+            try {
+                if (Float.parseFloat(str.getEva_n_peso()) < min_peso) {
+                    min_peso = Float.parseFloat(str.getEva_n_peso());
+                }
+            } catch (NumberFormatException e) {
+                min_peso = 0;
+                Log.info("Error min_peso: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_fatv()) < min_fatv) {
-                min_fatv = Float.parseFloat(str.getEva_n_fatv());
+            try {
+                if (Float.parseFloat(str.getEva_n_fatv()) < min_fatv) {
+                    min_fatv = Float.parseFloat(str.getEva_n_fatv());
+                }
+            } catch (NumberFormatException e) {
+                min_fatv = 0;
+                Log.info("Error min_fatv: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_fat()) < min_fat) {
-                min_fat = Float.parseFloat(str.getEva_n_fat());
+            try {
+                if (Float.parseFloat(str.getEva_n_fat()) < min_fat) {
+                    min_fat = Float.parseFloat(str.getEva_n_fat());
+                }
+            } catch (NumberFormatException e) {
+                min_fat = 0;
+                Log.info("Error min_fat: " + e);
             }
-            if (Float.parseFloat(str.getEva_n_musc()) < min_musc) {
-                min_musc = Float.parseFloat(str.getEva_n_musc());
+            try {
+                if (Float.parseFloat(str.getEva_n_musc()) < min_musc) {
+                    min_musc = Float.parseFloat(str.getEva_n_musc());
+                }
+            } catch (NumberFormatException e) {
+                min_musc = 0;
+                Log.info("Error min_musc: " + e);
+            }
+            try {
+                if (Float.parseFloat(str.getEva_n_imc()) < min_imc) {
+                    min_imc = Float.parseFloat(str.getEva_n_imc());
+                }
+            } catch (NumberFormatException e) {
+                min_imc = 0;
+                Log.info("Error min_imc: " + e);
             }
 
             if (i > 0) {
@@ -395,14 +462,16 @@ public class ServletListarEvaluacion extends HttpServlet {
                 fatv = fatv + ",";
                 fat = fat + ",";
                 musc = musc + ",";
+                imc = imc + ",";
 
             }
-            fechas = fechas + /*"'" +*/ str.getEva_d_eva_date() /*+ "'"*/;
-            talla = talla + str.getEva_n_talla();
-            peso = peso + str.getEva_n_peso();
-            fatv = fatv + str.getEva_n_fatv();
-            fat = fat + str.getEva_n_fat();
-            musc = musc + str.getEva_n_musc();
+            fechas = fechas + /*"'" +*/ ((str.getEva_d_eva_date().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_d_eva_date());
+            talla = talla + ((str.getEva_n_talla().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_talla());
+            peso = peso + ((str.getEva_n_peso().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_peso());
+            fatv = fatv + ((str.getEva_n_fatv().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_fatv());
+            fat = fat + ((str.getEva_n_fat().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_fat());
+            musc = musc + ((str.getEva_n_musc().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_musc());
+            imc = imc + ((str.getEva_n_imc().equalsIgnoreCase("")) ? " { Sin Información }" : str.getEva_n_imc());
 
             if (i == 0) {
 
@@ -412,21 +481,41 @@ public class ServletListarEvaluacion extends HttpServlet {
                 ult_fatv = fatv;
                 ult_fat = fat;
                 ult_musc = musc;
+                ult_imc = imc;
+                ult_comentario = str.getEva_n_obs_evaluacion();
 
             }
 
             i++;
-            
-            if(i>=6){
+
+            if (i >= 6) {
+                // ultimos 6 meses
                 break;
-            } 
-            
+            }
+
         }
         Chart ctalla = new Chart();
         Chart cpeso = new Chart();
         Chart cfatv = new Chart();
         Chart cfat = new Chart();
         Chart cmusc = new Chart();
+        Chart cimc = new Chart();
+
+        /*Delta para tener los rangos minimos y maximos que se grafican*/
+        max_talla = max_talla + (1);
+        max_peso = max_peso + (1);
+        max_fatv = max_fatv + (1);
+        max_musc = max_musc + (1);
+        max_fat = max_fat + (1);
+        max_imc = max_imc + (1);
+
+        min_talla = min_talla - (1);
+        min_peso = min_peso - (1);
+        min_fatv = min_fatv - (1);
+        min_musc = min_musc - (1);
+        min_fat = min_fat - (1);
+        min_imc = min_imc - (1);
+
         String textodes = "Ultima Evaluación al " + ult_fechas.replace("'", "");
 
         ctalla.setTitle("Talla : " + ult_talla + " mt");
@@ -464,7 +553,7 @@ public class ServletListarEvaluacion extends HttpServlet {
         cfat.setDataPoints(fat);
         cfat.setDescriptionPoints("fat % ");
         cfat.setLabelsPoints(fechas);
-        cfat.setMaxValue(max_fat); // cm
+        cfat.setMaxValue(max_fat);
         cfat.setMinValue(min_fat);
         cfat.setId("4");
 
@@ -474,17 +563,29 @@ public class ServletListarEvaluacion extends HttpServlet {
         cmusc.setDataPoints(musc);
         cmusc.setDescriptionPoints("musc %");
         cmusc.setLabelsPoints(fechas);
-        cmusc.setMaxValue(max_musc); // cm
+        cmusc.setMaxValue(max_musc);
         cmusc.setMinValue(min_musc);
         cmusc.setId("5");
+
+        // IMC 
+        cimc.setTitle("IMC : " + ult_imc);
+        cimc.setDescripcion("imc - " + textodes);
+        cimc.setDataPoints(imc);
+        cimc.setDescriptionPoints("imc ");
+        cimc.setLabelsPoints(fechas);
+        cimc.setMaxValue(max_imc);
+        cimc.setMinValue(min_imc);
+        cimc.setId("6");
 
         chart.add(ctalla);
         chart.add(cfat);
         chart.add(cfatv);
         chart.add(cmusc);
         chart.add(cpeso);
+        chart.add(cimc);
 
         map.put("chart", chart);
+        map.put("comment", ult_comentario);
 
         String var = gson.toJson(map);
         Log.info("Grafica :\n" + var);

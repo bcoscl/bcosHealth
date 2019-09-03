@@ -76,6 +76,8 @@
                                 <span class="middle" id="6meses">Ultimas 6 Evaluaciones...</span>
 
                             </h5>
+                            <span id="ult_comentario" ></span>
+                            <hr>
                             <span id="infoReturn" ></span>
                             <%--<%@include file="../Cronicas/cronicas.jsp" %>--%>
 
@@ -211,6 +213,35 @@
                                             </div>-->
 <!--                                            <span id="canvas_5">-->
                                             <canvas class="chart chartjs-render-monitor" id="lineChart_5" height="70" width="339" style="display: block; width: 339; height: 70px;"></canvas>
+                                            <!--</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="card text-white bg-dark">
+                                        <div class="card-body pb-0">
+                                            <div id="lineChart_title_6" class="text-value"></div>
+                                            <!--<div id="lineChart_des_1">Peso Ultima Evaluacion 19-06-2019</div>-->
+                                            <div id="lineChart_des_6"></div>
+                                        </div>
+                                        <div id="canvas_6" class="chart-wrapper mt-3 mx-3" style="height:80px;">
+<!--                                            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0">                                                    
+                                                    </div>                                                    
+                                                </div>                                                
+                                            </div>-->
+<!--                                            <span id="canvas_5">-->
+                                            <canvas class="chart chartjs-render-monitor" id="lineChart_6" height="70" width="339" style="display: block; width: 339; height: 70px;"></canvas>
                                             <!--</span>-->
                                         </div>
                                     </div>

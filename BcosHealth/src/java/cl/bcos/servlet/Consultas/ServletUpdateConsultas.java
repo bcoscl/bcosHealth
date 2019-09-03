@@ -63,6 +63,15 @@ public class ServletUpdateConsultas extends HttpServlet {
             String ConsultaRowId = (String) request.getParameter("row");
             String Consulta_titulo = (String) request.getParameter("consulta_titulo");
             String Consulta_obs = (String) request.getParameter("consulta_obs");
+            String consulta_fecha = (String) request.getParameter("consulta_fecha");
+            String consulta_hora = (String) request.getParameter("consulta_hora");
+            String fechaCreacion = "";
+            if (consulta_fecha != null && !consulta_fecha.isEmpty() && consulta_hora != null && !consulta_hora.isEmpty()) {
+                fechaCreacion = consulta_fecha + " " + consulta_hora;
+                fechaCreacion = fechaCreacion.trim();
+
+            }
+            
 
             String token = (String) tokensession.getAttribute("token");
 
@@ -71,7 +80,8 @@ public class ServletUpdateConsultas extends HttpServlet {
             Log.info("ConsultaRowId :" + ConsultaRowId);
             Log.info("Consulta_titulo :" + Consulta_titulo);
             Log.info("Consulta_obs :" + Consulta_obs);
-
+            Log.info("fechaCreacion Update :" + fechaCreacion);
+            
             Log.info("token bearer:" + token);
 
 //            if (PATH.contains("localhost")) {
@@ -87,7 +97,8 @@ public class ServletUpdateConsultas extends HttpServlet {
             parameter.put("Consulta_titulo", Consulta_titulo);
             parameter.put("Consulta_obs", Consulta_obs);
             parameter.put("empresasession", empresasession);
-
+            parameter.put("fechaCreacion", fechaCreacion);
+          
             parameter.put("token", token);
 
             String resultHttpRequest = "";

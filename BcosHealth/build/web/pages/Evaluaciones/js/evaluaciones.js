@@ -23,16 +23,22 @@ function inicializaDashBoard(gson) {
         $("#viewDashBoard").hide();
         $("#infoReturn").show();
         $("#infoReturn").html(gson);
+        $("#ult_comentario").hide();
 
     } else {
         
         $("#viewDashBoard").show();
         $("#infoReturn").hide();
+        $("#ult_comentario").show();
+     
 
         var obj = JSON.parse(gson);
+          $("#ult_comentario").html("<div class=\"small text-muted\"><i class=\"fa fa-commenting\"></i>   <span><strong>Comentario:</strong></span><br>  "+obj.comment+"</div>");
+                    
+          
         //alert("ok :"+obj.chart.length);
         //console.log(obj);
-        for (var i = 0; i <= 4; i++) {
+        for (var i = 0; i <= 5; i++) {
 
             //$("#lineChart_"+ obj.chart[i].id).html("");
             var canvas = "<canvas class=\"chart chartjs-render-monitor\" id=\"lineChart_" + obj.chart[i].id + "\" height=\"70\" width=\"39\" style=\"display: block; width: 339; height: 70px;\"></canvas>";

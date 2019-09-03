@@ -42,7 +42,7 @@ $(document).ready(function () {
                     consulta_fecha: $("#modal_input_consulta_fecha").val(),
                     consulta_hora: $("#modal_input_consulta_hora").val(),
                     consulta_obs: $("#modal_input_consulta_observacion").val(),
-                    consult_paciente_name: $("#modal_input_consulta_pacientename").val(),
+                    consult_paciente_name: $("#modal_input_consulta_pacientename_hid").val(),
                     row: $("#modal_input_consulta_id").val()
 
                 },
@@ -124,7 +124,7 @@ function nuevaConsulta() {
     $("#modal_input_consulta_pacienteName").html("Paciente : " + $("#input_nombre").html());
     $("#modal_input_consulta_fecha").val("");
     $("#modal_input_consulta_hora").val("");
-    $("#modal_input_consulta_pacientename").val(numuser);
+    $("#modal_input_consulta_pacientename_hid").val(numuser);
     $("#modal_input_consulta_accion").val("NEW");
 
     $("#primaryModalConsulta").modal('toggle');
@@ -132,20 +132,27 @@ function nuevaConsulta() {
 }
 function cleanConsulta() {
 
+
     $("#modal_input_consulta_fecha").val("");
     $("#modal_input_consulta_hora").val("");
     $("#modal_input_consulta_titulo").val("");
     $("#modal_input_consulta_observacion").val("");
+    
+    $("#modal_input_consulta_id").val("");
+    $("#modal_input_consulta_accion").val("");
+    $("#modal_input_consulta_numuserpaciente").val("");
+    $("#modal_input_consulta_pacientename_hid").val("");
 
 
 }
 
 function popupEditConsulta(titulo, observacion, id, nombre) {
     cleanConsulta();
+    $(".slidedown").hide();
     // alert("titulo:"+titulo+" - observacion:"+observacion+" - id:"+id+" - nombre:"+nombre);
     $("#modal_input_consulta_pacienteName").html("Paciente : " + $("#input_nombre").html());
 
-    $("#modal_input_consulta_pacientename").val(nombre);
+    $("#modal_input_consulta_pacientename_hid").val(nombre);
     $("#modal_input_consulta_titulo").val(titulo);
         
         

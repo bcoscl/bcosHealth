@@ -61,21 +61,28 @@
                                     <div class="profile-info-name"> Grasa Corporal (fat %) </div>
 
                                     <div class="profile-info-value">
-                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);"  id="modal_input_eva_fat" type="text" name="modal_input_eva_fat" maxlength="4" placeholder="Porcentaje de grasa Corporal - fat" required>
+                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);"  id="modal_input_eva_fat" type="text" name="modal_input_eva_fat" maxlength="4" placeholder="Porcentaje grasa Corporal - fat" required>
                                     </div>
                                 </div>
                                 <div class="profile-info-row">
                                     <div class="profile-info-name"> Grasa viceral (fatv |n| ) </div>
 
                                     <div class="profile-info-value">
-                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);"  id="modal_input_eva_fatv" type="text" name="modal_input_eva_fatv" maxlength="4" placeholder="Valor absoluto de grasa viceral - fatv" required>
+                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);"  id="modal_input_eva_fatv" type="text" name="modal_input_eva_fatv" maxlength="4" placeholder="Valor absoluto, grasa viceral - fatv" required>
                                     </div>
                                 </div>
                                 <div class="profile-info-row">
-                                    <div class="profile-info-name OnlyRealNumbers"> Musculatura (musc %) </div>
+                                    <div class="profile-info-name "> Musculatura (musc %) </div>
 
                                     <div class="profile-info-value">
-                                        <input class="form-control" id="modal_input_eva_musc" type="text" name="text-input" maxlength="4" placeholder="Porcentaje muscular" required>
+                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);" id="modal_input_eva_musc" type="text" name="text-input" maxlength="4" placeholder="Porcentaje muscular" required>
+                                    </div>
+                                </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> IMC </div>
+
+                                    <div class="profile-info-value">
+                                        <input class="form-control OnlyRealNumbers" onkeypress="return validaNumericos(event);" id="modal_input_eva_imc" type="text" name="text-input" maxlength="4" placeholder="Índice IMC" required>
                                     </div>
                                 </div>
 

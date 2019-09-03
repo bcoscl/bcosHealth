@@ -41,7 +41,8 @@ $(document).ready(function () {
                     eva_fat: $("#modal_input_eva_fat").val(),
                     eva_fatv: $("#modal_input_eva_fatv").val(),
                     eva_musc: $("#modal_input_eva_musc").val(),
-                    eva_obs: $("#modal_input_eva_observacion").val()
+                    eva_obs: $("#modal_input_eva_observacion").val(),
+                    eva_imc: $("#modal_input_eva_imc").val()
                 },
                 beforeSend: function () {
 
@@ -138,7 +139,7 @@ function nuevaeva() {
 }
 
 
-function popupEditeva( observacion, id,fecha,talla,peso,fat,fatv,musc) {
+function popupEditeva( observacion, id,fecha,talla,peso,fat,fatv,musc,imc) {
 
     $('#modal_input_eva_pacienteName').html("Paciente : " + $("#input_nombre").html());
     $('#modal_eva_instruccion').html("Ingrese las modificaciones");
@@ -163,6 +164,8 @@ function popupEditeva( observacion, id,fecha,talla,peso,fat,fatv,musc) {
     $("#modal_input_eva_fatv").val(fatv);
     $("#modal_input_eva_musc").val(musc);
     $("#modal_input_eva_observacion").val(observacion);
+    $("#modal_input_eva_imc").val(imc);
+    
 
     $('#largeModaleva').modal('toggle');
 
@@ -246,6 +249,7 @@ function cleaneva() {
     $("#modal_input_eva_fatv").val("");
     $("#modal_input_eva_musc").val("");
     $("#modal_input_eva_observacion").val("");
+    $("#modal_input_eva_imc").val("");
     
 
 }

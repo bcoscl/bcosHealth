@@ -32,7 +32,7 @@
                             <input class="form-control" id="modal_input_consulta_id" style="display: none;" type="text" name="text-input">
                             <input class="form-control" id="modal_input_consulta_accion" style="display: none;" type="text" name="text-input">
                             <input class="form-control" id="modal_input_consulta_numuserpaciente" style="display: none;" type="text" name="text-input">
-                            <input class="form-control" id="modal_input_consulta_pacientename" style="display: none;" type="text" name="text-input">
+                            <input class="form-control" id="modal_input_consulta_pacientename_hid" style="display: none;" type="text" name="text-input">
 
 
 

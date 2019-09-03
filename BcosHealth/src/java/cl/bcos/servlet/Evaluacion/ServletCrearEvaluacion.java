@@ -62,6 +62,7 @@ public class ServletCrearEvaluacion extends HttpServlet {
             String eva_fatv = (String) request.getParameter("eva_fatv");
             String eva_musc = (String) request.getParameter("eva_musc");
             String eva_obs = (String) request.getParameter("eva_obs");
+            String eva_imc = (String) request.getParameter("eva_imc");
             
             
 
@@ -79,6 +80,7 @@ public class ServletCrearEvaluacion extends HttpServlet {
             Log.info("eva_fatv :" + eva_fatv);
             Log.info("eva_musc :" + eva_musc);
             Log.info("eva_obs :" + eva_obs);
+            Log.info("eva_imc :" + eva_imc);
             
             Log.info("token bearer:" + token);
 
@@ -95,6 +97,7 @@ public class ServletCrearEvaluacion extends HttpServlet {
             parameter.put("eva_fatv", eva_fatv);
             parameter.put("eva_musc", eva_musc);
             parameter.put("eva_obs", eva_obs);
+            parameter.put("eva_imc", eva_imc);
             
             parameter.put("empresasession", empresasession);
 
